@@ -12,7 +12,7 @@ World Pheasant Association Czech Republic and Slovakia
 
 ## 2. User
 - `id` (IntegerField): Primary key. // Primárny kľúč.
-- `role_id` (ForeignKey): Connection to the Role table. // Kľúč pre spojenie s tabuľkou Role.
+- `role_id` (ForeignKey to Role): Connection to the Role table. // Kľúč pre spojenie s tabuľkou Role.
 - `first_name` (CharField): User's first name. // Krstné meno užívateľa.
 - `last_name` (CharField): User's last name. // Priezvisko užívateľa.
 - `username` (CharField): User's chosen name for login. // Používateľské meno.
@@ -22,7 +22,7 @@ World Pheasant Association Czech Republic and Slovakia
 - `mobile_phone` (CharField): User's mobile phone number. // Mobilné telefónne číslo.
 - `address` (CharField): User's residence address. // Adresa bydliska.
 - `city` (CharField): City of residence. // Mesto bydliska.
-- `country` (CharField): Country of residence. // Krajina bydliska.
+- `country` (ForeignKey to Country): Reference to the country table. // Odkaz na tabuľku krajiny.
 - `created_at` (DateTimeField): Record creation time. // Čas vytvorenia záznamu.
 - `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
 - `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
@@ -46,7 +46,7 @@ World Pheasant Association Czech Republic and Slovakia
 
 ## 4. Subspecies
 - `id` (IntegerField): Primary key. // Primárny kľúč.
-- `species_id` (ForeignKey): Connection to the Species table. // Kľúč pre spojenie s tabuľkou Species.
+- `species_id` (ForeignKey to Species): Connection to the Species table. // Kľúč pre spojenie s tabuľkou Species.
 - `latin_name` (CharField): Latin name of the subspecies. // Latinský názov poddruhu.
 - `czech_name` (CharField): Czech name of the subspecies. // Český názov poddruhu.
 - `slovak_name` (CharField): Slovak name of the subspecies. // Slovenský názov poddruhu.
@@ -65,6 +65,7 @@ World Pheasant Association Czech Republic and Slovakia
 ## 5. Breeding Record
 -- `id` (IntegerField): Primary key. // Primárny kľúč.
 - `breeder_id` (ForeignKey to User): The user responsible for the breeding. // Užívateľ zodpovedný za chov.
+- `species_id` (ForeignKey to Species): Connection to the Species table. // Kľúč pre spojenie s tabuľkou Species.
 - `subspecies_id` (ForeignKey to Subspecies): The subspecies being bred. // Poddruh, ktorý sa chová.
 - `year` (IntegerField): The year of the breeding record. // Rok, pre ktorý je záznam o chove.
 - `number_of_males` (IntegerField): Number of male animals. // Počet samcov.
@@ -101,6 +102,7 @@ World Pheasant Association Czech Republic and Slovakia
 ## 8. Breeding Record
 - `id` (IntegerField): Primary key. // Primárny kľúč.
 - `breeder_id` (ForeignKey to User): The user responsible for the breeding. // Užívateľ zodpovedný za chov.
+- `species_id` (ForeignKey to Species): Connection to the Species table. // Kľúč pre spojenie s tabuľkou Species.
 - `subspecies_id` (ForeignKey to Subspecies): The subspecies being bred. // Poddruh, ktorý sa chová.
 - `year` (IntegerField): The year the record was made. // Rok, kedy bol záznam vytvorený.
 - `number_of_males` (IntegerField): Number of male animals. // Počet samcov.
@@ -162,4 +164,13 @@ World Pheasant Association Czech Republic and Slovakia
 - `id` (IntegerField): Primary key. // Primárny kľúč.
 - `name` (CharField): Name of the category. // Názov kategórie.
 - `description` (TextField): Description of the category. // Popis kategórie.
+
+## 15. Country
+- `id` (IntegerField): Primary key. // Primárny kľúč.
+- `name` (CharField): Name of the country. // Názov krajiny.
+- `code` (CharField): ISO code of the country, e.g., 'SK' for Slovakia. // ISO kód krajiny, napr. 'SK' pre Slovensko.
+- `created_at` (DateTimeField): Record creation time. // Čas vytvorenia záznamu.
+- `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
+- `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
+
 
