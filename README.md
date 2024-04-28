@@ -6,6 +6,9 @@ World Pheasant Association Czech Republic and Slovakia
 ## 1. Role
 - `id` (IntegerField): Primary key. // Primárny kľúč.
 - `name` (CharField): Name of the role, e.g., "admin" or "user". // Názov role, napríklad "admin" alebo "užívateľ".
+- `created_at` (DateTimeField): Record creation time. // Čas vytvorenia záznamu.
+- `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
+- `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
 
 ## 2. User
 - `id` (IntegerField): Primary key. // Primárny kľúč.
@@ -20,6 +23,9 @@ World Pheasant Association Czech Republic and Slovakia
 - `address` (CharField): User's residence address. // Adresa bydliska.
 - `city` (CharField): City of residence. // Mesto bydliska.
 - `country` (CharField): Country of residence. // Krajina bydliska.
+- `created_at` (DateTimeField): Record creation time. // Čas vytvorenia záznamu.
+- `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
+- `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
 
 ## 3. Species
 - `id` (IntegerField): Primary key. // Primárny kľúč.
@@ -32,6 +38,11 @@ World Pheasant Association Czech Republic and Slovakia
 - `description` (TextField): Description of the species. // Popis druhu.
 - `images` (CharField): Links to images associated with the species. // Obrázky súvisiace s druhom.
 - `url_video` (URLField): Link to a video associated with the species. // Odkaz na video súvisiace s druhom.
+- `tags` (ManyToManyField to Tag): Tags associated with the species. // Značky priradené k druhu.
+- `categories` (ManyToManyField to Category): Categories associated with the species. // Kategórie priradené k druhu.
+- `created_at` (DateTimeField): Record creation time. // Čas vytvorenia záznamu.
+- `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
+- `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
 
 ## 4. Subspecies
 - `id` (IntegerField): Primary key. // Primárny kľúč.
@@ -45,6 +56,11 @@ World Pheasant Association Czech Republic and Slovakia
 - `description` (TextField): Description of the subspecies. // Popis poddruhu.
 - `images` (CharField): Links to images associated with the subspecies. // Obrázky súvisiace s poddruhom.
 - `url_video` (URLField): Link to a video associated with the subspecies. // Odkaz na video súvisiace s poddruhom.
+- `tags` (ManyToManyField to Tag): Tags associated with the subspecies. // Značky priradené k poddruhu.
+- `categories` (ManyToManyField to Category): Categories associated with the subspecies. // Kategórie priradené k poddruhu.
+- `created_at` (DateTimeField): Record creation time. // Čas vytvorenia záznamu.
+- `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
+- `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
 
 ## 5. Breeding Record
 -- `id` (IntegerField): Primary key. // Primárny kľúč.
@@ -56,6 +72,9 @@ World Pheasant Association Czech Republic and Slovakia
 - `number_of_species` (IntegerField): Total number of species bred. // Celkový počet chovaných druhov.
 - `total_offsprings` (IntegerField): Total number of offsprings produced. // Celkový počet produkovaných potomkov.
 - `notes` (TextField): Additional notes about the breeding. // Dodatočné poznámky o chove.
+- `created_at` (DateTimeField): Record creation time. // Čas vytvorenia záznamu.
+- `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
+- `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
 
 ## 6. Event
 - `id` (IntegerField): Primary key. // Primárny kľúč.
@@ -65,6 +84,9 @@ World Pheasant Association Czech Republic and Slovakia
 - `url` (URLField): Web link with information about the event. // Webový odkaz s informáciami o udalosti.
 - `location` (CharField): Venue of the event. // Miesto konania udalosti.
 - `description` (TextField): Detailed description of the event. // Podrobný popis udalosti.
+- `created_at` (DateTimeField): Record creation time. // Čas vytvorenia záznamu.
+- `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
+- `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
 
 ## 7. Article
 - `id` (IntegerField): Primary key. // Primárny kľúč.
@@ -72,6 +94,9 @@ World Pheasant Association Czech Republic and Slovakia
 - `pdf_file` (FileField): Link to the article's PDF file. // Odkaz na PDF súbor článku.
 - `publication_date` (DateField): Date of article publication. // Dátum publikácie článku.
 - `author_id` (ForeignKey to User): Reference to the author of the article in the User table. // Referencia na autora článku v tabuľke užívateľov.
+- `created_at` (DateTimeField): Record creation time. // Čas vytvorenia záznamu.
+- `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
+- `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
 
 ## 8. Breeding Record
 - `id` (IntegerField): Primary key. // Primárny kľúč.
@@ -83,6 +108,9 @@ World Pheasant Association Czech Republic and Slovakia
 - `number_of_species` (IntegerField): Total number of species bred. // Celkový počet chovaných druhov.
 - `total_offsprings` (IntegerField): Total number of offsprings produced. // Celkový počet produkovaných potomkov.
 - `notes` (TextField): Additional notes about the breeding. // Dodatočné poznámky k chovu.
+- `created_at` (DateTimeField): Record creation time. // Čas vytvorenia záznamu.
+- `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
+- `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
 
 ## 9. Event
 - `id` (IntegerField): Primary key. // Primárny kľúč.
@@ -92,6 +120,11 @@ World Pheasant Association Czech Republic and Slovakia
 - `url` (URLField): Web link with information about the event. // Webový odkaz s informáciami o udalosti.
 - `location` (CharField): Venue of the event. // Miesto konania udalosti.
 - `description` (TextField): Detailed description of the event. // Podrobný popis udalosti.
+- `latitude` (FloatField): Latitude for the event location. // Zemepisná šírka miesta konania.
+- `longitude` (FloatField): Longitude for the event location. // Zemepisná dĺžka miesta konania.
+- `created_at` (DateTimeField): Record creation time. // Čas vytvorenia záznamu.
+- `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
+- `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
 
 ## 10. Article
 - `id` (IntegerField): Primary key. // Primárny kľúč.
@@ -99,5 +132,34 @@ World Pheasant Association Czech Republic and Slovakia
 - `pdf_file` (FileField): Link to the article's PDF file. // Odkaz na PDF súbor článku.
 - `publication_date` (DateField): Date of article publication. // Dátum publikácie článku.
 - `author_id` (ForeignKey to User): Reference to the article's author. // Odkaz na autora článku.
+- `created_at` (DateTimeField): Record creation time. // Čas vytvorenia záznamu.
+- `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
+- `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
 
+## 11. Comment
+- `id` (IntegerField): Primary key. // Primárny kľúč.
+- `content_type` (ForeignKey): Reference to the type of content (article, species record, etc.). // Odkaz na typ obsahu (článok, záznam o druhu, atď.).
+- `object_id` (IntegerField): ID of the content to which the comment is attached. // ID obsahu, ku ktorému je komentár priradený.
+- `content` (TextField): The text of the comment. // Text komentára.
+- `user` (ForeignKey to User): The user who posted the comment. // Užívateľ, ktorý komentár pridal.
+- `created_at` (DateTimeField): The date and time the comment was created. // Dátum a čas vytvorenia komentára.
+- `updated_at` (DateTimeField): The date and time the comment was last updated. // Dátum a čas poslednej aktualizácie komentára.
+
+## 12. Rating
+- `id` (IntegerField): Primary key. // Primárny kľúč.
+- `content_type` (ForeignKey): Reference to the type of content (article, species record, etc.). // Odkaz na typ obsahu (článok, záznam o druhu, atď.).
+- `object_id` (IntegerField): ID of the content being rated. // ID obsahu, ktorý sa hodnotí.
+- `rating` (IntegerField): The score given, typically on a scale from 1 to 5. // Hodnotenie udelené, typicky na škále od 1 do 5.
+- `user` (ForeignKey to User): The user who posted the rating. // Užívateľ, ktorý hodnotenie pridal.
+- `created_at` (DateTimeField): The date and time the rating was created. // Dátum a čas vytvorenia hodnotenia.
+
+## 13. Tag
+- `id` (IntegerField): Primary key. // Primárny kľúč.
+- `name` (CharField): Name of the tag. // Názov značky.
+- `description` (TextField): Description of the tag. // Popis značky.
+
+## 14. Category
+- `id` (IntegerField): Primary key. // Primárny kľúč.
+- `name` (CharField): Name of the category. // Názov kategórie.
+- `description` (TextField): Description of the category. // Popis kategórie.
 
