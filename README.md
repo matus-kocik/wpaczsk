@@ -83,7 +83,7 @@ World Pheasant Association Czech Republic and Slovakia
 - `date_from` (DateField): Start date and time of the event. // Dátum a čas začiatku udalosti.
 - `date_to` (DateField): End date and time of the event. // Dátum a čas konca udalosti.
 - `url` (URLField): Web link with information about the event. // Webový odkaz s informáciami o udalosti.
-- `location` (CharField): Venue of the event. // Miesto konania udalosti.
+- `location` (ForeignKey to Location): Reference to the Location model. // Odkaz na model.
 - `description` (TextField): Detailed description of the event. // Podrobný popis udalosti.
 - `created_at` (DateTimeField): Record creation time. // Čas vytvorenia záznamu.
 - `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
@@ -114,21 +114,7 @@ World Pheasant Association Czech Republic and Slovakia
 - `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
 - `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
 
-## 9. Event
-- `id` (IntegerField): Primary key. // Primárny kľúč.
-- `name` (CharField): Name of the event. // Názov udalosti.
-- `date_from` (DateField): Start date and time of the event. // Dátum a čas začiatku udalosti.
-- `date_to` (DateField): End date and time of the event. // Dátum a čas konca udalosti.
-- `url` (URLField): Web link with information about the event. // Webový odkaz s informáciami o udalosti.
-- `location` (CharField): Venue of the event. // Miesto konania udalosti.
-- `description` (TextField): Detailed description of the event. // Podrobný popis udalosti.
-- `latitude` (FloatField): Latitude for the event location. // Zemepisná šírka miesta konania.
-- `longitude` (FloatField): Longitude for the event location. // Zemepisná dĺžka miesta konania.
-- `created_at` (DateTimeField): Record creation time. // Čas vytvorenia záznamu.
-- `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
-- `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
-
-## 10. Article
+## 9. Article
 - `id` (IntegerField): Primary key. // Primárny kľúč.
 - `title` (CharField): Title of the article. // Titulok článku.
 - `pdf_file` (FileField): Link to the article's PDF file. // Odkaz na PDF súbor článku.
@@ -138,7 +124,7 @@ World Pheasant Association Czech Republic and Slovakia
 - `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
 - `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
 
-## 11. Comment
+## 10. Comment
 - `id` (IntegerField): Primary key. // Primárny kľúč.
 - `content_type` (ForeignKey): Reference to the type of content (article, species record, etc.). // Odkaz na typ obsahu (článok, záznam o druhu, atď.).
 - `object_id` (IntegerField): ID of the content to which the comment is attached. // ID obsahu, ku ktorému je komentár priradený.
@@ -147,7 +133,7 @@ World Pheasant Association Czech Republic and Slovakia
 - `created_at` (DateTimeField): The date and time the comment was created. // Dátum a čas vytvorenia komentára.
 - `updated_at` (DateTimeField): The date and time the comment was last updated. // Dátum a čas poslednej aktualizácie komentára.
 
-## 12. Rating
+## 11. Rating
 - `id` (IntegerField): Primary key. // Primárny kľúč.
 - `content_type` (ForeignKey): Reference to the type of content (article, species record, etc.). // Odkaz na typ obsahu (článok, záznam o druhu, atď.).
 - `object_id` (IntegerField): ID of the content being rated. // ID obsahu, ktorý sa hodnotí.
@@ -155,17 +141,17 @@ World Pheasant Association Czech Republic and Slovakia
 - `user` (ForeignKey to User): The user who posted the rating. // Užívateľ, ktorý hodnotenie pridal.
 - `created_at` (DateTimeField): The date and time the rating was created. // Dátum a čas vytvorenia hodnotenia.
 
-## 13. Tag
+## 12. Tag
 - `id` (IntegerField): Primary key. // Primárny kľúč.
 - `name` (CharField): Name of the tag. // Názov značky.
 - `description` (TextField): Description of the tag. // Popis značky.
 
-## 14. Category
+## 13. Category
 - `id` (IntegerField): Primary key. // Primárny kľúč.
 - `name` (CharField): Name of the category. // Názov kategórie.
 - `description` (TextField): Description of the category. // Popis kategórie.
 
-## 15. Country
+## 14. Country
 - `id` (IntegerField): Primary key. // Primárny kľúč.
 - `name` (CharField): Name of the country. // Názov krajiny.
 - `code` (CharField): ISO code of the country, e.g., 'SK' for Slovakia. // ISO kód krajiny, napr. 'SK' pre Slovensko.
@@ -173,4 +159,15 @@ World Pheasant Association Czech Republic and Slovakia
 - `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
 - `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
 
+## 15. Location
+- `id` (IntegerField): Primary key. // Primárny kľúč.
+- `name` (CharField): Name of the location. // Názov lokácie.
+- `country`  (ForeignKey to Country): Reference to the Country model. // Odkaz na model Country.
+- `latitude` (FloatField): Latitude for the event location. // Zemepisná šírka miesta konania.
+- `longitude` (FloatField): Longitude for the event location. // Zemepisná dĺžka miesta konania.
+- `created_at` (DateTimeField): Record creation time. // Čas vytvorenia záznamu.
+- `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
+- `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
 
+
+ 
