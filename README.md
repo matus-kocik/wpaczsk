@@ -3,7 +3,7 @@ World Pheasant Association Czech Republic and Slovakia
 
 # Database Model
 
-## Accounts:
+## Account:
 ### 1. Role
 - `id` (IntegerField): Primary key. // Primárny kľúč.
 - `name` (CharField): Name of the role, e.g., "admin" or "user". // Názov role, napríklad "admin" alebo "užívateľ".
@@ -69,7 +69,7 @@ World Pheasant Association Czech Republic and Slovakia
 - `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
 
 ## Breeding:
-### 5. Breeding Record
+### 5. BreedingRecord
 -- `id` (IntegerField): Primary key. // Primárny kľúč.
 - `breeder_id` (ForeignKey to User): The user responsible for the breeding. // Užívateľ zodpovedný za chov.
 - `species_id` (ForeignKey to Species): Connection to the Species table. // Kľúč pre spojenie s tabuľkou Species.
@@ -88,7 +88,7 @@ World Pheasant Association Czech Republic and Slovakia
 - `id` (IntegerField): Primary key. // Primárny kľúč.
 - `size` (FloatField): Size of the ring. // Veľkosť kružku.
 
-## Events:
+## Event:
 ### 7. Event
 - `id` (IntegerField): Primary key. // Primárny kľúč.
 - `name` (CharField): Name of the event. // Názov udalosti.
