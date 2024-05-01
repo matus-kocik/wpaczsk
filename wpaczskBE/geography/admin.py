@@ -1,3 +1,4 @@
 from django.contrib import admin
+from geography.models import Location, Country
 
-# Register your models here.
+admin.site.register([Location, Country])

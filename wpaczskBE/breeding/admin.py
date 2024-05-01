@@ -1,3 +1,4 @@
 from django.contrib import admin
+from breeding.models import BreedingRecord
 
-# Register your models here.
+admin.site.register(BreedingRecord)
