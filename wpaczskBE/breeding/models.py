@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
-from wpaczskBE.taxonomy.models import TaxonomySpecies, TaxonomySubspecies
+from taxonomy.models import TaxonomySpecies, TaxonomySubspecies
 
 class BreedingRecord(models.Model):
     breeder = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Chovateľ", help_text="Chovateľ a člen organizácie") # The user responsible for the breeding. // Užívateľ zodpovedný za chov.

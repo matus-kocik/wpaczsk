@@ -1,5 +1,5 @@
 from django.db import models
-from wpaczskBE.geography.models import Country
+from geography.models import Country
 
 class TaxonomyBase(models.Model):
     latin_name = models.CharField(max_length=64, verbose_name="Latinský názov", help_text="Originálne latinské pomenovanie") # Latin name of ... . // Latinský názov ... .
@@ -31,7 +31,7 @@ class TaxonomyDetail(models.Model):
     biotop = models.TextField(null=True, blank=True, verbose_name="Biotop", help_text="biotop, ktorý prevažne obýva, ekosystém krajiny, kde sa vyskytuje") # Biotop of the species, subspecies. // Biotop druhu, poddruhu.
     description = models.TextField(null=True, blank=True, verbose_name="Popis", help_text="Popis, detailnejšie a podrobnejšie informácie") # Description of the species, subspecies. // Popis druhu, poddruhu.
     habitat_countries = models.ManyToManyField(Country, verbose_name="Krajiny", help_text="Krajiny, kde jedinec žije") # Countries of the species, subspecies. // Krajiny druhu, poddruhu.
-    status_in_nature = models.CharField(choices=CONSERVATION_CHOICES, verbose_name="Stav v prírode", help_text="Stav ohrozenia jedincov v prírode podľa medzinárodných tabuliek") # Conservation status in nature. // Stav ochrany v prírode.
+    status_in_nature = models.CharField(max_length=32, choices=CONSERVATION_CHOICES, verbose_name="Stav v prírode", help_text="Stav ohrozenia jedincov v prírode podľa medzinárodných tabuliek") # Conservation status in nature. // Stav ochrany v prírode.
     status_in_captivity = models.TextField(null=True, blank=True, verbose_name="Stav v zajatí", help_text="Stav chovaných jedincov v zajatí, všeobecná informácia") # Conservation status in captivity. // Stav ochrany v zajatí.
     maturity = models.CharField(max_length=32, null=True, blank=True, verbose_name="Dospelosť", help_text="Vek, v ktorom sú jedince dospelé") # Age of maturity. // Dospelosť.
     length = models.CharField(max_length=32, null=True, blank=True, verbose_name="Dĺžka", help_text="Dĺžka jedinca v cm/mm") # Length of the species, subspecies. // Dĺžka druhu, poddruhu.

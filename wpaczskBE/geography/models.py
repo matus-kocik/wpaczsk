@@ -19,7 +19,7 @@ class Country(GeographyBase):
         verbose_name_plural = "Krajiny"
         
 class Location(GeographyBase):
-    country = models.ForeignKey(Country, on_delete=models.SET_NULL, verbose_name="Krajina", help_text="Názov krajiny") # Reference to the Country model. // Odkaz na model Country.
+    country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True, verbose_name="Krajina", help_text="Názov krajiny") # Reference to the Country model. // Odkaz na model Country.
     latitude = models.FloatField(verbose_name="Zemepisná šírka", help_text="Zemepisnú šírka miesta. Kladné hodnoty reprezentujú sever, záporné hodnoty reprezentujú juh.") # Latitude for the event location. // Zemepisná šírka miesta konania.
     longitude = models.FloatField(verbose_name="Zemepisná dĺžka", help_text="Zemepisná dĺžka miesta. Kladné hodnoty reprezentujú východ, záporné hodnoty reprezentujú západ") # Longitude for the event location. // Zemepisná dĺžka miesta konania.
     
