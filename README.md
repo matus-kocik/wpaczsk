@@ -29,25 +29,6 @@ World Pheasant Association Czech Republic and Slovakia
 - `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
 - `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
 
-## Breeding:
-### BreedingRecord
--- `id` (IntegerField): Primary key. // Primárny kľúč.
-- `breeder_id` (ForeignKey to User): The user responsible for the breeding. // Užívateľ zodpovedný za chov.
-- `species_id` (ForeignKey to Species): Connection to the Species table. // Kľúč pre spojenie s tabuľkou Species.
-- `subspecies_id` (ForeignKey to Subspecies): The subspecies being bred. // Poddruh, ktorý sa chová.
-- `year` (IntegerField): The year of the breeding record. // Rok, pre ktorý je záznam o chove.
-- `number_of_males` (IntegerField): Number of male animals. // Počet samcov.
-- `number_of_females` (IntegerField): Number of female animals. // Počet samíc.
-- `number_of_species` (IntegerField): Total number of species bred. // Celkový počet chovaných druhov.
-- `total_offsprings` (IntegerField): Total number of offsprings produced. // Celkový počet produkovaných potomkov.
-- `notes` (TextField): Additional notes about the breeding. // Dodatočné poznámky o chove.
-- `created_at` (DateTimeField): Record creation time. // Čas vytvorenia záznamu.
-- `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
-- `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
-
-### Ring
-- `id` (IntegerField): Primary key. // Primárny kľúč.
-- `size` (FloatField): Size of the ring. // Veľkosť kružku.
 
 ## Content:
 ### Article
@@ -100,25 +81,6 @@ World Pheasant Association Czech Republic and Slovakia
 - `id` (IntegerField): Primary key. // Primárny kľúč.
 - `name` (CharField): Name of the category. // Názov kategórie.
 - `description` (TextField): Description of the category. // Popis kategórie.
-
-## Geography:
-### Country
-- `id` (IntegerField): Primary key. // Primárny kľúč.
-- `name` (CharField): Name of the country. // Názov krajiny.
-- `code` (CharField): ISO code of the country, e.g., 'SK' for Slovakia. // ISO kód krajiny, napr. 'SK' pre Slovensko.
-- `created_at` (DateTimeField): Record creation time. // Čas vytvorenia záznamu.
-- `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
-- `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
-
-### Location
-- `id` (IntegerField): Primary key. // Primárny kľúč.
-- `name` (CharField): Name of the location. // Názov lokácie.
-- `country`  (ForeignKey to Country): Reference to the Country model. // Odkaz na model Country.
-- `latitude` (FloatField): Latitude for the event location. // Zemepisná šírka miesta konania.
-- `longitude` (FloatField): Longitude for the event location. // Zemepisná dĺžka miesta konania.
-- `created_at` (DateTimeField): Record creation time. // Čas vytvorenia záznamu.
-- `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
-- `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
 
 ## Media:
 ### Image
