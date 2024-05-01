@@ -46,33 +46,75 @@ class TaxonomyDetail(models.Model):
     #TODO: tag = (ManyToManyField to Tag): Tags associated with the species. // Značky priradené k druhu.
     #TODO: category = (ManyToManyField to Category): Categories associated with the species. // Kategórie priradené k druhu.
 
+    class Meta:
+        abstract = True
+
 class TaxonomyKingdom(TaxonomyBase):
-    pass
+    
+    class Meta:
+        verbose_name = "Ríša"
+        verbose_name_plural = "Ríše"
 
 class TaxonomyPhylum(TaxonomyBase):
     taxonomy_kingdom = models.ForeignKey(TaxonomyKingdom, on_delete=models.CASCADE)
-
+    
+    class Meta:
+        verbose_name = "Kmeň"
+        verbose_name_plural = "Kmene"
+        
 class TaxonomyClass(TaxonomyBase):
     taxonomy_phylum = models.ForeignKey(TaxonomyPhylum, on_delete=models.CASCADE)
 
+    class Meta:
+        verbose_name = "Trieda"
+        verbose_name_plural = "Triedy"
+        
 class TaxonomySubclass(TaxonomyBase):
     taxonomy_class = models.ForeignKey(TaxonomyClass, on_delete=models.CASCADE)
+    
+    class Meta:
+        verbose_name = "Podtrieda"
+        verbose_name_plural = "Podtriedy"
 
 class TaxonomyOrder(TaxonomyBase):
     subclass = models.ForeignKey(TaxonomySubclass, on_delete=models.CASCADE)
 
+    class Meta:
+        verbose_name = "Rad"
+        verbose_name_plural = "Rady"
+
 class TaxonomyFamily(TaxonomyBase):
     taxonomy_order = models.ForeignKey(TaxonomyOrder, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = "Čeľaď"
+        verbose_name_plural = "Čeľade"
 
 class TaxonomySubfamily(TaxonomyBase):
     taxonomy_family = models.ForeignKey(TaxonomyFamily, on_delete=models.CASCADE)
 
+    class Meta:
+        verbose_name = "Podčeľaď"
+        verbose_name_plural = "Podčeľade"
+
 class TaxonomyGenus(TaxonomyBase):
     taxonomy_subfamily = models.ForeignKey(TaxonomySubfamily, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = "Rod"
+        verbose_name_plural = "Rody"
 
 class TaxonomySpecies(TaxonomyBase, TaxonomyDetail):
     taxonomy_genus = models.ForeignKey(TaxonomyGenus, on_delete=models.CASCADE)
 
+    class Meta:
+        verbose_name = "Druhy"
+        verbose_name_plural = "Druhy"
+
 class TaxonomySubspecies(TaxonomyBase, TaxonomyDetail):   
     taxonomy_species = models.ForeignKey(TaxonomySpecies, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = "Poddruh"
+        verbose_name_plural = "Poddruhy"
 

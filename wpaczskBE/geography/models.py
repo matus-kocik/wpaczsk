@@ -5,6 +5,8 @@ class GeographyBase(models.Model):
     update_at = models.DateTimeField(auto_now=True, verbose_name="Aktualizácia", help_text="Dátum a čas poslednej aktualizácie") # Record last update time. // Čas poslednej aktualizácie záznamu.
     delete_at = models.DateTimeField(null=True, blank=True, verbose_name="Zmazanie", help_text="Dátum a čas zmazania") # Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
     
+    class Meta:
+        abstract = True
 
 class Country(GeographyBase):
     czech_name = models.CharField(max_length=64, verbose_name="Český názov krajiny", help_text="Český názov krajiny") # Name of the country. // Názov krajiny.
@@ -12,7 +14,7 @@ class Country(GeographyBase):
     english_name = models.CharField(max_length=64, verbose_name="Anglický názov krajiny", help_text="Medzinárodný anglický názov krajiny") # Name of the country. // Názov krajiny.
     code = models.CharField(max_length=8, verbose_name="Kód krajiny", help_text="Medzinárodný ISO kód krajiny") # ISO code of the country, e.g., 'SK' for Slovakia. // ISO kód krajiny, napr. 'SK' pre Slovensko.
     
-    class Meta: #TODO spravit to aj pre model taxonomy !!!
+    class Meta:
         verbose_name = "Krajina"
         verbose_name_plural = "Krajiny"
         
