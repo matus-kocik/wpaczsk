@@ -17,10 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from breeding.models import BreedingRecord
-from taxonomy.models import TaxonomySubspecies
+from taxonomy.models import TaxonomySubspecies, TaxonomyClass, TaxonomyFamily, TaxonomyGenus, TaxonomyKingdom, TaxonomyOrder, TaxonomyPhylum, TaxonomySpecies, TaxonomySubclass, TaxonomySubfamily
 from geography.models import Location, Country
 
-admin.site.register([BreedingRecord, TaxonomySubspecies, Location, Country])
+admin.site.register([BreedingRecord, TaxonomySubspecies, TaxonomyClass, TaxonomyFamily, TaxonomyGenus, TaxonomyKingdom, TaxonomyOrder, TaxonomyPhylum, TaxonomySpecies, TaxonomySubclass, TaxonomySubfamily, Location, Country])
 
 urlpatterns = [
     path('admin/', admin.site.urls),
