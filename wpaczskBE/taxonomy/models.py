@@ -1,4 +1,5 @@
 from django.db import models
+from wpaczskBE.geography.models import Country
 
 class TaxonomyBase(models.Model):
     latin_name = models.CharField(max_length=128, verbose_name="Latinský názov", help_text="Originálne latinské pomenovanie") # Latin name of ... . // Latinský názov ... .
@@ -29,7 +30,7 @@ class TaxonomyDetail(models.Model):
     average_lifespan = models.IntegerField(null=True, blank=True, verbose_name="Priemerná dĺžka života", help_text="Priemerná dĺžka života") # Average lifespan of the species, subspecies. // Priemerná dĺžka života druhu, poddruhu.
     biotop = models.TextField(null=True, blank=True, verbose_name="Biotop", help_text="biotop, ktorý prevažne obýva, ekosystém krajiny, kde sa vyskytuje") # Biotop of the species, subspecies. // Biotop druhu, poddruhu.
     description = models.TextField(null=True, blank=True, verbose_name="Popis", help_text="Popis, detailnejšie a podrobnejšie informácie") # Description of the species, subspecies. // Popis druhu, poddruhu.
-    #TODO: habitat_country = models.ForeignKey(Country, on_delete=models.CASCADE, verbose_name="Krajiny") # Countries of the species, subspecies. // Krajiny druhu, poddruhu.
+    habitat_countries = models.ManyToManyField(Country, verbose_name="Krajiny", help_text="Krajiny, kde jedinec žije") # Countries of the species, subspecies. // Krajiny druhu, poddruhu.
     status_in_nature = models.CharField(max_length=64, choices=CONSERVATION_CHOICES, verbose_name="Stav v prírode", help_text="Počet jedincov v prírode podľa medzinárodných tabuliekt so stavom ohrozenia") # Conservation status in nature. // Stav ochrany v prírode.
     status_in_captivity = models.TextField(null=True, blank=True, verbose_name="Stav v zajatí", help_text="Počet chovaných jedincov v zajatí, všeobecná informácia") # Conservation status in captivity. // Stav ochrany v zajatí.
     maturity = models.CharField(max_length=32, null=True, blank=True, verbose_name="Dospelosť", help_text="Vek, v ktorom sú jedince dospelé") # Age of maturity. // Dospelosť.
@@ -108,7 +109,7 @@ class TaxonomySpecies(TaxonomyBase, TaxonomyDetail):
     taxonomy_genus = models.ForeignKey(TaxonomyGenus, on_delete=models.CASCADE)
 
     class Meta:
-        verbose_name = "Druhy"
+        verbose_name = "Druh"
         verbose_name_plural = "Druhy"
 
 class TaxonomySubspecies(TaxonomyBase, TaxonomyDetail):   
