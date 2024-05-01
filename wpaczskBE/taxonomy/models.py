@@ -21,70 +21,70 @@ class TaxonomyKingdom(TaxonomyBase):
     
     class Meta:
         verbose_name = "Kingdom - Ríša"
-        verbose_name_plural = "Ríše"
+        verbose_name_plural = "Kingdoms - Ríše"
 
 class TaxonomyPhylum(TaxonomyBase):
     taxonomy_kingdom = models.ForeignKey(TaxonomyKingdom, on_delete=models.DO_NOTHING)
     
     class Meta:
         verbose_name = "Phylum - Kmeň"
-        verbose_name_plural = "Kmene"
+        verbose_name_plural = "Phyla - Kmene"
         
 class TaxonomyClass(TaxonomyBase):
     taxonomy_phylum = models.ForeignKey(TaxonomyPhylum, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Class - Trieda"
-        verbose_name_plural = "Triedy"
+        verbose_name_plural = "Classes - Triedy"
         
 class TaxonomySubclass(TaxonomyBase):
     taxonomy_class = models.ForeignKey(TaxonomyClass, on_delete=models.CASCADE)
     
     class Meta:
         verbose_name = "Subclass - Podtrieda"
-        verbose_name_plural = "Podtriedy"
+        verbose_name_plural = "Subclasses - Podtriedy"
 
 class TaxonomyOrder(TaxonomyBase):
     subclass = models.ForeignKey(TaxonomySubclass, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Order - Rad"
-        verbose_name_plural = "Rady"
+        verbose_name_plural = "Orders - Rady"
 
 class TaxonomyFamily(TaxonomyBase):
     taxonomy_order = models.ForeignKey(TaxonomyOrder, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Family - Čeľaď"
-        verbose_name_plural = "Čeľade"
+        verbose_name_plural = "Families - Čeľade"
 
 class TaxonomySubfamily(TaxonomyBase):
     taxonomy_family = models.ForeignKey(TaxonomyFamily, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Subfamily - Podčeľaď"
-        verbose_name_plural = "Podčeľade"
+        verbose_name_plural = "Subfamilies - Podčeľade"
 
 class TaxonomyGenus(TaxonomyBase):
     taxonomy_subfamily = models.ForeignKey(TaxonomySubfamily, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Genus - Rod"
-        verbose_name_plural = "Rody"
+        verbose_name_plural = "Genera - Rody"
 
 class TaxonomySpecies(TaxonomyBase):
     taxonomy_genus = models.ForeignKey(TaxonomyGenus, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Species - Druh"
-        verbose_name_plural = "Druhy"
+        verbose_name_plural = "Species - Druhy"
 
 class TaxonomySubspecies(TaxonomyBase):   
     taxonomy_species = models.ForeignKey(TaxonomySpecies, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "Subspecies - Poddruh"
-        verbose_name_plural = "Poddruhy"
+        verbose_name_plural = "Subspecies - Poddruhy"
 
 
     CONSERVATION_CHOICES = [
