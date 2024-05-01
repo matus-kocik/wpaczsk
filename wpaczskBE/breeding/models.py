@@ -1,10 +1,9 @@
 from django.contrib.auth.models import User
 from django.db import models
-from taxonomy.models import TaxonomySpecies, TaxonomySubspecies
+from taxonomy.models import TaxonomySubspecies
 
 class BreedingRecord(models.Model):
     breeder = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Chovateľ", help_text="Chovateľ a člen organizácie") # The user responsible for the breeding. // Užívateľ zodpovedný za chov.
-    species = models.ForeignKey(TaxonomySpecies, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Druh", help_text="Druh, ktorý sa chová") # Connection to the Species table. // Kľúč pre spojenie s tabuľkou Species.
     subspecies = models.ForeignKey(TaxonomySubspecies, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Poddruh", help_text="Poddruh, ktorý sa chová") # The subspecies being bred. // Poddruh, ktorý sa chová.
     year = models.IntegerField(verbose_name="Rok", help_text="Rok, pre ktorý je záznam o chove") # The year of the breeding record. // Rok, pre ktorý je záznam o chove.
     number_of_males = models.IntegerField(verbose_name="Počet samcov", help_text="Počet samcov chovaného druhu/poddruhu") # Number of male animals. // Počet samcov.
@@ -23,9 +22,3 @@ class BreedingRecord(models.Model):
         verbose_name = "Záznam o chove"
         verbose_name_plural = "Záznamy o chove"
 
-class Ring(models.Model):
-    size = models.FloatField(blank=True, null=True, verbose_name="Veľkosť", help_text="Veľkosť kružku") # Size of the ring. // Veľkosť kružku.
-
-    class Meta:
-        verbose_name = "Krúžok"
-        verbose_name_plural = "Krúžky"

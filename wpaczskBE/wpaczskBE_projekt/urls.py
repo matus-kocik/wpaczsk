@@ -16,11 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from breeding.models import BreedingRecord, Ring
-from taxonomy.models import TaxonomySpecies, TaxonomySubspecies
+from breeding.models import BreedingRecord
+from taxonomy.models import TaxonomySubspecies
 from geography.models import Location, Country
 
-admin.site.register([BreedingRecord, Ring, TaxonomySpecies, TaxonomySubspecies, Location, Country])
+admin.site.register([BreedingRecord, TaxonomySubspecies, Location, Country])
 
 urlpatterns = [
     path('admin/', admin.site.urls),
