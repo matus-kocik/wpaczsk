@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     #My apps
     'taxonomy',
     'geography',
+    'breeding',
 ]
 
 MIDDLEWARE = [
