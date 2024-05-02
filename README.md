@@ -1,35 +1,6 @@
 # WPAczsk
 World Pheasant Association Czech Republic and Slovakia
 
-# Database Model
-
-## Account:
-### Role
-- `id` (IntegerField): Primary key. // Primárny kľúč.
-- `name` (CharField): Name of the role, e.g., "admin" or "user". // Názov role, napríklad "admin" alebo "užívateľ".
-- `created_at` (DateTimeField): Record creation time. // Čas vytvorenia záznamu.
-- `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
-- `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
-
-### User
-- `id` (IntegerField): Primary key. // Primárny kľúč.
-- `role_id` (ForeignKey to Role): Connection to the Rgit logole table. // Kľúč pre spojenie s tabuľkou Role.
-- `registration_number` (IntegerField): Unique registration number for breeders. // Jedinečné registrační číslo pro chovatele.
-- `first_name` (CharField): User's first name. // Krstné meno užívateľa.
-- `last_name` (CharField): User's last name. // Priezvisko užívateľa.
-- `username` (CharField): User's chosen name for login. // Používateľské meno.
-- `email` (EmailField): User's email address. // Emailová adresa.
-- `password` (CharField): Password (stored as a hash). // Heslo užívateľa (uložené ako hash).
-- `profile_picture` (ImageField): Link to the user's profile image. // Profilová fotografia.
-- `mobile_phone` (CharField): User's mobile phone number. // Mobilné telefónne číslo.
-- `address` (CharField): User's residence address. // Adresa bydliska.
-- `city` (CharField): City of residence. // Mesto bydliska.
-- `country` (ForeignKey to Country): Reference to the country table. // Odkaz na tabuľku krajiny.
-- `created_at` (DateTimeField): Record creation time. // Čas vytvorenia záznamu.
-- `updated_at` (DateTimeField): Record last update time. // Čas poslednej aktualizácie záznamu.
-- `deleted_at` (DateTimeField): Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
-
-
 ## Content:
 ### Article
 - `id` (IntegerField): Primary key. // Primárny kľúč.
