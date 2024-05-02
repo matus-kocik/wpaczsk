@@ -8,8 +8,8 @@ class TaxonomyBase(models.Model):
     english_name = models.CharField(max_length=64, null=True, blank=True, verbose_name="Anglický názov", help_text="Originálne anglické pomenovanie") # English name of .... // Anglický názov ... .
     german_name = models.CharField(max_length=64, null=True, blank=True, verbose_name="Nemecký názov", help_text="Originálne nemecké pomenovanie") # German name of .... // Nemecký názov ... .
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Vytvorenie", help_text="Dátum a čas vytvorenia záznamu") # Record creation time. // Čas vytvorenia záznamu.
-    update_at = models.DateTimeField(auto_now=True, verbose_name="Aktualizácia", help_text="Dátum a čas poslednej aktualizácie") # Record last update time. // Čas poslednej aktualizácie záznamu.
-    delete_at = models.DateTimeField(null=True, blank=True, verbose_name="Zmazanie", help_text="Dátum a čas zmazania") # Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="Aktualizácia", help_text="Dátum a čas poslednej aktualizácie") # Record last update time. // Čas poslednej aktualizácie záznamu.
+    deleted_at = models.DateTimeField(null=True, blank=True, verbose_name="Zmazanie", help_text="Dátum a čas zmazania") # Record deletion time, if soft deleted. // Čas zmazania záznamu, ak ide o mäkké zmazanie.
     
     class Meta:
         abstract = True

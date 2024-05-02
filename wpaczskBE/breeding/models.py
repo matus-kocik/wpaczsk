@@ -1,9 +1,9 @@
-from django.contrib.auth.models import User
 from django.db import models
 from taxonomy.models import TaxonomySubspecies
+from account.models import BreederProfile
 
 class BreedingRecord(models.Model):
-    breeder = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Chovateľ", help_text="Chovateľ a člen organizácie") # The user responsible for the breeding. // Užívateľ zodpovedný za chov.
+    breeder = models.ForeignKey(BreederProfile, on_delete=models.CASCADE, verbose_name="Chovateľ", help_text="Chovateľ a člen organizácie") # The user responsible for the breeding. // Užívateľ zodpovedný za chov.
     subspecies = models.ForeignKey(TaxonomySubspecies, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Poddruh", help_text="Poddruh, ktorý sa chová") # The subspecies being bred. // Poddruh, ktorý sa chová.
     year = models.IntegerField(verbose_name="Rok", help_text="Rok, pre ktorý je záznam o chove") # The year of the breeding record. // Rok, pre ktorý je záznam o chove.
     number_of_males = models.IntegerField(verbose_name="Počet samcov", help_text="Počet samcov chovaného druhu/poddruhu") # Number of male animals. // Počet samcov.
