@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'geography',
     'breeding',
     'account',
+    'content',
 ]
 
 MIDDLEWARE = [

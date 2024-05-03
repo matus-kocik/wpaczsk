@@ -22,3 +22,4 @@ class BreedingRecord(models.Model):
         verbose_name = "Záznam o chove"
         verbose_name_plural = "Záznamy o chove"
 
+# TODO Riesit ci moze zadat 0 alebo ci niektore nastavim na nevyplnene a tympadom budu automaticky null...
