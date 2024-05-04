@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'account',
     'content',
     'classification',
+    'media',
 ]
 
 MIDDLEWARE = [

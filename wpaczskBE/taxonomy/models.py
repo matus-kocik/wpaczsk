@@ -1,5 +1,6 @@
 from django.db import models
 from geography.models import Country
+from media.models import Image, Movie
 
 class TaxonomyBase(models.Model):
     latin_name = models.CharField(max_length=64, verbose_name="Latinský názov", help_text="Originálne latinské pomenovanie") # Latin name of ... . // Latinský názov ... .
@@ -110,9 +111,9 @@ class TaxonomySubspecies(TaxonomyBase):
     ring_size = models.FloatField(blank=True, null=True, verbose_name="Veľkosť krúžku", help_text="Veľkosť krúžku v mm") # Ring size. // Veľkosť kroužku. (ForeignKey to Ring Size): Reference to a ring size. // Referencia na veľkosť kružku.
     population_in_czech_republic = models.TextField(blank=True, null=True, verbose_name="Populácia v ČR a SVK", help_text="Populácia v ČR a SVK") # Population in the Czech Republic and Slovak Republic. // Populácia v Českej Republike a v Slovenskej Republike.
     breeding_difficulty = models.TextField(blank=True, null=True, verbose_name="Náročnosť chovu", help_text="Náročnosť chovu") # Difficulty of breeding. // Náročnosť chovu.
-    
-    #TODO: image = models.ForeignKey(Image, on_delete=models.CASCADE)
-    #TODO: video = (ManyToManyField to Video): Multiple videos can be linked. // Video súvisiace s druhom.
+    images = models.ManyToManyField(Image, related_name='subspecies', verbose_name="Obrázky", help_text="Obrázky súvisiace s poddruhom")
+    movies = models.ManyToManyField(Movie, related_name='subspecies', verbose_name="Videá", help_text="Videá súvisiace s poddruhom")
+
     #TODO: url_video = (URLField): Link to a video associated with the species. // Odkaz na video súvisiace s druhom.
     #TODO: tag = (ManyToManyField to Tag): Tags associated with the species. // Značky priradené k druhu.
     #TODO: category = (ManyToManyField to Category): Categories associated with the species. // Kategórie priradené k druhu.
