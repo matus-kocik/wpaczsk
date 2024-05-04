@@ -1,17 +1,6 @@
 # WPAczsk
 World Pheasant Association Czech Republic and Slovakia
 
-## Classification:
-### Tag
-- `id` (IntegerField): Primary key. // Primárny kľúč.
-- `name` (CharField): Name of the tag. // Názov značky.
-- `description` (TextField): Description of the tag. // Popis značky.
-
-### Category
-- `id` (IntegerField): Primary key. // Primárny kľúč.
-- `name` (CharField): Name of the category. // Názov kategórie.
-- `description` (TextField): Description of the category. // Popis kategórie.
-
 ## Media:
 ### Image
 - `id` (IntegerField): Primary key. // Primárny kľúč.
