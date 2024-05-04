@@ -26,6 +26,9 @@ class Article(ContentBase):
         verbose_name = 'Článok'
         verbose_name_plural = 'Články'
         
+    def __str__(self):
+        return self.title
+        
 class Event(ContentBase):
     title = models.CharField(max_length=128, verbose_name="Titulok udalosti", help_text="Zadajte titulok udalosti.") # Title of the event. // Titulok udalosti.
     pdf_file = models.FileField(upload_to='events/', blank=True, null=True, verbose_name="PDF súbor udalosti", help_text="Nahrajte PDF súbor udalosti, ak je k dispozícii.") # Link to the event's PDF file. // Odkaz na PDF súbor udalosti.
@@ -41,6 +44,9 @@ class Event(ContentBase):
     class Meta:
         verbose_name = 'Udalosť'
         verbose_name_plural = 'Udalosti'
+
+    def __str__(self):
+        return self.title
         
 class Comment(ContentBase):
     title = models.CharField(max_length=128, blank=True, null=True, verbose_name="Titulok komentára", help_text="Zadajte titulok komentára.") # Title of the comment. // Titulok komentára.
@@ -53,3 +59,6 @@ class Comment(ContentBase):
     class Meta:
         verbose_name = "Komentár"
         verbose_name_plural = "Komentáre"
+    
+    def __str__(self):
+        return self.title
