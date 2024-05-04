@@ -45,7 +45,7 @@ class BreederProfile(models.Model):
         ('honorary_member', 'Čestný člen')
     ]
     status_type = models.CharField(max_length=24, choices=STATUS_TYPE_CHOICES, blank=True, null=True, verbose_name="Status", help_text="Definovaný status člena v organizácii.")
-# TODO Projekty v appke breeding doplnit...    
+
     class Meta:
         verbose_name = 'Chovateľ'
         verbose_name_plural = 'Chovatelia'
