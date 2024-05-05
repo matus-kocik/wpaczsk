@@ -1,42 +1,9 @@
 from django.db import models
 
-
-class GeographyBase(models.Model):
-    """
-    EN: Abstract base class for geography-related entities. Provides common fields for tracking creation, update, and deletion times of geographic data.
-    SK: Abstraktná základná trieda pre geograficky súvisiace entity. Poskytuje spoločné polia na sledovanie času vytvorenia, aktualizácie a zmazania geografických údajov.
-
-    Attributes:
-        created_at (DateTimeField):
-            EN: Timestamp when the geographic entity was created.
-            SK: Časová pečiatka vytvorenia geografickej entity.
-        updated_at (DateTimeField):
-            EN: Timestamp of the last update of the geographic entity.
-            SK: Časová pečiatka poslednej aktualizácie geografickej entity.
-        deleted_at (DateTimeField):
-            EN: Timestamp of deletion if soft deletion is implemented.
-            SK: Časová pečiatka zmazania, ak je implementované mäkké zmazanie.
-    """
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        verbose_name="Vytvorenie",
-        help_text="Dátum a čas vytvorenia záznamu",
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        verbose_name="Aktualizácia",
-        help_text="Dátum a čas poslednej aktualizácie",
-    )
-    deleted_at = models.DateTimeField(
-        null=True, blank=True, verbose_name="Zmazanie", help_text="Dátum a čas zmazania"
-    )
-
-    class Meta:
-        abstract = True
+from common_models.models import SEOModel, TimeStampedModel
 
 
-class Country(GeographyBase):
+class Country(SEOModel, TimeStampedModel):
     """
     EN: Represents a country with multilingual name entries and ISO code. Essential for internationalization and localization of geographic data.
     SK: Reprezentuje krajinu s viacjazyčnými záznamami názvov a ISO kódom. Nevyhnutné pre internacionalizáciu a lokalizáciu geografických údajov.
@@ -85,7 +52,7 @@ class Country(GeographyBase):
         return self.czech_name
 
 
-class Location(GeographyBase):
+class Location(SEOModel, TimeStampedModel):
     """
     EN: Represents a geographic location with coordinates and country association. Used for mapping and location-based services.
     SK: Reprezentuje geografickú lokalitu so súradnicami a priradením krajiny. Používa sa pre mapovanie a služby založené na lokalite.

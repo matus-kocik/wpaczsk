@@ -1,42 +1,9 @@
 from django.db import models
 
-
-class ClassificationBase(models.Model):
-    """
-    EN: Abstract base class for classification entities like categories and tags. This class provides common fields for tracking the creation, update, and deletion times.
-    SK: Abstraktná základná trieda pre klasifikačné entity ako sú kategórie a tagy. Táto trieda poskytuje spoločné polia pre sledovanie času vytvorenia, aktualizácie a zmazania.
-
-    Attributes:
-        created_at (DateTimeField):
-            EN: Timestamp when the entity was created.
-            SK: Časová pečiatka vytvorenia entity.
-        updated_at (DateTimeField):
-            EN: Timestamp of the last update of the entity.
-            SK: Časová pečiatka poslednej aktualizácie entity.
-        deleted_at (DateTimeField):
-            EN: Timestamp of deletion if soft deletion is implemented.
-            SK: Časová pečiatka zmazania, ak je implementované mäkké zmazanie.
-    """
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        verbose_name="Vytvorenie",
-        help_text="Dátum a čas vytvorenia záznamu",
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        verbose_name="Aktualizácia",
-        help_text="Dátum a čas poslednej aktualizácie",
-    )
-    deleted_at = models.DateTimeField(
-        null=True, blank=True, verbose_name="Zmazanie", help_text="Dátum a čas zmazania"
-    )
-
-    class Meta:
-        abstract = True
+from common_models.models import (SEOModel, TimeStampedModel)
 
 
-class Category(ClassificationBase):
+class Category(SEOModel, TimeStampedModel):
     """
     EN: Represents a category for classifying items. Categories help organize entities into hierarchical structures.
     SK: Reprezentuje kategóriu na klasifikáciu položiek. Kategórie pomáhajú organizovať entity do hierarchických štruktúr.
@@ -62,7 +29,7 @@ class Category(ClassificationBase):
         verbose_name_plural = "Kategórie"
 
 
-class Tag(ClassificationBase):
+class Tag(SEOModel, TimeStampedModel):
     """
     EN: Represents a tag for labeling and categorizing items. Tags are used to associate keywords with entities to facilitate searching and filtering.
     SK: Reprezentuje tag na označovanie a kategorizáciu položiek. Tagy sa používajú na priradenie kľúčových slov k entitám za účelom uľahčenia vyhľadávania a filtrovania.

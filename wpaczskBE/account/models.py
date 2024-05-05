@@ -3,9 +3,10 @@ from django.db import models, transaction
 from phonenumber_field.modelfields import PhoneNumberField
 
 from geography.models import Country
+from common_models.models import SEOModel, TimeStampedModel
 
 
-class Profile(AbstractUser):
+class Profile(AbstractUser, SEOModel, TimeStampedModel):
     """
     EN: Represents a user profile, extending the default Django user model, adding specific fields for more detailed user information.
     SK: Reprezentuje užívateľský profil, rozširujúci predvolený model užívateľa Django pridaním špecifických polí pre podrobnejšie informácie o užívateľovi.
@@ -44,15 +45,6 @@ class Profile(AbstractUser):
         email_verified (BooleanField):
             EN: Indicates whether the user's email has been verified.
             SK: Indikuje, či bol email užívateľa overený.
-        created_at (DateTimeField):
-            EN: Timestamp when the record was created.
-            SK: Časová pečiatka vytvorenia záznamu.
-        updated_at (DateTimeField):
-            EN: Timestamp of the last update of the record.
-            SK: Časová pečiatka poslednej aktualizácie záznamu.
-        deleted_at (DateTimeField):
-            EN: Timestamp of deletion if soft deletion is implemented.
-            SK: Časová pečiatka zmazania, ak je implementované mäkké mazanie.
     """
 
     prefix_academic_title = models.CharField(
@@ -127,29 +119,13 @@ class Profile(AbstractUser):
         verbose_name="Email overený",
         help_text="Indikuje, či bol email užívateľa overený.",
     )
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        verbose_name="Vytvorenie",
-        help_text="Dátum a čas vytvorenia záznamu",
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        verbose_name="Aktualizácia",
-        help_text="Dátum a čas poslednej aktualizácie",
-    )
-    deleted_at = models.DateTimeField(
-        null=True,
-        blank=True,
-        verbose_name="Zmazanie",
-        help_text="Dátum a čas zmazania, ak ide o mäkké zmazanie",
-    )
 
     class Meta:
         verbose_name = "Užívateľ"
         verbose_name_plural = "Užívatelia"
 
 
-class BreederProfile(models.Model):
+class BreederProfile(SEOModel, TimeStampedModel):
     """
     EN: Represents a breeder's profile linked to a user profile, including detailed information specific to breeders.
     SK: Reprezentuje profil chovateľa prepojený s užívateľským profilom, vrátane detailných informácií špecifických pre chovateľov.
@@ -231,25 +207,24 @@ class BreederProfile(models.Model):
         EN: Overrides the save method to assign a unique registration number if it's not provided.
         SK: Prepisuje metódu save pre priradenie unikátneho registračného čísla, ak nie je zadané.
 
-        EN: If the object is being added for the first time and no registration number is provided, 
+        EN: If the object is being added for the first time and no registration number is provided,
         it automatically assigns the ID as the registration number with leading zeros.
-        SK: Ak je objekt pridávaný prvýkrát a registračné číslo nie je poskytnuté, 
+        SK: Ak je objekt pridávaný prvýkrát a registračné číslo nie je poskytnuté,
         automaticky priradí ID ako registračné číslo s vedúcimi nulami.
-        
-        EN: It ensures that the saving operation is performed atomically. 
-        This means that either all changes are saved, or none of them are. 
+
+        EN: It ensures that the saving operation is performed atomically.
+        This means that either all changes are saved, or none of them are.
         In case of any error during the save operation, the changes are rolled back to maintain consistency.
-        
-        SK: Zabezpečuje, že operácia ukladania sa vykonáva atomicky. 
-        To znamená, že sa buď všetky zmeny uložia, alebo žiadna z nich. 
+
+        SK: Zabezpečuje, že operácia ukladania sa vykonáva atomicky.
+        To znamená, že sa buď všetky zmeny uložia, alebo žiadna z nich.
         V prípade akéhokoľvek chybného stavu počas operácie ukladania sa zmeny vrátia späť, aby sa udržala konzistencia.
-        
+
         """
         with transaction.atomic():
             if self._state.adding and not self.registration_number:
                 super().save(*args, **kwargs)
-                self.registration_number = str(self.id).zfill(3) # Add zeros
+                self.registration_number = str(self.id).zfill(3)  # Add zeros
                 super().save(update_fields=["registration_number"])
             else:
                 super().save(*args, **kwargs)
-

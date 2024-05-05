@@ -4,44 +4,10 @@ from django.db import models
 
 from account.models import Profile
 from geography.models import Location
+from common_models.models import SEOModel, TimeStampedModel
 
 
-class ContentBase(models.Model):
-    """
-    EN: Abstract base class for content-related entities. Provides common fields for tracking creation, update, and deletion times of content items.
-    SK: Abstraktná základná trieda pre obsahovo súvisiace entity. Poskytuje spoločné polia na sledovanie času vytvorenia, aktualizácie a zmazania obsahových položiek.
-
-    Attributes:
-        created_at (DateTimeField):
-            EN: Timestamp when the content item was created.
-            SK: Časová pečiatka vytvorenia obsahovej položky.
-        updated_at (DateTimeField):
-            EN: Timestamp of the last update of the content item.
-            SK: Časová pečiatka poslednej aktualizácie obsahovej položky.
-        deleted_at (DateTimeField):
-            EN: Timestamp of deletion if soft deletion is implemented.
-            SK: Časová pečiatka zmazania, ak je implementované mäkké zmazanie.
-    """
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        verbose_name="Vytvorenie",
-        help_text="Dátum a čas vytvorenia záznamu",
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        verbose_name="Aktualizácia",
-        help_text="Dátum a čas poslednej aktualizácie",
-    )
-    deleted_at = models.DateTimeField(
-        null=True, blank=True, verbose_name="Zmazanie", help_text="Dátum a čas zmazania"
-    )
-
-    class Meta:
-        abstract = True
-
-
-class Article(ContentBase):
+class Article(SEOModel, TimeStampedModel):
     """
     EN: Represents an article with metadata for publication. Articles can contain text, images, and PDFs relevant to the content.
     SK: Reprezentuje článok s metadátami na publikovanie. Články môžu obsahovať text, obrázky a PDF súbory relevantné pre obsah.
@@ -104,7 +70,7 @@ class Article(ContentBase):
         return self.title
 
 
-class Event(ContentBase):
+class Event(SEOModel, TimeStampedModel):
     """
     EN: Represents an event with details including dates and related media. Events can be linked to specific locations and have associated images or PDFs.
     SK: Reprezentuje udalosť s detailami vrátane dátumov a súvisiacich médií. Udalosti môžu byť prepojené s konkrétnymi miestami a môžu mať priradené obrázky alebo PDF súbory.
@@ -194,7 +160,7 @@ class Event(ContentBase):
         return self.title
 
 
-class Comment(ContentBase):
+class Comment(SEOModel, TimeStampedModel):
     """
     EN: Represents a comment added to various content types, such as articles or events. Comments allow users to engage with the content.
     SK: Reprezentuje komentár pridaný k rôznym typom obsahu, ako sú články alebo udalosti. Komentáre umožňujú užívateľom zapojiť sa do obsahu.

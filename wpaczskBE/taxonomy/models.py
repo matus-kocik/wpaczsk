@@ -2,9 +2,10 @@ from django.db import models
 
 from geography.models import Country
 from media.models import Image, Movie
+from common_models.models import (SEOModel, TimeStampedModel)
 
 
-class TaxonomyBase(models.Model):
+class TaxonomyBase(SEOModel, TimeStampedModel):
     """
     EN: Abstract base class for taxonomy entities, providing common fields for naming in multiple languages and tracking the creation and modification times.
     SK: Abstraktná základná trieda pre taxonomické entity, poskytujúca spoločné polia pre pomenovanie v niekoľkých jazykoch a sledovanie času vytvorenia a úprav.
@@ -25,9 +26,6 @@ class TaxonomyBase(models.Model):
         german_name (CharField):
             EN: The original German name of the species, optional.
             SK: Originálne nemecké pomenovanie druhu, voliteľné.
-        created_at (DateTimeField), updated_at (DateTimeField), deleted_at (DateTimeField):
-            EN: Standard fields for recording the timestamps of creation, updates, and potential soft deletion.
-            SK: Štandardné polia pre záznam časových pečiatok vytvorenia, aktualizácií a potenciálneho mäkkého zmazania.
     """
 
     latin_name = models.CharField(
@@ -60,19 +58,6 @@ class TaxonomyBase(models.Model):
         blank=True,
         verbose_name="Nemecký názov",
         help_text="Originálne nemecké pomenovanie",
-    )
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        verbose_name="Vytvorenie",
-        help_text="Dátum a čas vytvorenia záznamu",
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        verbose_name="Aktualizácia",
-        help_text="Dátum a čas poslednej aktualizácie",
-    )
-    deleted_at = models.DateTimeField(
-        null=True, blank=True, verbose_name="Zmazanie", help_text="Dátum a čas zmazania"
     )
 
     class Meta:

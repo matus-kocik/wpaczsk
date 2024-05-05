@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "content",
     "classification",
     "media",
+    "common_models",
 ]
 
 MIDDLEWARE = [

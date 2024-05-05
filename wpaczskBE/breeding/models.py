@@ -2,44 +2,10 @@ from django.db import models
 
 from account.models import BreederProfile
 from taxonomy.models import TaxonomySubspecies
+from common_models.models import SEOModel, TimeStampedModel
 
 
-class BreedingBase(models.Model):
-    """
-    EN: Abstract base class for breeding records. This class provides common fields for all breeding-related models, such as creation, update, and deletion timestamps.
-    SK: Abstraktná základná trieda pre záznamy o chove. Táto trieda poskytuje spoločné polia pre všetky modely súvisiace s chovom, ako sú časové pečiatky vytvorenia, aktualizácie a zmazania.
-
-    Attributes:
-        created_at (DateTimeField):
-            EN: Timestamp when the record was created.
-            SK: Časová pečiatka vytvorenia záznamu.
-        updated_at (DateTimeField):
-            EN: Timestamp of the last update of the record.
-            SK: Časová pečiatka poslednej aktualizácie záznamu.
-        deleted_at (DateTimeField):
-            EN: Timestamp of deletion if soft deletion is implemented.
-            SK: Časová pečiatka zmazania, ak je implementované mäkké zmazanie.
-    """
-
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        verbose_name="Vytvorenie",
-        help_text="Dátum a čas vytvorenia záznamu",
-    )
-    updated_at = models.DateTimeField(
-        auto_now=True,
-        verbose_name="Aktualizácia",
-        help_text="Dátum a čas poslednej aktualizácie",
-    )
-    deleted_at = models.DateTimeField(
-        null=True, blank=True, verbose_name="Zmazanie", help_text="Dátum a čas zmazania"
-    )
-
-    class Meta:
-        abstract = True
-
-
-class BreedingRecord(BreedingBase):
+class BreedingRecord(SEOModel, TimeStampedModel):
     """
     EN: Represents a record of breeding activities within a specific project or initiative, tracking detailed information about the breeding process.
     SK: Reprezentuje záznam o chovateľských aktivitách v rámci konkrétneho projektu alebo iniciatívy, sleduje detailné informácie o procese chovu.
@@ -79,7 +45,7 @@ class BreedingRecord(BreedingBase):
         on_delete=models.CASCADE,
         verbose_name="Chovateľ",
         help_text="Chovateľ a člen organizácie",
-    )  # The user responsible for the breeding. // Užívateľ zodpovedný za chov.
+    )
     subspecies = models.ForeignKey(
         TaxonomySubspecies,
         on_delete=models.CASCADE,
@@ -87,41 +53,41 @@ class BreedingRecord(BreedingBase):
         null=True,
         verbose_name="Poddruh",
         help_text="Poddruh, ktorý sa chová",
-    )  # The subspecies being bred. // Poddruh, ktorý sa chová.
+    )
     year = models.IntegerField(
         verbose_name="Rok", help_text="Rok, pre ktorý je záznam o chove"
-    )  # The year of the breeding record. // Rok, pre ktorý je záznam o chove.
+    )
     number_of_males = models.PositiveIntegerField(
         default=0,
         verbose_name="Počet samcov",
         help_text="Počet samcov chovaného druhu/poddruhu",
-    )  # Number of male animals. // Počet samcov.
+    )
     number_of_females = models.PositiveIntegerField(
         default=0,
         verbose_name="Počet samíc",
         help_text="Počet samíc chovaného druhu/poddruhu",
-    )  # Number of female animals. // Počet samíc.
+    )
     number_of_males_offsprings = models.PositiveIntegerField(
         default=0,
         verbose_name="Počet samcov odchov",
         help_text="Počet samcov odchovaného druhu/poddruhu",
-    )  # Total number of male offsprings produced. // Počet samcov odchovaného druhu/poddruhu
+    )
     number_of_females_offsprings = models.PositiveIntegerField(
         default=0,
         verbose_name="Počet samíc odchov",
         help_text="Počet samíc odchovaného druhu/poddruhu",
-    )  # Total number of female offsprings produced. // Počet samíc odchovaného druhu/poddruhu
+    )
     number_of_unspecified_offsprings = models.PositiveIntegerField(
         default=0,
         verbose_name="Neurčený odchov",
         help_text="Počet kusov neurčeného pohlavia druhu/poddruhu",
-    )  # Total of number female offsprings produced. // Celkový počet produkovaných potomkov.
+    )
     notes = models.TextField(
         blank=True,
         null=True,
         verbose_name="Poznámky",
         help_text="Dodatočné poznámky o chove",
-    )  # Additional notes about the breeding. // Dodatočné poznámky o chove.
+    )
 
     class Meta:
         verbose_name = "Záznam o chove"
@@ -140,7 +106,7 @@ class BreedingRecord(BreedingBase):
         )
 
 
-class Project(BreedingBase):
+class Project(SEOModel, TimeStampedModel):
     """
     EN: Represents a specific project or initiative focused on breeding, including all related activities and members.
     SK: Reprezentuje konkrétny projekt alebo iniciatívu zameranú na chov, vrátane všetkých súvisiacich aktivít a členov.
