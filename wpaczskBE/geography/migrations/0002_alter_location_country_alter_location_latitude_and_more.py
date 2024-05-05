@@ -7,23 +7,38 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('geography', '0001_initial'),
+        ("geography", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='location',
-            name='country',
-            field=models.ForeignKey(help_text='Názov krajiny', on_delete=django.db.models.deletion.CASCADE, to='geography.country', verbose_name='Krajina'),
+            model_name="location",
+            name="country",
+            field=models.ForeignKey(
+                help_text="Názov krajiny",
+                on_delete=django.db.models.deletion.CASCADE,
+                to="geography.country",
+                verbose_name="Krajina",
+            ),
         ),
         migrations.AlterField(
-            model_name='location',
-            name='latitude',
-            field=models.FloatField(blank=True, help_text='Zemepisnú šírka miesta. Kladné hodnoty reprezentujú sever, záporné hodnoty reprezentujú juh.', null=True, verbose_name='Zemepisná šírka'),
+            model_name="location",
+            name="latitude",
+            field=models.FloatField(
+                blank=True,
+                help_text="Zemepisnú šírka miesta. Kladné hodnoty reprezentujú sever, záporné hodnoty reprezentujú juh.",
+                null=True,
+                verbose_name="Zemepisná šírka",
+            ),
         ),
         migrations.AlterField(
-            model_name='location',
-            name='longitude',
-            field=models.FloatField(blank=True, help_text='Zemepisná dĺžka miesta. Kladné hodnoty reprezentujú východ, záporné hodnoty reprezentujú západ', null=True, verbose_name='Zemepisná dĺžka'),
+            model_name="location",
+            name="longitude",
+            field=models.FloatField(
+                blank=True,
+                help_text="Zemepisná dĺžka miesta. Kladné hodnoty reprezentujú východ, záporné hodnoty reprezentujú západ",
+                null=True,
+                verbose_name="Zemepisná dĺžka",
+            ),
         ),
     ]

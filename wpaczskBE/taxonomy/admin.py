@@ -1,5 +1,9 @@
 from django.contrib import admin
-from taxonomy.models import TaxonomySubspecies, TaxonomyClass, TaxonomyFamily, TaxonomyGenus, TaxonomyKingdom, TaxonomyOrder, TaxonomyPhylum, TaxonomySpecies, TaxonomySubclass, TaxonomySubfamily
+
+from taxonomy.models import (TaxonomyClass, TaxonomyFamily, TaxonomyGenus,
+                             TaxonomyKingdom, TaxonomyOrder, TaxonomyPhylum,
+                             TaxonomySpecies, TaxonomySubclass,
+                             TaxonomySubfamily, TaxonomySubspecies)
 
 admin.site.register(TaxonomyKingdom)
 admin.site.register(TaxonomyPhylum)

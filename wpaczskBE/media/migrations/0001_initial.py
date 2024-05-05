@@ -7,38 +7,141 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Image',
+            name="Image",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Dátum a čas vytvorenia záznamu', verbose_name='Vytvorenie')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Dátum a čas poslednej aktualizácie', verbose_name='Aktualizácia')),
-                ('deleted_at', models.DateTimeField(blank=True, help_text='Dátum a čas zmazania', null=True, verbose_name='Zmazanie')),
-                ('title', models.CharField(help_text='Názov obrázka', max_length=64, verbose_name='Názov obrázka')),
-                ('description', models.TextField(blank=True, help_text='Popis obrázka', null=True, verbose_name='Popis obrázka')),
-                ('image_file', models.ImageField(help_text='Súbor obrázka', upload_to='images/', verbose_name='Súbor obrázka')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True,
+                        help_text="Dátum a čas vytvorenia záznamu",
+                        verbose_name="Vytvorenie",
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        auto_now=True,
+                        help_text="Dátum a čas poslednej aktualizácie",
+                        verbose_name="Aktualizácia",
+                    ),
+                ),
+                (
+                    "deleted_at",
+                    models.DateTimeField(
+                        blank=True,
+                        help_text="Dátum a čas zmazania",
+                        null=True,
+                        verbose_name="Zmazanie",
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(
+                        help_text="Názov obrázka",
+                        max_length=64,
+                        verbose_name="Názov obrázka",
+                    ),
+                ),
+                (
+                    "description",
+                    models.TextField(
+                        blank=True,
+                        help_text="Popis obrázka",
+                        null=True,
+                        verbose_name="Popis obrázka",
+                    ),
+                ),
+                (
+                    "image_file",
+                    models.ImageField(
+                        help_text="Súbor obrázka",
+                        upload_to="images/",
+                        verbose_name="Súbor obrázka",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='Movie',
+            name="Movie",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Dátum a čas vytvorenia záznamu', verbose_name='Vytvorenie')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Dátum a čas poslednej aktualizácie', verbose_name='Aktualizácia')),
-                ('deleted_at', models.DateTimeField(blank=True, help_text='Dátum a čas zmazania', null=True, verbose_name='Zmazanie')),
-                ('title', models.CharField(help_text='Názov filmu', max_length=64, verbose_name='Názov filmu')),
-                ('description', models.TextField(blank=True, help_text='Popis filmu', null=True, verbose_name='Popis filmu')),
-                ('movie_file', models.FileField(help_text='Súbor videa', upload_to='videos/', verbose_name='Súbor videa')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True,
+                        help_text="Dátum a čas vytvorenia záznamu",
+                        verbose_name="Vytvorenie",
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        auto_now=True,
+                        help_text="Dátum a čas poslednej aktualizácie",
+                        verbose_name="Aktualizácia",
+                    ),
+                ),
+                (
+                    "deleted_at",
+                    models.DateTimeField(
+                        blank=True,
+                        help_text="Dátum a čas zmazania",
+                        null=True,
+                        verbose_name="Zmazanie",
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(
+                        help_text="Názov filmu",
+                        max_length=64,
+                        verbose_name="Názov filmu",
+                    ),
+                ),
+                (
+                    "description",
+                    models.TextField(
+                        blank=True,
+                        help_text="Popis filmu",
+                        null=True,
+                        verbose_name="Popis filmu",
+                    ),
+                ),
+                (
+                    "movie_file",
+                    models.FileField(
+                        help_text="Súbor videa",
+                        upload_to="videos/",
+                        verbose_name="Súbor videa",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
     ]

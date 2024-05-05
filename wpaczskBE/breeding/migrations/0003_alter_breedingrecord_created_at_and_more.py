@@ -6,38 +6,64 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('breeding', '0002_remove_breedingrecord_number_of_female_offsprings_and_more'),
+        ("breeding", "0002_remove_breedingrecord_number_of_female_offsprings_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='breedingrecord',
-            name='created_at',
-            field=models.DateTimeField(auto_now_add=True, help_text='Dátum a čas vytvorenia záznamu', verbose_name='Vytvorenie'),
+            model_name="breedingrecord",
+            name="created_at",
+            field=models.DateTimeField(
+                auto_now_add=True,
+                help_text="Dátum a čas vytvorenia záznamu",
+                verbose_name="Vytvorenie",
+            ),
         ),
         migrations.AlterField(
-            model_name='breedingrecord',
-            name='deleted_at',
-            field=models.DateTimeField(blank=True, help_text='Dátum a čas zmazania', null=True, verbose_name='Zmazanie'),
+            model_name="breedingrecord",
+            name="deleted_at",
+            field=models.DateTimeField(
+                blank=True,
+                help_text="Dátum a čas zmazania",
+                null=True,
+                verbose_name="Zmazanie",
+            ),
         ),
         migrations.AlterField(
-            model_name='breedingrecord',
-            name='updated_at',
-            field=models.DateTimeField(auto_now=True, help_text='Dátum a čas poslednej aktualizácie', verbose_name='Aktualizácia'),
+            model_name="breedingrecord",
+            name="updated_at",
+            field=models.DateTimeField(
+                auto_now=True,
+                help_text="Dátum a čas poslednej aktualizácie",
+                verbose_name="Aktualizácia",
+            ),
         ),
         migrations.AlterField(
-            model_name='project',
-            name='created_at',
-            field=models.DateTimeField(auto_now_add=True, help_text='Dátum a čas vytvorenia záznamu', verbose_name='Vytvorenie'),
+            model_name="project",
+            name="created_at",
+            field=models.DateTimeField(
+                auto_now_add=True,
+                help_text="Dátum a čas vytvorenia záznamu",
+                verbose_name="Vytvorenie",
+            ),
         ),
         migrations.AlterField(
-            model_name='project',
-            name='deleted_at',
-            field=models.DateTimeField(blank=True, help_text='Dátum a čas zmazania', null=True, verbose_name='Zmazanie'),
+            model_name="project",
+            name="deleted_at",
+            field=models.DateTimeField(
+                blank=True,
+                help_text="Dátum a čas zmazania",
+                null=True,
+                verbose_name="Zmazanie",
+            ),
         ),
         migrations.AlterField(
-            model_name='project',
-            name='updated_at',
-            field=models.DateTimeField(auto_now=True, help_text='Dátum a čas poslednej aktualizácie', verbose_name='Aktualizácia'),
+            model_name="project",
+            name="updated_at",
+            field=models.DateTimeField(
+                auto_now=True,
+                help_text="Dátum a čas poslednej aktualizácie",
+                verbose_name="Aktualizácia",
+            ),
         ),
     ]

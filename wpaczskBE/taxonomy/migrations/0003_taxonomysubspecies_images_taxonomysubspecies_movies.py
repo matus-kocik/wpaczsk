@@ -6,19 +6,29 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('media', '0001_initial'),
-        ('taxonomy', '0002_alter_taxonomysubspecies_habitat_countries_and_more'),
+        ("media", "0001_initial"),
+        ("taxonomy", "0002_alter_taxonomysubspecies_habitat_countries_and_more"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='taxonomysubspecies',
-            name='images',
-            field=models.ManyToManyField(help_text='Obrázky súvisiace s poddruhom', related_name='subspecies', to='media.image', verbose_name='Obrázky'),
+            model_name="taxonomysubspecies",
+            name="images",
+            field=models.ManyToManyField(
+                help_text="Obrázky súvisiace s poddruhom",
+                related_name="subspecies",
+                to="media.image",
+                verbose_name="Obrázky",
+            ),
         ),
         migrations.AddField(
-            model_name='taxonomysubspecies',
-            name='movies',
-            field=models.ManyToManyField(help_text='Videá súvisiace s poddruhom', related_name='subspecies', to='media.movie', verbose_name='Videá'),
+            model_name="taxonomysubspecies",
+            name="movies",
+            field=models.ManyToManyField(
+                help_text="Videá súvisiace s poddruhom",
+                related_name="subspecies",
+                to="media.movie",
+                verbose_name="Videá",
+            ),
         ),
     ]

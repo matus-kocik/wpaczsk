@@ -9,219 +9,1101 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('geography', '0001_initial'),
+        ("geography", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='TaxonomyGenus',
+            name="TaxonomyGenus",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('latin_name', models.CharField(help_text='Originálne latinské pomenovanie', max_length=64, verbose_name='Latinský názov')),
-                ('czech_name', models.CharField(help_text='Originálne české pomenovanie', max_length=64, verbose_name='Český názov')),
-                ('slovak_name', models.CharField(blank=True, help_text='Originálne slovenské pomenovanie', max_length=64, null=True, verbose_name='Slovenský názov')),
-                ('english_name', models.CharField(blank=True, help_text='Originálne anglické pomenovanie', max_length=64, null=True, verbose_name='Anglický názov')),
-                ('german_name', models.CharField(blank=True, help_text='Originálne nemecké pomenovanie', max_length=64, null=True, verbose_name='Nemecký názov')),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Dátum a čas vytvorenia záznamu', verbose_name='Vytvorenie')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Dátum a čas poslednej aktualizácie', verbose_name='Aktualizácia')),
-                ('deleted_at', models.DateTimeField(blank=True, help_text='Dátum a čas zmazania', null=True, verbose_name='Zmazanie')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "latin_name",
+                    models.CharField(
+                        help_text="Originálne latinské pomenovanie",
+                        max_length=64,
+                        verbose_name="Latinský názov",
+                    ),
+                ),
+                (
+                    "czech_name",
+                    models.CharField(
+                        help_text="Originálne české pomenovanie",
+                        max_length=64,
+                        verbose_name="Český názov",
+                    ),
+                ),
+                (
+                    "slovak_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne slovenské pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Slovenský názov",
+                    ),
+                ),
+                (
+                    "english_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne anglické pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Anglický názov",
+                    ),
+                ),
+                (
+                    "german_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne nemecké pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Nemecký názov",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True,
+                        help_text="Dátum a čas vytvorenia záznamu",
+                        verbose_name="Vytvorenie",
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        auto_now=True,
+                        help_text="Dátum a čas poslednej aktualizácie",
+                        verbose_name="Aktualizácia",
+                    ),
+                ),
+                (
+                    "deleted_at",
+                    models.DateTimeField(
+                        blank=True,
+                        help_text="Dátum a čas zmazania",
+                        null=True,
+                        verbose_name="Zmazanie",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Genus - Rod',
-                'verbose_name_plural': 'Genera - Rody',
+                "verbose_name": "Genus - Rod",
+                "verbose_name_plural": "Genera - Rody",
             },
         ),
         migrations.CreateModel(
-            name='TaxonomyKingdom',
+            name="TaxonomyKingdom",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('latin_name', models.CharField(help_text='Originálne latinské pomenovanie', max_length=64, verbose_name='Latinský názov')),
-                ('czech_name', models.CharField(help_text='Originálne české pomenovanie', max_length=64, verbose_name='Český názov')),
-                ('slovak_name', models.CharField(blank=True, help_text='Originálne slovenské pomenovanie', max_length=64, null=True, verbose_name='Slovenský názov')),
-                ('english_name', models.CharField(blank=True, help_text='Originálne anglické pomenovanie', max_length=64, null=True, verbose_name='Anglický názov')),
-                ('german_name', models.CharField(blank=True, help_text='Originálne nemecké pomenovanie', max_length=64, null=True, verbose_name='Nemecký názov')),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Dátum a čas vytvorenia záznamu', verbose_name='Vytvorenie')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Dátum a čas poslednej aktualizácie', verbose_name='Aktualizácia')),
-                ('deleted_at', models.DateTimeField(blank=True, help_text='Dátum a čas zmazania', null=True, verbose_name='Zmazanie')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "latin_name",
+                    models.CharField(
+                        help_text="Originálne latinské pomenovanie",
+                        max_length=64,
+                        verbose_name="Latinský názov",
+                    ),
+                ),
+                (
+                    "czech_name",
+                    models.CharField(
+                        help_text="Originálne české pomenovanie",
+                        max_length=64,
+                        verbose_name="Český názov",
+                    ),
+                ),
+                (
+                    "slovak_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne slovenské pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Slovenský názov",
+                    ),
+                ),
+                (
+                    "english_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne anglické pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Anglický názov",
+                    ),
+                ),
+                (
+                    "german_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne nemecké pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Nemecký názov",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True,
+                        help_text="Dátum a čas vytvorenia záznamu",
+                        verbose_name="Vytvorenie",
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        auto_now=True,
+                        help_text="Dátum a čas poslednej aktualizácie",
+                        verbose_name="Aktualizácia",
+                    ),
+                ),
+                (
+                    "deleted_at",
+                    models.DateTimeField(
+                        blank=True,
+                        help_text="Dátum a čas zmazania",
+                        null=True,
+                        verbose_name="Zmazanie",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Kingdom - Ríša',
-                'verbose_name_plural': 'Kingdoms - Ríše',
+                "verbose_name": "Kingdom - Ríša",
+                "verbose_name_plural": "Kingdoms - Ríše",
             },
         ),
         migrations.CreateModel(
-            name='TaxonomyOrder',
+            name="TaxonomyOrder",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('latin_name', models.CharField(help_text='Originálne latinské pomenovanie', max_length=64, verbose_name='Latinský názov')),
-                ('czech_name', models.CharField(help_text='Originálne české pomenovanie', max_length=64, verbose_name='Český názov')),
-                ('slovak_name', models.CharField(blank=True, help_text='Originálne slovenské pomenovanie', max_length=64, null=True, verbose_name='Slovenský názov')),
-                ('english_name', models.CharField(blank=True, help_text='Originálne anglické pomenovanie', max_length=64, null=True, verbose_name='Anglický názov')),
-                ('german_name', models.CharField(blank=True, help_text='Originálne nemecké pomenovanie', max_length=64, null=True, verbose_name='Nemecký názov')),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Dátum a čas vytvorenia záznamu', verbose_name='Vytvorenie')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Dátum a čas poslednej aktualizácie', verbose_name='Aktualizácia')),
-                ('deleted_at', models.DateTimeField(blank=True, help_text='Dátum a čas zmazania', null=True, verbose_name='Zmazanie')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "latin_name",
+                    models.CharField(
+                        help_text="Originálne latinské pomenovanie",
+                        max_length=64,
+                        verbose_name="Latinský názov",
+                    ),
+                ),
+                (
+                    "czech_name",
+                    models.CharField(
+                        help_text="Originálne české pomenovanie",
+                        max_length=64,
+                        verbose_name="Český názov",
+                    ),
+                ),
+                (
+                    "slovak_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne slovenské pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Slovenský názov",
+                    ),
+                ),
+                (
+                    "english_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne anglické pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Anglický názov",
+                    ),
+                ),
+                (
+                    "german_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne nemecké pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Nemecký názov",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True,
+                        help_text="Dátum a čas vytvorenia záznamu",
+                        verbose_name="Vytvorenie",
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        auto_now=True,
+                        help_text="Dátum a čas poslednej aktualizácie",
+                        verbose_name="Aktualizácia",
+                    ),
+                ),
+                (
+                    "deleted_at",
+                    models.DateTimeField(
+                        blank=True,
+                        help_text="Dátum a čas zmazania",
+                        null=True,
+                        verbose_name="Zmazanie",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Order - Rad',
-                'verbose_name_plural': 'Orders - Rady',
+                "verbose_name": "Order - Rad",
+                "verbose_name_plural": "Orders - Rady",
             },
         ),
         migrations.CreateModel(
-            name='TaxonomyFamily',
+            name="TaxonomyFamily",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('latin_name', models.CharField(help_text='Originálne latinské pomenovanie', max_length=64, verbose_name='Latinský názov')),
-                ('czech_name', models.CharField(help_text='Originálne české pomenovanie', max_length=64, verbose_name='Český názov')),
-                ('slovak_name', models.CharField(blank=True, help_text='Originálne slovenské pomenovanie', max_length=64, null=True, verbose_name='Slovenský názov')),
-                ('english_name', models.CharField(blank=True, help_text='Originálne anglické pomenovanie', max_length=64, null=True, verbose_name='Anglický názov')),
-                ('german_name', models.CharField(blank=True, help_text='Originálne nemecké pomenovanie', max_length=64, null=True, verbose_name='Nemecký názov')),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Dátum a čas vytvorenia záznamu', verbose_name='Vytvorenie')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Dátum a čas poslednej aktualizácie', verbose_name='Aktualizácia')),
-                ('deleted_at', models.DateTimeField(blank=True, help_text='Dátum a čas zmazania', null=True, verbose_name='Zmazanie')),
-                ('taxonomy_order', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='taxonomy.taxonomyorder')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "latin_name",
+                    models.CharField(
+                        help_text="Originálne latinské pomenovanie",
+                        max_length=64,
+                        verbose_name="Latinský názov",
+                    ),
+                ),
+                (
+                    "czech_name",
+                    models.CharField(
+                        help_text="Originálne české pomenovanie",
+                        max_length=64,
+                        verbose_name="Český názov",
+                    ),
+                ),
+                (
+                    "slovak_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne slovenské pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Slovenský názov",
+                    ),
+                ),
+                (
+                    "english_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne anglické pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Anglický názov",
+                    ),
+                ),
+                (
+                    "german_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne nemecké pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Nemecký názov",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True,
+                        help_text="Dátum a čas vytvorenia záznamu",
+                        verbose_name="Vytvorenie",
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        auto_now=True,
+                        help_text="Dátum a čas poslednej aktualizácie",
+                        verbose_name="Aktualizácia",
+                    ),
+                ),
+                (
+                    "deleted_at",
+                    models.DateTimeField(
+                        blank=True,
+                        help_text="Dátum a čas zmazania",
+                        null=True,
+                        verbose_name="Zmazanie",
+                    ),
+                ),
+                (
+                    "taxonomy_order",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="taxonomy.taxonomyorder",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Family - Čeľaď',
-                'verbose_name_plural': 'Families - Čeľade',
+                "verbose_name": "Family - Čeľaď",
+                "verbose_name_plural": "Families - Čeľade",
             },
         ),
         migrations.CreateModel(
-            name='TaxonomyPhylum',
+            name="TaxonomyPhylum",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('latin_name', models.CharField(help_text='Originálne latinské pomenovanie', max_length=64, verbose_name='Latinský názov')),
-                ('czech_name', models.CharField(help_text='Originálne české pomenovanie', max_length=64, verbose_name='Český názov')),
-                ('slovak_name', models.CharField(blank=True, help_text='Originálne slovenské pomenovanie', max_length=64, null=True, verbose_name='Slovenský názov')),
-                ('english_name', models.CharField(blank=True, help_text='Originálne anglické pomenovanie', max_length=64, null=True, verbose_name='Anglický názov')),
-                ('german_name', models.CharField(blank=True, help_text='Originálne nemecké pomenovanie', max_length=64, null=True, verbose_name='Nemecký názov')),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Dátum a čas vytvorenia záznamu', verbose_name='Vytvorenie')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Dátum a čas poslednej aktualizácie', verbose_name='Aktualizácia')),
-                ('deleted_at', models.DateTimeField(blank=True, help_text='Dátum a čas zmazania', null=True, verbose_name='Zmazanie')),
-                ('taxonomy_kingdom', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='taxonomy.taxonomykingdom')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "latin_name",
+                    models.CharField(
+                        help_text="Originálne latinské pomenovanie",
+                        max_length=64,
+                        verbose_name="Latinský názov",
+                    ),
+                ),
+                (
+                    "czech_name",
+                    models.CharField(
+                        help_text="Originálne české pomenovanie",
+                        max_length=64,
+                        verbose_name="Český názov",
+                    ),
+                ),
+                (
+                    "slovak_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne slovenské pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Slovenský názov",
+                    ),
+                ),
+                (
+                    "english_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne anglické pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Anglický názov",
+                    ),
+                ),
+                (
+                    "german_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne nemecké pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Nemecký názov",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True,
+                        help_text="Dátum a čas vytvorenia záznamu",
+                        verbose_name="Vytvorenie",
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        auto_now=True,
+                        help_text="Dátum a čas poslednej aktualizácie",
+                        verbose_name="Aktualizácia",
+                    ),
+                ),
+                (
+                    "deleted_at",
+                    models.DateTimeField(
+                        blank=True,
+                        help_text="Dátum a čas zmazania",
+                        null=True,
+                        verbose_name="Zmazanie",
+                    ),
+                ),
+                (
+                    "taxonomy_kingdom",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.DO_NOTHING,
+                        to="taxonomy.taxonomykingdom",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Phylum - Kmeň',
-                'verbose_name_plural': 'Phyla - Kmene',
+                "verbose_name": "Phylum - Kmeň",
+                "verbose_name_plural": "Phyla - Kmene",
             },
         ),
         migrations.CreateModel(
-            name='TaxonomyClass',
+            name="TaxonomyClass",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('latin_name', models.CharField(help_text='Originálne latinské pomenovanie', max_length=64, verbose_name='Latinský názov')),
-                ('czech_name', models.CharField(help_text='Originálne české pomenovanie', max_length=64, verbose_name='Český názov')),
-                ('slovak_name', models.CharField(blank=True, help_text='Originálne slovenské pomenovanie', max_length=64, null=True, verbose_name='Slovenský názov')),
-                ('english_name', models.CharField(blank=True, help_text='Originálne anglické pomenovanie', max_length=64, null=True, verbose_name='Anglický názov')),
-                ('german_name', models.CharField(blank=True, help_text='Originálne nemecké pomenovanie', max_length=64, null=True, verbose_name='Nemecký názov')),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Dátum a čas vytvorenia záznamu', verbose_name='Vytvorenie')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Dátum a čas poslednej aktualizácie', verbose_name='Aktualizácia')),
-                ('deleted_at', models.DateTimeField(blank=True, help_text='Dátum a čas zmazania', null=True, verbose_name='Zmazanie')),
-                ('taxonomy_phylum', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='taxonomy.taxonomyphylum')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "latin_name",
+                    models.CharField(
+                        help_text="Originálne latinské pomenovanie",
+                        max_length=64,
+                        verbose_name="Latinský názov",
+                    ),
+                ),
+                (
+                    "czech_name",
+                    models.CharField(
+                        help_text="Originálne české pomenovanie",
+                        max_length=64,
+                        verbose_name="Český názov",
+                    ),
+                ),
+                (
+                    "slovak_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne slovenské pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Slovenský názov",
+                    ),
+                ),
+                (
+                    "english_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne anglické pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Anglický názov",
+                    ),
+                ),
+                (
+                    "german_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne nemecké pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Nemecký názov",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True,
+                        help_text="Dátum a čas vytvorenia záznamu",
+                        verbose_name="Vytvorenie",
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        auto_now=True,
+                        help_text="Dátum a čas poslednej aktualizácie",
+                        verbose_name="Aktualizácia",
+                    ),
+                ),
+                (
+                    "deleted_at",
+                    models.DateTimeField(
+                        blank=True,
+                        help_text="Dátum a čas zmazania",
+                        null=True,
+                        verbose_name="Zmazanie",
+                    ),
+                ),
+                (
+                    "taxonomy_phylum",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="taxonomy.taxonomyphylum",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Class - Trieda',
-                'verbose_name_plural': 'Classes - Triedy',
+                "verbose_name": "Class - Trieda",
+                "verbose_name_plural": "Classes - Triedy",
             },
         ),
         migrations.CreateModel(
-            name='TaxonomySpecies',
+            name="TaxonomySpecies",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('latin_name', models.CharField(help_text='Originálne latinské pomenovanie', max_length=64, verbose_name='Latinský názov')),
-                ('czech_name', models.CharField(help_text='Originálne české pomenovanie', max_length=64, verbose_name='Český názov')),
-                ('slovak_name', models.CharField(blank=True, help_text='Originálne slovenské pomenovanie', max_length=64, null=True, verbose_name='Slovenský názov')),
-                ('english_name', models.CharField(blank=True, help_text='Originálne anglické pomenovanie', max_length=64, null=True, verbose_name='Anglický názov')),
-                ('german_name', models.CharField(blank=True, help_text='Originálne nemecké pomenovanie', max_length=64, null=True, verbose_name='Nemecký názov')),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Dátum a čas vytvorenia záznamu', verbose_name='Vytvorenie')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Dátum a čas poslednej aktualizácie', verbose_name='Aktualizácia')),
-                ('deleted_at', models.DateTimeField(blank=True, help_text='Dátum a čas zmazania', null=True, verbose_name='Zmazanie')),
-                ('taxonomy_genus', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='taxonomy.taxonomygenus')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "latin_name",
+                    models.CharField(
+                        help_text="Originálne latinské pomenovanie",
+                        max_length=64,
+                        verbose_name="Latinský názov",
+                    ),
+                ),
+                (
+                    "czech_name",
+                    models.CharField(
+                        help_text="Originálne české pomenovanie",
+                        max_length=64,
+                        verbose_name="Český názov",
+                    ),
+                ),
+                (
+                    "slovak_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne slovenské pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Slovenský názov",
+                    ),
+                ),
+                (
+                    "english_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne anglické pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Anglický názov",
+                    ),
+                ),
+                (
+                    "german_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne nemecké pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Nemecký názov",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True,
+                        help_text="Dátum a čas vytvorenia záznamu",
+                        verbose_name="Vytvorenie",
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        auto_now=True,
+                        help_text="Dátum a čas poslednej aktualizácie",
+                        verbose_name="Aktualizácia",
+                    ),
+                ),
+                (
+                    "deleted_at",
+                    models.DateTimeField(
+                        blank=True,
+                        help_text="Dátum a čas zmazania",
+                        null=True,
+                        verbose_name="Zmazanie",
+                    ),
+                ),
+                (
+                    "taxonomy_genus",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="taxonomy.taxonomygenus",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Species - Druh',
-                'verbose_name_plural': 'Species - Druhy',
+                "verbose_name": "Species - Druh",
+                "verbose_name_plural": "Species - Druhy",
             },
         ),
         migrations.CreateModel(
-            name='TaxonomySubclass',
+            name="TaxonomySubclass",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('latin_name', models.CharField(help_text='Originálne latinské pomenovanie', max_length=64, verbose_name='Latinský názov')),
-                ('czech_name', models.CharField(help_text='Originálne české pomenovanie', max_length=64, verbose_name='Český názov')),
-                ('slovak_name', models.CharField(blank=True, help_text='Originálne slovenské pomenovanie', max_length=64, null=True, verbose_name='Slovenský názov')),
-                ('english_name', models.CharField(blank=True, help_text='Originálne anglické pomenovanie', max_length=64, null=True, verbose_name='Anglický názov')),
-                ('german_name', models.CharField(blank=True, help_text='Originálne nemecké pomenovanie', max_length=64, null=True, verbose_name='Nemecký názov')),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Dátum a čas vytvorenia záznamu', verbose_name='Vytvorenie')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Dátum a čas poslednej aktualizácie', verbose_name='Aktualizácia')),
-                ('deleted_at', models.DateTimeField(blank=True, help_text='Dátum a čas zmazania', null=True, verbose_name='Zmazanie')),
-                ('taxonomy_class', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='taxonomy.taxonomyclass')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "latin_name",
+                    models.CharField(
+                        help_text="Originálne latinské pomenovanie",
+                        max_length=64,
+                        verbose_name="Latinský názov",
+                    ),
+                ),
+                (
+                    "czech_name",
+                    models.CharField(
+                        help_text="Originálne české pomenovanie",
+                        max_length=64,
+                        verbose_name="Český názov",
+                    ),
+                ),
+                (
+                    "slovak_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne slovenské pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Slovenský názov",
+                    ),
+                ),
+                (
+                    "english_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne anglické pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Anglický názov",
+                    ),
+                ),
+                (
+                    "german_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne nemecké pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Nemecký názov",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True,
+                        help_text="Dátum a čas vytvorenia záznamu",
+                        verbose_name="Vytvorenie",
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        auto_now=True,
+                        help_text="Dátum a čas poslednej aktualizácie",
+                        verbose_name="Aktualizácia",
+                    ),
+                ),
+                (
+                    "deleted_at",
+                    models.DateTimeField(
+                        blank=True,
+                        help_text="Dátum a čas zmazania",
+                        null=True,
+                        verbose_name="Zmazanie",
+                    ),
+                ),
+                (
+                    "taxonomy_class",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="taxonomy.taxonomyclass",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Subclass - Podtrieda',
-                'verbose_name_plural': 'Subclasses - Podtriedy',
+                "verbose_name": "Subclass - Podtrieda",
+                "verbose_name_plural": "Subclasses - Podtriedy",
             },
         ),
         migrations.AddField(
-            model_name='taxonomyorder',
-            name='subclass',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='taxonomy.taxonomysubclass'),
+            model_name="taxonomyorder",
+            name="subclass",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                to="taxonomy.taxonomysubclass",
+            ),
         ),
         migrations.CreateModel(
-            name='TaxonomySubfamily',
+            name="TaxonomySubfamily",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('latin_name', models.CharField(help_text='Originálne latinské pomenovanie', max_length=64, verbose_name='Latinský názov')),
-                ('czech_name', models.CharField(help_text='Originálne české pomenovanie', max_length=64, verbose_name='Český názov')),
-                ('slovak_name', models.CharField(blank=True, help_text='Originálne slovenské pomenovanie', max_length=64, null=True, verbose_name='Slovenský názov')),
-                ('english_name', models.CharField(blank=True, help_text='Originálne anglické pomenovanie', max_length=64, null=True, verbose_name='Anglický názov')),
-                ('german_name', models.CharField(blank=True, help_text='Originálne nemecké pomenovanie', max_length=64, null=True, verbose_name='Nemecký názov')),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Dátum a čas vytvorenia záznamu', verbose_name='Vytvorenie')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Dátum a čas poslednej aktualizácie', verbose_name='Aktualizácia')),
-                ('deleted_at', models.DateTimeField(blank=True, help_text='Dátum a čas zmazania', null=True, verbose_name='Zmazanie')),
-                ('taxonomy_family', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='taxonomy.taxonomyfamily')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "latin_name",
+                    models.CharField(
+                        help_text="Originálne latinské pomenovanie",
+                        max_length=64,
+                        verbose_name="Latinský názov",
+                    ),
+                ),
+                (
+                    "czech_name",
+                    models.CharField(
+                        help_text="Originálne české pomenovanie",
+                        max_length=64,
+                        verbose_name="Český názov",
+                    ),
+                ),
+                (
+                    "slovak_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne slovenské pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Slovenský názov",
+                    ),
+                ),
+                (
+                    "english_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne anglické pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Anglický názov",
+                    ),
+                ),
+                (
+                    "german_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne nemecké pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Nemecký názov",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True,
+                        help_text="Dátum a čas vytvorenia záznamu",
+                        verbose_name="Vytvorenie",
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        auto_now=True,
+                        help_text="Dátum a čas poslednej aktualizácie",
+                        verbose_name="Aktualizácia",
+                    ),
+                ),
+                (
+                    "deleted_at",
+                    models.DateTimeField(
+                        blank=True,
+                        help_text="Dátum a čas zmazania",
+                        null=True,
+                        verbose_name="Zmazanie",
+                    ),
+                ),
+                (
+                    "taxonomy_family",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="taxonomy.taxonomyfamily",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Subfamily - Podčeľaď',
-                'verbose_name_plural': 'Subfamilies - Podčeľade',
+                "verbose_name": "Subfamily - Podčeľaď",
+                "verbose_name_plural": "Subfamilies - Podčeľade",
             },
         ),
         migrations.AddField(
-            model_name='taxonomygenus',
-            name='taxonomy_subfamily',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='taxonomy.taxonomysubfamily'),
+            model_name="taxonomygenus",
+            name="taxonomy_subfamily",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                to="taxonomy.taxonomysubfamily",
+            ),
         ),
         migrations.CreateModel(
-            name='TaxonomySubspecies',
+            name="TaxonomySubspecies",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('latin_name', models.CharField(help_text='Originálne latinské pomenovanie', max_length=64, verbose_name='Latinský názov')),
-                ('czech_name', models.CharField(help_text='Originálne české pomenovanie', max_length=64, verbose_name='Český názov')),
-                ('slovak_name', models.CharField(blank=True, help_text='Originálne slovenské pomenovanie', max_length=64, null=True, verbose_name='Slovenský názov')),
-                ('english_name', models.CharField(blank=True, help_text='Originálne anglické pomenovanie', max_length=64, null=True, verbose_name='Anglický názov')),
-                ('german_name', models.CharField(blank=True, help_text='Originálne nemecké pomenovanie', max_length=64, null=True, verbose_name='Nemecký názov')),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Dátum a čas vytvorenia záznamu', verbose_name='Vytvorenie')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Dátum a čas poslednej aktualizácie', verbose_name='Aktualizácia')),
-                ('deleted_at', models.DateTimeField(blank=True, help_text='Dátum a čas zmazania', null=True, verbose_name='Zmazanie')),
-                ('average_lifespan', models.IntegerField(blank=True, help_text='Priemerná dĺžka života', null=True, verbose_name='Priemerná dĺžka života')),
-                ('biotop', models.TextField(blank=True, help_text='biotop, ktorý prevažne obýva, ekosystém krajiny, kde sa vyskytuje', null=True, verbose_name='Biotop')),
-                ('description', models.TextField(blank=True, help_text='Popis, detailnejšie a podrobnejšie informácie', null=True, verbose_name='Popis')),
-                ('status_in_nature', models.CharField(choices=[('LC', 'Málo dotknutý'), ('NT', 'Takmer ohrozený'), ('VU', 'Zraniteľný'), ('EN', 'Ohrozený'), ('CR', 'Kriticky ohrozený'), ('EW', 'Vyhubený vo voľnej prírode'), ('EX', 'Vyhubený')], help_text='Stav ohrozenia jedincov v prírode podľa medzinárodných tabuliek', max_length=32, verbose_name='Stav v prírode')),
-                ('status_in_captivity', models.TextField(blank=True, help_text='Stav chovaných jedincov v zajatí, všeobecná informácia', null=True, verbose_name='Stav v zajatí')),
-                ('maturity', models.CharField(blank=True, help_text='Vek, v ktorom sú jedince dospelé', max_length=32, null=True, verbose_name='Dospelosť')),
-                ('length', models.CharField(blank=True, help_text='Dĺžka jedinca v cm/mm', max_length=32, null=True, verbose_name='Dĺžka')),
-                ('weight', models.CharField(blank=True, help_text='Váha jedinca v kg/g', max_length=32, null=True, verbose_name='Váha')),
-                ('clutch', models.CharField(blank=True, help_text='Znáška, počet znesených vajec', max_length=32, null=True, verbose_name='Znáška')),
-                ('incubation', models.CharField(blank=True, help_text='Doba inkubácie udáva, koľko dní trvá, kým sa z vajca vyliahne mláďa.', max_length=32, null=True, verbose_name='Inkubácia')),
-                ('ring_size', models.FloatField(blank=True, help_text='Veľkosť krúžku v mm', null=True, verbose_name='Veľkosť krúžku')),
-                ('population_in_czech_republic', models.TextField(blank=True, help_text='Populácia v ČR a SVK', null=True, verbose_name='Populácia v ČR a SVK')),
-                ('breeding_difficulty', models.TextField(blank=True, help_text='Náročnosť chovu', null=True, verbose_name='Náročnosť chovu')),
-                ('habitat_countries', models.ManyToManyField(help_text='Krajiny, kde jedinec žije', to='geography.country', verbose_name='Krajiny')),
-                ('taxonomy_species', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='taxonomy.taxonomyspecies')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "latin_name",
+                    models.CharField(
+                        help_text="Originálne latinské pomenovanie",
+                        max_length=64,
+                        verbose_name="Latinský názov",
+                    ),
+                ),
+                (
+                    "czech_name",
+                    models.CharField(
+                        help_text="Originálne české pomenovanie",
+                        max_length=64,
+                        verbose_name="Český názov",
+                    ),
+                ),
+                (
+                    "slovak_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne slovenské pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Slovenský názov",
+                    ),
+                ),
+                (
+                    "english_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne anglické pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Anglický názov",
+                    ),
+                ),
+                (
+                    "german_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Originálne nemecké pomenovanie",
+                        max_length=64,
+                        null=True,
+                        verbose_name="Nemecký názov",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True,
+                        help_text="Dátum a čas vytvorenia záznamu",
+                        verbose_name="Vytvorenie",
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        auto_now=True,
+                        help_text="Dátum a čas poslednej aktualizácie",
+                        verbose_name="Aktualizácia",
+                    ),
+                ),
+                (
+                    "deleted_at",
+                    models.DateTimeField(
+                        blank=True,
+                        help_text="Dátum a čas zmazania",
+                        null=True,
+                        verbose_name="Zmazanie",
+                    ),
+                ),
+                (
+                    "average_lifespan",
+                    models.IntegerField(
+                        blank=True,
+                        help_text="Priemerná dĺžka života",
+                        null=True,
+                        verbose_name="Priemerná dĺžka života",
+                    ),
+                ),
+                (
+                    "biotop",
+                    models.TextField(
+                        blank=True,
+                        help_text="biotop, ktorý prevažne obýva, ekosystém krajiny, kde sa vyskytuje",
+                        null=True,
+                        verbose_name="Biotop",
+                    ),
+                ),
+                (
+                    "description",
+                    models.TextField(
+                        blank=True,
+                        help_text="Popis, detailnejšie a podrobnejšie informácie",
+                        null=True,
+                        verbose_name="Popis",
+                    ),
+                ),
+                (
+                    "status_in_nature",
+                    models.CharField(
+                        choices=[
+                            ("LC", "Málo dotknutý"),
+                            ("NT", "Takmer ohrozený"),
+                            ("VU", "Zraniteľný"),
+                            ("EN", "Ohrozený"),
+                            ("CR", "Kriticky ohrozený"),
+                            ("EW", "Vyhubený vo voľnej prírode"),
+                            ("EX", "Vyhubený"),
+                        ],
+                        help_text="Stav ohrozenia jedincov v prírode podľa medzinárodných tabuliek",
+                        max_length=32,
+                        verbose_name="Stav v prírode",
+                    ),
+                ),
+                (
+                    "status_in_captivity",
+                    models.TextField(
+                        blank=True,
+                        help_text="Stav chovaných jedincov v zajatí, všeobecná informácia",
+                        null=True,
+                        verbose_name="Stav v zajatí",
+                    ),
+                ),
+                (
+                    "maturity",
+                    models.CharField(
+                        blank=True,
+                        help_text="Vek, v ktorom sú jedince dospelé",
+                        max_length=32,
+                        null=True,
+                        verbose_name="Dospelosť",
+                    ),
+                ),
+                (
+                    "length",
+                    models.CharField(
+                        blank=True,
+                        help_text="Dĺžka jedinca v cm/mm",
+                        max_length=32,
+                        null=True,
+                        verbose_name="Dĺžka",
+                    ),
+                ),
+                (
+                    "weight",
+                    models.CharField(
+                        blank=True,
+                        help_text="Váha jedinca v kg/g",
+                        max_length=32,
+                        null=True,
+                        verbose_name="Váha",
+                    ),
+                ),
+                (
+                    "clutch",
+                    models.CharField(
+                        blank=True,
+                        help_text="Znáška, počet znesených vajec",
+                        max_length=32,
+                        null=True,
+                        verbose_name="Znáška",
+                    ),
+                ),
+                (
+                    "incubation",
+                    models.CharField(
+                        blank=True,
+                        help_text="Doba inkubácie udáva, koľko dní trvá, kým sa z vajca vyliahne mláďa.",
+                        max_length=32,
+                        null=True,
+                        verbose_name="Inkubácia",
+                    ),
+                ),
+                (
+                    "ring_size",
+                    models.FloatField(
+                        blank=True,
+                        help_text="Veľkosť krúžku v mm",
+                        null=True,
+                        verbose_name="Veľkosť krúžku",
+                    ),
+                ),
+                (
+                    "population_in_czech_republic",
+                    models.TextField(
+                        blank=True,
+                        help_text="Populácia v ČR a SVK",
+                        null=True,
+                        verbose_name="Populácia v ČR a SVK",
+                    ),
+                ),
+                (
+                    "breeding_difficulty",
+                    models.TextField(
+                        blank=True,
+                        help_text="Náročnosť chovu",
+                        null=True,
+                        verbose_name="Náročnosť chovu",
+                    ),
+                ),
+                (
+                    "habitat_countries",
+                    models.ManyToManyField(
+                        help_text="Krajiny, kde jedinec žije",
+                        to="geography.country",
+                        verbose_name="Krajiny",
+                    ),
+                ),
+                (
+                    "taxonomy_species",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="taxonomy.taxonomyspecies",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Subspecies - Poddruh',
-                'verbose_name_plural': 'Subspecies - Poddruhy',
+                "verbose_name": "Subspecies - Poddruh",
+                "verbose_name_plural": "Subspecies - Poddruhy",
             },
         ),
     ]

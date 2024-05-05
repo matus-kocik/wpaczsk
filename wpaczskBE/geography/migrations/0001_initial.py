@@ -8,41 +8,149 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Country',
+            name="Country",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Dátum a čas vytvorenia záznamu', verbose_name='Vytvorenie')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Dátum a čas poslednej aktualizácie', verbose_name='Aktualizácia')),
-                ('deleted_at', models.DateTimeField(blank=True, help_text='Dátum a čas zmazania', null=True, verbose_name='Zmazanie')),
-                ('czech_name', models.CharField(help_text='Český názov krajiny', max_length=64, verbose_name='Český názov krajiny')),
-                ('slovak_name', models.CharField(help_text='Slovenský názov krajiny', max_length=64, verbose_name='Slovenský názov krajiny')),
-                ('english_name', models.CharField(help_text='Medzinárodný anglický názov krajiny', max_length=64, verbose_name='Anglický názov krajiny')),
-                ('code', models.CharField(help_text='Medzinárodný ISO kód krajiny', max_length=8, verbose_name='Kód krajiny')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True,
+                        help_text="Dátum a čas vytvorenia záznamu",
+                        verbose_name="Vytvorenie",
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        auto_now=True,
+                        help_text="Dátum a čas poslednej aktualizácie",
+                        verbose_name="Aktualizácia",
+                    ),
+                ),
+                (
+                    "deleted_at",
+                    models.DateTimeField(
+                        blank=True,
+                        help_text="Dátum a čas zmazania",
+                        null=True,
+                        verbose_name="Zmazanie",
+                    ),
+                ),
+                (
+                    "czech_name",
+                    models.CharField(
+                        help_text="Český názov krajiny",
+                        max_length=64,
+                        verbose_name="Český názov krajiny",
+                    ),
+                ),
+                (
+                    "slovak_name",
+                    models.CharField(
+                        help_text="Slovenský názov krajiny",
+                        max_length=64,
+                        verbose_name="Slovenský názov krajiny",
+                    ),
+                ),
+                (
+                    "english_name",
+                    models.CharField(
+                        help_text="Medzinárodný anglický názov krajiny",
+                        max_length=64,
+                        verbose_name="Anglický názov krajiny",
+                    ),
+                ),
+                (
+                    "code",
+                    models.CharField(
+                        help_text="Medzinárodný ISO kód krajiny",
+                        max_length=8,
+                        verbose_name="Kód krajiny",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Krajina',
-                'verbose_name_plural': 'Krajiny',
+                "verbose_name": "Krajina",
+                "verbose_name_plural": "Krajiny",
             },
         ),
         migrations.CreateModel(
-            name='Location',
+            name="Location",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Dátum a čas vytvorenia záznamu', verbose_name='Vytvorenie')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Dátum a čas poslednej aktualizácie', verbose_name='Aktualizácia')),
-                ('deleted_at', models.DateTimeField(blank=True, help_text='Dátum a čas zmazania', null=True, verbose_name='Zmazanie')),
-                ('latitude', models.FloatField(help_text='Zemepisnú šírka miesta. Kladné hodnoty reprezentujú sever, záporné hodnoty reprezentujú juh.', verbose_name='Zemepisná šírka')),
-                ('longitude', models.FloatField(help_text='Zemepisná dĺžka miesta. Kladné hodnoty reprezentujú východ, záporné hodnoty reprezentujú západ', verbose_name='Zemepisná dĺžka')),
-                ('country', models.ForeignKey(help_text='Názov krajiny', null=True, on_delete=django.db.models.deletion.SET_NULL, to='geography.country', verbose_name='Krajina')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True,
+                        help_text="Dátum a čas vytvorenia záznamu",
+                        verbose_name="Vytvorenie",
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        auto_now=True,
+                        help_text="Dátum a čas poslednej aktualizácie",
+                        verbose_name="Aktualizácia",
+                    ),
+                ),
+                (
+                    "deleted_at",
+                    models.DateTimeField(
+                        blank=True,
+                        help_text="Dátum a čas zmazania",
+                        null=True,
+                        verbose_name="Zmazanie",
+                    ),
+                ),
+                (
+                    "latitude",
+                    models.FloatField(
+                        help_text="Zemepisnú šírka miesta. Kladné hodnoty reprezentujú sever, záporné hodnoty reprezentujú juh.",
+                        verbose_name="Zemepisná šírka",
+                    ),
+                ),
+                (
+                    "longitude",
+                    models.FloatField(
+                        help_text="Zemepisná dĺžka miesta. Kladné hodnoty reprezentujú východ, záporné hodnoty reprezentujú západ",
+                        verbose_name="Zemepisná dĺžka",
+                    ),
+                ),
+                (
+                    "country",
+                    models.ForeignKey(
+                        help_text="Názov krajiny",
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to="geography.country",
+                        verbose_name="Krajina",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Lokalita',
-                'verbose_name_plural': 'Lokality',
+                "verbose_name": "Lokalita",
+                "verbose_name_plural": "Lokality",
             },
         ),
     ]

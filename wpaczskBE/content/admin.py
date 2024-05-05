@@ -1,5 +1,6 @@
 from django.contrib import admin
-from content.models import Article, Event, Comment
+
+from content.models import Article, Comment, Event
 
 admin.site.register(Article)
 admin.site.register(Event)

@@ -7,38 +7,127 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Dátum a čas vytvorenia záznamu', verbose_name='Vytvorenie')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Dátum a čas poslednej aktualizácie', verbose_name='Aktualizácia')),
-                ('deleted_at', models.DateTimeField(blank=True, help_text='Dátum a čas zmazania', null=True, verbose_name='Zmazanie')),
-                ('name', models.CharField(help_text='Názov kategórie.', max_length=32, verbose_name='Názaov kategórie')),
-                ('description', models.TextField(blank=True, help_text='Popis kategórie.', null=True, verbose_name='Popis')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True,
+                        help_text="Dátum a čas vytvorenia záznamu",
+                        verbose_name="Vytvorenie",
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        auto_now=True,
+                        help_text="Dátum a čas poslednej aktualizácie",
+                        verbose_name="Aktualizácia",
+                    ),
+                ),
+                (
+                    "deleted_at",
+                    models.DateTimeField(
+                        blank=True,
+                        help_text="Dátum a čas zmazania",
+                        null=True,
+                        verbose_name="Zmazanie",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(
+                        help_text="Názov kategórie.",
+                        max_length=32,
+                        verbose_name="Názaov kategórie",
+                    ),
+                ),
+                (
+                    "description",
+                    models.TextField(
+                        blank=True,
+                        help_text="Popis kategórie.",
+                        null=True,
+                        verbose_name="Popis",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Kategória',
-                'verbose_name_plural': 'Kategórie',
+                "verbose_name": "Kategória",
+                "verbose_name_plural": "Kategórie",
             },
         ),
         migrations.CreateModel(
-            name='Tag',
+            name="Tag",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Dátum a čas vytvorenia záznamu', verbose_name='Vytvorenie')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Dátum a čas poslednej aktualizácie', verbose_name='Aktualizácia')),
-                ('deleted_at', models.DateTimeField(blank=True, help_text='Dátum a čas zmazania', null=True, verbose_name='Zmazanie')),
-                ('name', models.CharField(help_text='Názov tagu.', max_length=32, verbose_name='Názov tagu')),
-                ('description', models.TextField(blank=True, help_text='Popis tagu.', null=True, verbose_name='Popis')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True,
+                        help_text="Dátum a čas vytvorenia záznamu",
+                        verbose_name="Vytvorenie",
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        auto_now=True,
+                        help_text="Dátum a čas poslednej aktualizácie",
+                        verbose_name="Aktualizácia",
+                    ),
+                ),
+                (
+                    "deleted_at",
+                    models.DateTimeField(
+                        blank=True,
+                        help_text="Dátum a čas zmazania",
+                        null=True,
+                        verbose_name="Zmazanie",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(
+                        help_text="Názov tagu.",
+                        max_length=32,
+                        verbose_name="Názov tagu",
+                    ),
+                ),
+                (
+                    "description",
+                    models.TextField(
+                        blank=True,
+                        help_text="Popis tagu.",
+                        null=True,
+                        verbose_name="Popis",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Tag',
-                'verbose_name_plural': 'Tagy',
+                "verbose_name": "Tag",
+                "verbose_name_plural": "Tagy",
             },
         ),
     ]

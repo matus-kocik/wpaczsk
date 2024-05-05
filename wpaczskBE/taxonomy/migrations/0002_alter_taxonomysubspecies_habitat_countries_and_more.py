@@ -6,19 +6,39 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('geography', '0002_alter_location_country_alter_location_latitude_and_more'),
-        ('taxonomy', '0001_initial'),
+        ("geography", "0002_alter_location_country_alter_location_latitude_and_more"),
+        ("taxonomy", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='taxonomysubspecies',
-            name='habitat_countries',
-            field=models.ManyToManyField(blank=True, help_text='Krajiny, kde jedinec žije', to='geography.country', verbose_name='Krajiny'),
+            model_name="taxonomysubspecies",
+            name="habitat_countries",
+            field=models.ManyToManyField(
+                blank=True,
+                help_text="Krajiny, kde jedinec žije",
+                to="geography.country",
+                verbose_name="Krajiny",
+            ),
         ),
         migrations.AlterField(
-            model_name='taxonomysubspecies',
-            name='status_in_nature',
-            field=models.CharField(blank=True, choices=[('LC', 'Málo dotknutý'), ('NT', 'Takmer ohrozený'), ('VU', 'Zraniteľný'), ('EN', 'Ohrozený'), ('CR', 'Kriticky ohrozený'), ('EW', 'Vyhubený vo voľnej prírode'), ('EX', 'Vyhubený')], help_text='Stav ohrozenia jedincov v prírode podľa medzinárodných tabuliek', max_length=32, null=True, verbose_name='Stav v prírode'),
+            model_name="taxonomysubspecies",
+            name="status_in_nature",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("LC", "Málo dotknutý"),
+                    ("NT", "Takmer ohrozený"),
+                    ("VU", "Zraniteľný"),
+                    ("EN", "Ohrozený"),
+                    ("CR", "Kriticky ohrozený"),
+                    ("EW", "Vyhubený vo voľnej prírode"),
+                    ("EX", "Vyhubený"),
+                ],
+                help_text="Stav ohrozenia jedincov v prírode podľa medzinárodných tabuliek",
+                max_length=32,
+                null=True,
+                verbose_name="Stav v prírode",
+            ),
         ),
     ]

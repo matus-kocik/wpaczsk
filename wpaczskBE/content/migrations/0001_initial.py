@@ -9,48 +9,161 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('geography', '0002_alter_location_country_alter_location_latitude_and_more'),
+        ("geography", "0002_alter_location_country_alter_location_latitude_and_more"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Article',
+            name="Article",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=128, verbose_name='Titulok článku')),
-                ('pdf_file', models.FileField(upload_to='articles/', verbose_name='PDF súbor článku')),
-                ('main_image', models.ImageField(blank=True, null=True, upload_to='article_image/', verbose_name='Titulný obrázok')),
-                ('publication_date', models.DateField(verbose_name='Dátum publikácie článku')),
-                ('author', models.CharField(max_length=128, verbose_name='Autor článku')),
-                ('info', models.CharField(max_length=128, verbose_name='Krátke info k článku')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Vytvorenie záznamu')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Aktualizácia záznamu')),
-                ('deleted_at', models.DateTimeField(blank=True, null=True, verbose_name='Zmazanie záznamu, ak ide o mäkké zmazanie')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(max_length=128, verbose_name="Titulok článku"),
+                ),
+                (
+                    "pdf_file",
+                    models.FileField(
+                        upload_to="articles/", verbose_name="PDF súbor článku"
+                    ),
+                ),
+                (
+                    "main_image",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="article_image/",
+                        verbose_name="Titulný obrázok",
+                    ),
+                ),
+                (
+                    "publication_date",
+                    models.DateField(verbose_name="Dátum publikácie článku"),
+                ),
+                (
+                    "author",
+                    models.CharField(max_length=128, verbose_name="Autor článku"),
+                ),
+                (
+                    "info",
+                    models.CharField(
+                        max_length=128, verbose_name="Krátke info k článku"
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="Vytvorenie záznamu"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        auto_now=True, verbose_name="Aktualizácia záznamu"
+                    ),
+                ),
+                (
+                    "deleted_at",
+                    models.DateTimeField(
+                        blank=True,
+                        null=True,
+                        verbose_name="Zmazanie záznamu, ak ide o mäkké zmazanie",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Článok',
-                'verbose_name_plural': 'Články',
+                "verbose_name": "Článok",
+                "verbose_name_plural": "Články",
             },
         ),
         migrations.CreateModel(
-            name='Event',
+            name="Event",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=128, verbose_name='Titulok udalosti')),
-                ('pdf_file', models.FileField(blank=True, null=True, upload_to='articles/', verbose_name='PDF súbor udalosti')),
-                ('main_image', models.ImageField(blank=True, null=True, upload_to='event_image/', verbose_name='Titulný obrázok')),
-                ('date_from', models.DateField(verbose_name='Dátum začiatku udalosti')),
-                ('date_to', models.DateField(verbose_name='Dátum ukončenia udalosti')),
-                ('url', models.URLField(blank=True, null=True, verbose_name='url odkaz na udalosť')),
-                ('info', models.CharField(max_length=128, verbose_name='Krátke info k udalosti')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Vytvorenie záznamu')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='Aktualizácia záznamu')),
-                ('deleted_at', models.DateTimeField(blank=True, null=True, verbose_name='Zmazanie záznamu, ak ide o mäkké zmazanie')),
-                ('location', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='geography.location', verbose_name='Miesto udalosti')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(max_length=128, verbose_name="Titulok udalosti"),
+                ),
+                (
+                    "pdf_file",
+                    models.FileField(
+                        blank=True,
+                        null=True,
+                        upload_to="articles/",
+                        verbose_name="PDF súbor udalosti",
+                    ),
+                ),
+                (
+                    "main_image",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="event_image/",
+                        verbose_name="Titulný obrázok",
+                    ),
+                ),
+                ("date_from", models.DateField(verbose_name="Dátum začiatku udalosti")),
+                ("date_to", models.DateField(verbose_name="Dátum ukončenia udalosti")),
+                (
+                    "url",
+                    models.URLField(
+                        blank=True, null=True, verbose_name="url odkaz na udalosť"
+                    ),
+                ),
+                (
+                    "info",
+                    models.CharField(
+                        max_length=128, verbose_name="Krátke info k udalosti"
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="Vytvorenie záznamu"
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        auto_now=True, verbose_name="Aktualizácia záznamu"
+                    ),
+                ),
+                (
+                    "deleted_at",
+                    models.DateTimeField(
+                        blank=True,
+                        null=True,
+                        verbose_name="Zmazanie záznamu, ak ide o mäkké zmazanie",
+                    ),
+                ),
+                (
+                    "location",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.DO_NOTHING,
+                        to="geography.location",
+                        verbose_name="Miesto udalosti",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Udalosť',
-                'verbose_name_plural': 'Udalosti',
+                "verbose_name": "Udalosť",
+                "verbose_name_plural": "Udalosti",
             },
         ),
     ]

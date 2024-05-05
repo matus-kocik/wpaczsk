@@ -9,33 +9,136 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('account', '0001_initial'),
-        ('taxonomy', '0001_initial'),
+        ("account", "0001_initial"),
+        ("taxonomy", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='BreedingRecord',
+            name="BreedingRecord",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('year', models.IntegerField(help_text='Rok, pre ktorý je záznam o chove', verbose_name='Rok')),
-                ('number_of_males', models.IntegerField(help_text='Počet samcov chovaného druhu/poddruhu', verbose_name='Počet samcov')),
-                ('number_of_females', models.IntegerField(help_text='Počet samíc chovaného druhu/poddruhu', verbose_name='Počet samíc')),
-                ('total_of_species', models.IntegerField(help_text='Celkový počet kusov chovaného druhu', verbose_name='Celkový počet kusov')),
-                ('number_of_male_offsprings', models.IntegerField(help_text='Počet samcov odchovaného druhu/poddruhu', verbose_name='Počet samcov odchov')),
-                ('number_of_female_offsprings', models.IntegerField(help_text='Počet samíc odchovaného druhu/poddruhu', verbose_name='Počet samíc odchov')),
-                ('number_of_unspecified_offsprings', models.IntegerField(help_text='Počet kusov neurčeného pohlavia druhu/poddruhu', verbose_name='Neurčený odchov')),
-                ('total_offsprings', models.IntegerField(help_text='Celkový počet potomkov', verbose_name='Celkový počet potomkov')),
-                ('notes', models.TextField(blank=True, help_text='Dodatočné poznámky o chove', null=True, verbose_name='Poznámky')),
-                ('created_at', models.DateTimeField(auto_now_add=True, help_text='Čas vytvorenia záznamu', verbose_name='Vytvorenie')),
-                ('updated_at', models.DateTimeField(auto_now=True, help_text='Čas poslednej aktualizácie záznamu', verbose_name='Aktualizácia')),
-                ('deleted_at', models.DateTimeField(blank=True, help_text='Čas zmazania záznamu, ak ide o mäkké zmazanie', null=True, verbose_name='Zmazanie')),
-                ('breeder', models.ForeignKey(help_text='Chovateľ a člen organizácie', on_delete=django.db.models.deletion.CASCADE, to='account.breederprofile', verbose_name='Chovateľ')),
-                ('subspecies', models.ForeignKey(blank=True, help_text='Poddruh, ktorý sa chová', null=True, on_delete=django.db.models.deletion.CASCADE, to='taxonomy.taxonomysubspecies', verbose_name='Poddruh')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "year",
+                    models.IntegerField(
+                        help_text="Rok, pre ktorý je záznam o chove", verbose_name="Rok"
+                    ),
+                ),
+                (
+                    "number_of_males",
+                    models.IntegerField(
+                        help_text="Počet samcov chovaného druhu/poddruhu",
+                        verbose_name="Počet samcov",
+                    ),
+                ),
+                (
+                    "number_of_females",
+                    models.IntegerField(
+                        help_text="Počet samíc chovaného druhu/poddruhu",
+                        verbose_name="Počet samíc",
+                    ),
+                ),
+                (
+                    "total_of_species",
+                    models.IntegerField(
+                        help_text="Celkový počet kusov chovaného druhu",
+                        verbose_name="Celkový počet kusov",
+                    ),
+                ),
+                (
+                    "number_of_male_offsprings",
+                    models.IntegerField(
+                        help_text="Počet samcov odchovaného druhu/poddruhu",
+                        verbose_name="Počet samcov odchov",
+                    ),
+                ),
+                (
+                    "number_of_female_offsprings",
+                    models.IntegerField(
+                        help_text="Počet samíc odchovaného druhu/poddruhu",
+                        verbose_name="Počet samíc odchov",
+                    ),
+                ),
+                (
+                    "number_of_unspecified_offsprings",
+                    models.IntegerField(
+                        help_text="Počet kusov neurčeného pohlavia druhu/poddruhu",
+                        verbose_name="Neurčený odchov",
+                    ),
+                ),
+                (
+                    "total_offsprings",
+                    models.IntegerField(
+                        help_text="Celkový počet potomkov",
+                        verbose_name="Celkový počet potomkov",
+                    ),
+                ),
+                (
+                    "notes",
+                    models.TextField(
+                        blank=True,
+                        help_text="Dodatočné poznámky o chove",
+                        null=True,
+                        verbose_name="Poznámky",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(
+                        auto_now_add=True,
+                        help_text="Čas vytvorenia záznamu",
+                        verbose_name="Vytvorenie",
+                    ),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(
+                        auto_now=True,
+                        help_text="Čas poslednej aktualizácie záznamu",
+                        verbose_name="Aktualizácia",
+                    ),
+                ),
+                (
+                    "deleted_at",
+                    models.DateTimeField(
+                        blank=True,
+                        help_text="Čas zmazania záznamu, ak ide o mäkké zmazanie",
+                        null=True,
+                        verbose_name="Zmazanie",
+                    ),
+                ),
+                (
+                    "breeder",
+                    models.ForeignKey(
+                        help_text="Chovateľ a člen organizácie",
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="account.breederprofile",
+                        verbose_name="Chovateľ",
+                    ),
+                ),
+                (
+                    "subspecies",
+                    models.ForeignKey(
+                        blank=True,
+                        help_text="Poddruh, ktorý sa chová",
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="taxonomy.taxonomysubspecies",
+                        verbose_name="Poddruh",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Záznam o chove',
-                'verbose_name_plural': 'Záznamy o chove',
+                "verbose_name": "Záznam o chove",
+                "verbose_name_plural": "Záznamy o chove",
             },
         ),
     ]
