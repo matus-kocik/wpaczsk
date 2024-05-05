@@ -227,10 +227,29 @@ class BreederProfile(models.Model):
         verbose_name_plural = "Chovatelia"
 
     def save(self, *args, **kwargs):
+        """
+        EN: Overrides the save method to assign a unique registration number if it's not provided.
+        SK: Prepisuje metódu save pre priradenie unikátneho registračného čísla, ak nie je zadané.
+
+        EN: If the object is being added for the first time and no registration number is provided, 
+        it automatically assigns the ID as the registration number with leading zeros.
+        SK: Ak je objekt pridávaný prvýkrát a registračné číslo nie je poskytnuté, 
+        automaticky priradí ID ako registračné číslo s vedúcimi nulami.
+        
+        EN: It ensures that the saving operation is performed atomically. 
+        This means that either all changes are saved, or none of them are. 
+        In case of any error during the save operation, the changes are rolled back to maintain consistency.
+        
+        SK: Zabezpečuje, že operácia ukladania sa vykonáva atomicky. 
+        To znamená, že sa buď všetky zmeny uložia, alebo žiadna z nich. 
+        V prípade akéhokoľvek chybného stavu počas operácie ukladania sa zmeny vrátia späť, aby sa udržala konzistencia.
+        
+        """
         with transaction.atomic():
             if self._state.adding and not self.registration_number:
                 super().save(*args, **kwargs)
-                self.registration_number = self.id
+                self.registration_number = str(self.id).zfill(3) # Add zeros
                 super().save(update_fields=["registration_number"])
             else:
                 super().save(*args, **kwargs)
+
