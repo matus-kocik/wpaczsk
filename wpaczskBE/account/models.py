@@ -6,6 +6,55 @@ from geography.models import Country
 
 
 class Profile(AbstractUser):
+    """
+    EN: Represents a user profile, extending the default Django user model, adding specific fields for more detailed user information.
+    SK: Reprezentuje užívateľský profil, rozširujúci predvolený model užívateľa Django pridaním špecifických polí pre podrobnejšie informácie o užívateľovi.
+
+    Attributes:
+        prefix_academic_title (CharField):
+            EN: The academic or professional title before the name, e.g., 'Dr.', 'Prof.'.
+            SK: Akademický alebo profesijný titul pred menom, napr. 'Dr.', 'Prof.'.
+        suffix_academic_title (CharField):
+            EN: The academic or professional title after the name, e.g., 'PhD', 'MSc'.
+            SK: Akademický alebo profesijný titul za menom, napr. 'PhD', 'MSc'.
+        mobile_phone (PhoneNumberField):
+            EN: The mobile phone number of the user.
+            SK: Mobilné telefónne číslo užívateľa.
+        address (CharField):
+            EN: The user's street address.
+            SK: Ulica a číslo domu užívateľa.
+        city (CharField):
+            EN: The city where the user resides.
+            SK: Mesto, kde užívateľ žije.
+        country (ForeignKey):
+            EN: The country of the user's residence, linked to the Country model.
+            SK: Krajina, kde užívateľ žije, prepojená s modelom Country.
+        profile_picture (ImageField):
+            EN: User's profile picture.
+            SK: Profilový obrázok užívateľa.
+        website_url (URLField):
+            EN: URL of the user's official website.
+            SK: URL oficiálnej webstránky užívateľa.
+        facebook_profile (URLField):
+            EN: Link to the user's Facebook profile.
+            SK: Odkaz na Facebook profil užívateľa.
+        notes (TextField):
+            EN: Internal notes about the user for administrative purposes.
+            SK: Interné poznámky o užívateľovi pre administratívne účely.
+        email_verified (BooleanField):
+            EN: Indicates whether the user's email has been verified.
+            SK: Indikuje, či bol email užívateľa overený.
+        created_at (DateTimeField):
+            EN: Timestamp when the record was created.
+            SK: Časová pečiatka vytvorenia záznamu.
+        updated_at (DateTimeField):
+            EN: Timestamp of the last update of the record.
+            SK: Časová pečiatka poslednej aktualizácie záznamu.
+        deleted_at (DateTimeField):
+            EN: Timestamp of deletion if soft deletion is implemented.
+            SK: Časová pečiatka zmazania, ak je implementované mäkké mazanie.
+    """
+
     prefix_academic_title = models.CharField(
         max_length=32,
         blank=True,
@@ -101,6 +150,28 @@ class Profile(AbstractUser):
 
 
 class BreederProfile(models.Model):
+    """
+    EN: Represents a breeder's profile linked to a user profile, including detailed information specific to breeders.
+    SK: Reprezentuje profil chovateľa prepojený s užívateľským profilom, vrátane detailných informácií špecifických pre chovateľov.
+
+    Attributes:
+        user (OneToOneField):
+            EN: The associated user profile.
+            SK: Asociovaný užívateľský profil.
+        registration_number (PositiveIntegerField):
+            EN: Unique registration number of the breeder, automatically assigned upon creation.
+            SK: Unikátne registračné číslo chovateľa, automaticky pridelené pri vytvorení.
+        user_type (CharField):
+            EN: Defines the user's type for access rights and functionalities.
+            SK: Definuje typ užívateľa pre prístupové práva a funkcie.
+        role_type (CharField):
+            EN: Defined role of the member within the organization.
+            SK: Definovaná funkcia člena v organizácii.
+        status_type (CharField):
+            EN: Defined status of the member within the organization.
+            SK: Definovaný status člena v organizácii.
+    """
+
     user = models.OneToOneField(
         Profile,
         on_delete=models.CASCADE,
