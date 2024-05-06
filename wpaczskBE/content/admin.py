@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from content.models import Article, Comment, Event
+from content.models import Article, Event
 
 admin.site.register(Article)
 admin.site.register(Event)
-admin.site.register(Comment)
+#admin.site.register(Comment)

@@ -1,10 +1,11 @@
-from django.contrib.contenttypes.fields import GenericForeignKey
-from django.contrib.contenttypes.models import ContentType
+#from django.contrib.contenttypes.fields import GenericForeignKey
+#from django.contrib.contenttypes.models import ContentType
 from django.db import models
 
-from account.models import Profile
+#from account.models import Profile
 from geography.models import Location
 from common_models.models import SEOModel, TimeStampedModel
+from media.models import Image
 
 
 class Article(SEOModel, TimeStampedModel):
@@ -28,6 +29,18 @@ class Article(SEOModel, TimeStampedModel):
         info (CharField):
             EN: Short info or description of the article.
             SK: Krátke info alebo popis článku.
+        author (CharField):
+            EN: The author of the article.
+            SK: Autor článku.
+        info (CharField):
+            EN: Short info or description of the article.
+            SK: Krátke info alebo popis článku.
+        description (TextField):
+            EN: Detailed information about the article.
+            SK: Podrobné informácie o článku.
+        gallery (ManyToManyField):
+            EN: A dynamic gallery of images associated with the article.
+            SK: Dynamická galéria obrázkov asociovaných s článkom.
     """
 
     title = models.CharField(
@@ -51,7 +64,12 @@ class Article(SEOModel, TimeStampedModel):
         verbose_name="Dátum publikácie článku",
         help_text="Zadajte dátum publikácie článku.",
     )
-    # TODO Riesit vyber alebo napisanie mena ... author = models.CharField(max_length=128, verbose_name="Autor článku", help_text="Zadajte meno autora článku.") # Reference to the article's author. // Odkaz na autora článku.
+    author = models.CharField(
+        max_length=128,
+        default='Unknown author',
+        verbose_name="Autor článku",
+        help_text="Zadajte meno autora článku.",
+    )
     info = models.CharField(
         max_length=128,
         blank=True,
@@ -59,8 +77,14 @@ class Article(SEOModel, TimeStampedModel):
         verbose_name="Krátke info k článku",
         help_text="Zadajte krátky popis alebo informácie o článku.",
     )
-    # TODO description = models.TextField() ...
-    # TODO gallery = models.ManytoManyFields(Image)...
+    description = models.TextField(
+        blank=True,
+        null=True,
+        verbose_name="Informácie o článku",
+        help_text="Zadajte informácie o článku.",
+    )
+
+    gallery = models.ManyToManyField(Image, related_name="articles", blank=True)
 
     class Meta:
         verbose_name = "Článok"
@@ -100,6 +124,12 @@ class Event(SEOModel, TimeStampedModel):
         location (ForeignKey):
             EN: Location where the event is held.
             SK: Miesto konania udalosti.
+        description (TextField):
+            EN: Detailed information about the event.
+            SK: Podrobné informácie o udalosti.
+        gallery (ManyToManyField):
+            EN: A dynamic gallery of images associated with the event.
+            SK: Dynamická galéria obrázkov asociovaných s udalosťou.
     """
 
     title = models.CharField(
@@ -149,8 +179,14 @@ class Event(SEOModel, TimeStampedModel):
         verbose_name="Miesto udalosti",
         help_text="Vyberte lokáciu, kde sa udalosť koná.",
     )
-    # TODO description = models.TextField() ...
-    # TODO gallery = models.ManytoManyFields(Image)...
+    description = models.TextField(
+        blank=True,
+        null=True,
+        verbose_name="Informácie o udalosti",
+        help_text="Zadajte informácie o udalosti.",
+    )
+
+    gallery = models.ManyToManyField(Image, related_name="events", blank=True)
 
     class Meta:
         verbose_name = "Udalosť"
@@ -160,8 +196,9 @@ class Event(SEOModel, TimeStampedModel):
         return self.title
 
 
+"""
 class Comment(SEOModel, TimeStampedModel):
-    """
+    
     EN: Represents a comment added to various content types, such as articles or events. Comments allow users to engage with the content.
     SK: Reprezentuje komentár pridaný k rôznym typom obsahu, ako sú články alebo udalosti. Komentáre umožňujú užívateľom zapojiť sa do obsahu.
 
@@ -181,7 +218,7 @@ class Comment(SEOModel, TimeStampedModel):
         comment (TextField):
             EN: Text of the comment.
             SK: Text komentára.
-    """
+    
 
     title = models.CharField(
         max_length=128,
@@ -217,3 +254,4 @@ class Comment(SEOModel, TimeStampedModel):
 
     def __str__(self):
         return self.title
+"""
