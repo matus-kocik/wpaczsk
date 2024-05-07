@@ -2,13 +2,13 @@
 #from django.contrib.contenttypes.models import ContentType
 from django.db import models
 
+from common_models.models import SEOModel, TaggableManager, TimeStampedModel
 #from account.models import Profile
 from geography.models import Location
-from common_models.models import SEOModel, TimeStampedModel
 from media.models import Image
 
 
-class Article(SEOModel, TimeStampedModel):
+class Article(SEOModel, TimeStampedModel, TaggableManager):
     """
     EN: Represents an article with metadata for publication. Articles can contain text, images, and PDFs relevant to the content.
     SK: Reprezentuje článok s metadátami na publikovanie. Články môžu obsahovať text, obrázky a PDF súbory relevantné pre obsah.
@@ -94,7 +94,7 @@ class Article(SEOModel, TimeStampedModel):
         return self.title
 
 
-class Event(SEOModel, TimeStampedModel):
+class Event(SEOModel, TimeStampedModel, TaggableManager):
     """
     EN: Represents an event with details including dates and related media. Events can be linked to specific locations and have associated images or PDFs.
     SK: Reprezentuje udalosť s detailami vrátane dátumov a súvisiacich médií. Udalosti môžu byť prepojené s konkrétnymi miestami a môžu mať priradené obrázky alebo PDF súbory.

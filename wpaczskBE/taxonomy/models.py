@@ -1,11 +1,11 @@
 from django.db import models
 
+from common_models.models import SEOModel, TaggableManager, TimeStampedModel
 from geography.models import Country
 from media.models import Image, Movie
-from common_models.models import (SEOModel, TimeStampedModel)
 
 
-class TaxonomyBase(SEOModel, TimeStampedModel):
+class TaxonomyBase(SEOModel, TimeStampedModel, TaggableManager):
     """
     EN: Abstract base class for taxonomy entities, providing common fields for naming in multiple languages and tracking the creation and modification times.
     SK: Abstraktná základná trieda pre taxonomické entity, poskytujúca spoločné polia pre pomenovanie v niekoľkých jazykoch a sledovanie času vytvorenia a úprav.

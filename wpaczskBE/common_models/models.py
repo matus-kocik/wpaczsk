@@ -1,4 +1,5 @@
 from django.db import models
+from taggit.managers import TaggableManager
 
 
 class TimeStampedModel(models.Model):
@@ -77,6 +78,18 @@ class SEOModel(models.Model):
         verbose_name="Meta Kľúčové Slová",
         help_text="Kľúčové slová pre SEO, oddeľované čiarkami.",
     )
+
+    class Meta:
+        abstract = True
+
+
+class TaggableModel(models.Model):
+    """
+    EN: An abstract model that provides tagging functionality using django-taggit.
+    SK: Abstraktná trieda modelu, ktorá poskytuje funkciu označovania pomocou django-taggit.
+    """
+
+    tags = TaggableManager()
 
     class Meta:
         abstract = True

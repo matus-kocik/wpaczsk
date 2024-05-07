@@ -1,8 +1,8 @@
 from django.db import models
 
 from account.models import BreederProfile
+from common_models.models import SEOModel, TaggableManager, TimeStampedModel
 from taxonomy.models import TaxonomySubspecies
-from common_models.models import SEOModel, TimeStampedModel
 
 
 class BreedingRecord(SEOModel, TimeStampedModel):
@@ -106,7 +106,7 @@ class BreedingRecord(SEOModel, TimeStampedModel):
         )
 
 
-class Project(SEOModel, TimeStampedModel):
+class Project(SEOModel, TimeStampedModel, TaggableManager):
     """
     EN: Represents a specific project or initiative focused on breeding, including all related activities and members.
     SK: Reprezentuje konkrétny projekt alebo iniciatívu zameranú na chov, vrátane všetkých súvisiacich aktivít a členov.

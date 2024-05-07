@@ -1,9 +1,9 @@
 from django.db import models
 
-from common_models.models import SEOModel, TimeStampedModel
+from common_models.models import SEOModel, TaggableManager, TimeStampedModel
 
 
-class Image(SEOModel, TimeStampedModel):
+class Image(SEOModel, TimeStampedModel, TaggableManager):
     """
     EN: Represents an image with a title, description, and file location. This model is used to manage images stored in the system.
     SK: Reprezentuje obrázok s názvom, popisom a umiestnením súboru. Tento model sa používa na správu obrázkov uložených v systéme.
@@ -31,7 +31,7 @@ class Image(SEOModel, TimeStampedModel):
     )
 
 
-class Movie(SEOModel, TimeStampedModel):
+class Movie(SEOModel, TimeStampedModel, TaggableManager):
     """
     EN: Represents a movie with a title, description, and file location. This model is used to manage videos stored in the system.
     SK: Reprezentuje film s názvom, popisom a umiestnením súboru. Tento model sa používa na správu videí uložených v systéme.

@@ -2,8 +2,8 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models, transaction
 from phonenumber_field.modelfields import PhoneNumberField
 
-from geography.models import Country
 from common_models.models import SEOModel, TimeStampedModel
+from geography.models import Country
 
 
 class Profile(AbstractUser, SEOModel, TimeStampedModel):
