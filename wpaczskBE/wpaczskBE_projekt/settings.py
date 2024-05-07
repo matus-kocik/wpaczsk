@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     "breeding",
     "account",
     "content",
-    "classification",
     "media",
     "common_models",
 ]
