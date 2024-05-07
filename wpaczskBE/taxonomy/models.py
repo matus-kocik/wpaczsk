@@ -293,17 +293,21 @@ class TaxonomySubspecies(TaxonomyBase):
     )
     images = models.ManyToManyField(
         Image,
-        related_name="subspecies",
+        blank=True,
+        related_name="subspecies_image",
         verbose_name="Obrázky",
         help_text="Obrázky súvisiace s poddruhom",
     )
     movies = models.ManyToManyField(
         Movie,
-        related_name="subspecies",
+        blank=True,
+        related_name="subspecies_movie",
         verbose_name="Videá",
         help_text="Videá súvisiace s poddruhom",
     )
-
-    # TODO: url_video = (URLField): Link to a video associated with the species. // Odkaz na video súvisiace s druhom.
-    # TODO: tag = (ManyToManyField to Tag): Tags associated with the species. // Značky priradené k druhu.
-    # TODO: category = (ManyToManyField to Category): Categories associated with the species. // Kategórie priradené k druhu.
+    movies_url = models.URLField(
+        blank = True,
+        null=True,
+        verbose_name="Okaz na videá",
+        help_text="Odkaz na videá súvisiace s poddruhom",
+    )
