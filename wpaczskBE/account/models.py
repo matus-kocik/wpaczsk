@@ -40,7 +40,7 @@ class Profile(AbstractBaseUser, PermissionsMixin, SEOModel, TimeStampedModel):
         REQUIRED_FIELDS (list):
             EN: A list of fields required when creating a user account.
             SK: Zoznam polí vyžadovaných pri vytváraní účtu užívateľa.
-        academic_title_suffix (CharField):
+        academic_title_prefix (CharField):
             EN: The academic or professional title before the name, e.g., 'Dr.', 'Prof.'.
             SK: Akademický alebo profesijný titul pred menom, napr. 'Dr.', 'Prof.'.
         academic_title_suffix (CharField):

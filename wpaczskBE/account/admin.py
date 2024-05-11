@@ -34,9 +34,10 @@ class ProfileAdmin(admin.ModelAdmin):
                 "fields": (
                     "first_name",
                     "last_name",
+                    "gender",
                     "profile_picture",
-                    "prefix_academic_title",
-                    "suffix_academic_title",
+                    "academic_title_prefix",
+                    "academic_title_suffix",
                     "mobile_phone",
                     "address",
                     "city",
