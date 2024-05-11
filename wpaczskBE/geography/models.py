@@ -3,6 +3,7 @@ from django_countries.fields import CountryField
 
 from common_models.models import SEOModel, TimeStampedModel
 
+
 class Country(SEOModel, TimeStampedModel):
     """
     EN: Represents a country with multilingual name entries and ISO code. Essential for internationalization and localization of geographic data.

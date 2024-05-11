@@ -1,17 +1,42 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models, transaction
+from django.utils import timezone
 from phonenumber_field.modelfields import PhoneNumberField
 
 from common_models.models import SEOModel, TimeStampedModel
 from geography.models import Country
 
 
-class Profile(AbstractUser, SEOModel, TimeStampedModel):
+class Profile(AbstractBaseUser, PermissionsMixin, SEOModel, TimeStampedModel):
     """
     EN: Represents a user profile, extending the default Django user model, adding specific fields for more detailed user information.
     SK: Reprezentuje užívateľský profil, rozširujúci predvolený model užívateľa Django pridaním špecifických polí pre podrobnejšie informácie o užívateľovi.
 
     Attributes:
+        email (EmailField):
+            EN: The email address of the user (unique).
+            SK: Emailová adresa užívateľa (unikátna).
+        first_name (CharField):
+            EN: The first name of the user.
+            SK: Krstné meno užívateľa.
+        last_name (CharField):
+            EN: The last name of the user.
+            SK: Priezvisko užívateľa.
+        is_active (BooleanField):
+            EN: Indicates whether the user account is active.
+            SK: Indikuje, či je účet užívateľa aktívny.
+        is_staff (BooleanField):
+            EN: Indicates whether the user is a staff member.
+            SK: Indikuje, či je užívateľ personál.
+        date_joined (DateTimeField):
+            EN: The date and time when the user account was created.
+            SK: Dátum a čas vytvorenia účtu užívateľa.
+        USERNAME_FIELD (str):
+            EN: The field used as the unique identifier for the user (default is 'email').
+            SK: Pole použité ako jedinečný identifikátor pre užívateľa (predvolené je 'email').
+        REQUIRED_FIELDS (list):
+            EN: A list of fields required when creating a user account.
+            SK: Zoznam polí vyžadovaných pri vytváraní účtu užívateľa.
         prefix_academic_title (CharField):
             EN: The academic or professional title before the name, e.g., 'Dr.', 'Prof.'.
             SK: Akademický alebo profesijný titul pred menom, napr. 'Dr.', 'Prof.'.
@@ -46,6 +71,15 @@ class Profile(AbstractUser, SEOModel, TimeStampedModel):
             EN: Indicates whether the user's email has been verified.
             SK: Indikuje, či bol email užívateľa overený.
     """
+
+    email = models.EmailField(unique=True)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+    date_joined = models.DateTimeField(default=timezone.now)
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ["first_name", "last_name"]
 
     prefix_academic_title = models.CharField(
         max_length=32,
@@ -123,6 +157,23 @@ class Profile(AbstractUser, SEOModel, TimeStampedModel):
     class Meta:
         verbose_name = "Užívateľ"
         verbose_name_plural = "Užívatelia"
+
+    def __str__(self):
+        return self.email
+
+    def get_full_name(self):
+        """
+        EN: Returns the user's full name.
+        SK: Vráti celé meno užívateľa.
+        """
+        return f"{self.first_name} {self.last_name}"
+
+    def get_short_name(self):
+        """
+        EN: Returns the user's short name.
+        SK: Vráti krátke meno užívateľa.
+        """
+        return self.first_name
 
 
 class BreederProfile(SEOModel, TimeStampedModel):
