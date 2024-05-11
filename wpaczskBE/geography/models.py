@@ -1,7 +1,7 @@
 from django.db import models
+from django_countries.fields import CountryField
 
 from common_models.models import SEOModel, TimeStampedModel
-
 
 class Country(SEOModel, TimeStampedModel):
     """
@@ -9,39 +9,28 @@ class Country(SEOModel, TimeStampedModel):
     SK: Reprezentuje krajinu s viacjazyčnými záznamami názvov a ISO kódom. Nevyhnutné pre internacionalizáciu a lokalizáciu geografických údajov.
 
     Attributes:
+        country_info (CountryField):
+            EN: Field that includes the ISO code and the country name in multiple languages.
+            SK: Pole obsahujúce ISO kód a názov krajiny v rôznych jazykoch.
         czech_name (CharField):
             EN: The name of the country in Czech.
             SK: Názov krajiny v češtine.
         slovak_name (CharField):
             EN: The name of the country in Slovak.
             SK: Názov krajiny v slovenčine.
-        english_name (CharField):
-            EN: The international English name of the country.
-            SK: Medzinárodný anglický názov krajiny.
-        code (CharField):
-            EN: The international ISO code of the country.
-            SK: Medzinárodný ISO kód krajiny.
     """
-
+    country_info = CountryField(blank_label="(select country)", verbose_name="Country")
     czech_name = models.CharField(
         max_length=64,
         verbose_name="Český názov krajiny",
         help_text="Český názov krajiny",
     )
     slovak_name = models.CharField(
+        blank=True,
+        null=True,
         max_length=64,
         verbose_name="Slovenský názov krajiny",
         help_text="Slovenský názov krajiny",
-    )
-    english_name = models.CharField(
-        max_length=64,
-        verbose_name="Anglický názov krajiny",
-        help_text="Medzinárodný anglický názov krajiny",
-    )
-    code = models.CharField(
-        max_length=8,
-        verbose_name="Kód krajiny",
-        help_text="Medzinárodný ISO kód krajiny",
     )
 
     class Meta:
@@ -50,7 +39,6 @@ class Country(SEOModel, TimeStampedModel):
 
     def __str__(self):
         return self.czech_name
-
 
 class Location(SEOModel, TimeStampedModel):
     """
@@ -68,7 +56,6 @@ class Location(SEOModel, TimeStampedModel):
             EN: Longitude coordinate, positive for East and negative for West.
             SK: Zemepisná dĺžka, kladné hodnoty reprezentujú východ, záporné hodnoty západ.
     """
-
     country = models.ForeignKey(
         Country,
         on_delete=models.CASCADE,
@@ -79,7 +66,7 @@ class Location(SEOModel, TimeStampedModel):
         blank=True,
         null=True,
         verbose_name="Zemepisná šírka",
-        help_text="Zemepisnú šírka miesta. Kladné hodnoty reprezentujú sever, záporné hodnoty reprezentujú juh.",
+        help_text="Zemepisná šírka miesta. Kladné hodnoty reprezentujú sever, záporné hodnoty reprezentujú juh.",
     )
     longitude = models.FloatField(
         blank=True,
