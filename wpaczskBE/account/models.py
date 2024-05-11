@@ -79,7 +79,7 @@ class Profile(AbstractBaseUser, PermissionsMixin, SEOModel, TimeStampedModel):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     gender = models.CharField(
-        max_length=10,
+        max_length=16,
         choices=[
             ("male", "Muž"),
             ("female", "Žena"),
