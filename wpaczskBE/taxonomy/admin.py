@@ -14,6 +14,19 @@ from .models import (
 
 
 class TaxonomyBaseAdmin(admin.ModelAdmin):
+    """
+    EN: Admin interface for managing taxonomy entities.
+    SK: Administračné rozhranie na správu taxonomických entít.
+
+    Attributes:
+        list_display (tuple): Fields displayed in the list view of taxonomy entities.
+            EN: Fields displayed in the list view.
+            SK: Polia zobrazené v prehľade.
+        list_filter (tuple): Fields used for filtering in the admin list view of taxonomy entities.
+            EN: Fields used for filtering in the admin list view.
+            SK: Polia používané na filtrovanie v prehľade admina.
+    """
+
     list_display = (
         "latin_name",
         "czech_name",
@@ -77,6 +90,19 @@ class TaxonomySpeciesAdmin(TaxonomyBaseAdmin):
 
 @admin.register(TaxonomySubspecies)
 class TaxonomySubspeciesAdmin(TaxonomyBaseAdmin):
+    """
+    EN: Admin class for managing subspecies taxonomy.
+    SK: Trieda admina na správu taxonómie poddruhov.
+
+    Attributes:
+        list_filter (tuple): A tuple of fields used for filtering the admin list view.
+            EN: Fields used for filtering the admin list view.
+            SK: Polia používané na filtrovanie zobrazenia v adminovi.
+        fieldsets (tuple): A tuple of fieldsets used to organize fields in the admin interface.
+            EN: Fieldsets used to organize fields in the admin interface.
+            SK: Skupiny polí používané na usporiadanie polí v rozhraní admina.
+    """
+
     list_filter = TaxonomyBaseAdmin.list_filter + ("taxonomy_species",)
 
     fieldsets = (
