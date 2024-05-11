@@ -77,7 +77,12 @@ class Profile(AbstractBaseUser, PermissionsMixin, SEOModel, TimeStampedModel):
     last_name = models.CharField(max_length=30)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    date_joined = models.DateTimeField(default=timezone.now)
+    date_joined = models.DateTimeField(
+        default=timezone.now,
+        verbose_name="Dátum vytvorenia účtu",
+        help_text="Dátum a čas, kedy bol vytvorený používateľský účet.",
+    )
+
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["first_name", "last_name"]
 
