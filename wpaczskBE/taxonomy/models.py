@@ -183,6 +183,74 @@ class TaxonomySubspecies(TaxonomyBase):
     """
     EN: Represents a subspecies in biological taxonomy, a rank below species.
     SK: Reprezentuje poddruh v biologickej taxonómii, stupeň nižšie ako druh.
+
+    Attributes:
+        latin_name (CharField):
+            EN: The original Latin name of the subspecies.
+            SK: Originálne latinské pomenovanie poddruhu.
+        czech_name (CharField):
+            EN: The original Czech name of the subspecies.
+            SK: Originálne české pomenovanie poddruhu.
+        slovak_name (CharField):
+            EN: The original Slovak name of the subspecies, optional.
+            SK: Originálne slovenské pomenovanie poddruhu, voliteľné.
+        english_name (CharField):
+            EN: The original English name of the subspecies, optional.
+            SK: Originálne anglické pomenovanie poddruhu, voliteľné.
+        german_name (CharField):
+            EN: The original German name of the subspecies, optional.
+            SK: Originálne nemecké pomenovanie poddruhu, voliteľné.
+        average_lifespan (IntegerField):
+            EN: The average lifespan of the subspecies.
+            SK: Priemerná dĺžka života poddruhu.
+        biotop (TextField):
+            EN: The biotope predominantly inhabited by the subspecies.
+            SK: Biotop, ktorý prevažne obýva poddruh.
+        description (TextField):
+            EN: A detailed description of the subspecies.
+            SK: Podrobý popis poddruhu.
+        habitat_countries (ManyToManyField):
+            EN: Countries where the subspecies is found.
+            SK: Krajiny, kde sa poddruh vyskytuje.
+        status_in_nature (CharField):
+            EN: The conservation status of the subspecies in nature.
+            SK: Stav ohrozenia poddruhu v prírode.
+        status_in_captivity (TextField):
+            EN: The status of captive individuals of the subspecies.
+            SK: Stav chovaných jedincov poddruhu v zajatí.
+        maturity (CharField):
+            EN: The maturity age of the subspecies.
+            SK: Vek dospelosti poddruhu.
+        length (CharField):
+            EN: The length of the subspecies.
+            SK: Dĺžka poddruhu.
+        weight (CharField):
+            EN: The weight of the subspecies.
+            SK: Hmotnosť poddruhu.
+        clutch (CharField):
+            EN: The clutch size of the subspecies.
+            SK: Veľkosť znášky poddruhu.
+        incubation (CharField):
+            EN: The incubation period of the subspecies.
+            SK: Doba inkubácie poddruhu.
+        ring_size (FloatField):
+            EN: The ring size of the subspecies.
+            SK: Veľkosť krúžku poddruhu.
+        population_in_czech_republic (TextField):
+            EN: Population information in the Czech Republic and Slovakia.
+            SK: Informácie o populácii v Českej republike a na Slovensku.
+        breeding_difficulty (TextField):
+            EN: Difficulty level of breeding the subspecies.
+            SK: Úroveň náročnosti chovu poddruhu.
+        images (ManyToManyField):
+            EN: Images related to the subspecies.
+            SK: Obrázky súvisiace s poddruhom.
+        movies (ManyToManyField):
+            EN: Videos related to the subspecies.
+            SK: Videá súvisiace s poddruhom.
+        movies_url (URLField):
+            EN: URL link to videos related to the subspecies.
+            SK: Odkaz na videá súvisiace s poddruhom.
     """
 
     taxonomy_species = models.ForeignKey(TaxonomySpecies, on_delete=models.CASCADE)
@@ -306,7 +374,7 @@ class TaxonomySubspecies(TaxonomyBase):
         help_text="Videá súvisiace s poddruhom",
     )
     movies_url = models.URLField(
-        blank = True,
+        blank=True,
         null=True,
         verbose_name="Okaz na videá",
         help_text="Odkaz na videá súvisiace s poddruhom",
