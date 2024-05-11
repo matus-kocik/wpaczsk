@@ -86,18 +86,18 @@ class Profile(AbstractBaseUser, PermissionsMixin, SEOModel, TimeStampedModel):
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["first_name", "last_name"]
 
-    prefix_academic_title = models.CharField(
+    academic_title_prefix = models.CharField(
         max_length=32,
         blank=True,
         null=True,
-        verbose_name="Predpona titulu",
+        verbose_name="Predpona akademického titulu",
         help_text="Akademický alebo profesijný titul pred menom, napr. 'Dr.', 'Prof.'",
     )
-    suffix_academic_title = models.CharField(
+    academic_title_suffix = models.CharField(
         max_length=32,
         blank=True,
         null=True,
-        verbose_name="Prípona titulu",
+        verbose_name="Prípona akademického titulu",
         help_text="Akademický alebo profesijný titul za menom, napr. 'PhD', 'MSc'",
     )
     mobile_phone = PhoneNumberField(
