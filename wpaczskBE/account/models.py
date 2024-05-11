@@ -22,6 +22,9 @@ class Profile(AbstractBaseUser, PermissionsMixin, SEOModel, TimeStampedModel):
         last_name (CharField):
             EN: The last name of the user.
             SK: Priezvisko užívateľa.
+        gender (CharField):
+            EN: The gender of the user.
+            SK: Pohlavie užívateľa.
         is_active (BooleanField):
             EN: Indicates whether the user account is active.
             SK: Indikuje, či je účet užívateľa aktívny.
@@ -75,6 +78,18 @@ class Profile(AbstractBaseUser, PermissionsMixin, SEOModel, TimeStampedModel):
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
+    gender = models.CharField(
+        max_length=10,
+        choices=[
+            ("male", "Muž"),
+            ("female", "Žena"),
+            ("undefined", "Nedefinované"),
+        ],
+        default="undefined",
+        verbose_name="Pohlavie",
+        help_text="Pohlavie užívateľa.",
+    )
+
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(
