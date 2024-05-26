@@ -18,6 +18,9 @@ class Image(SEOModel, TimeStampedModel, TaggableManager):
         image_file (ImageField):
             EN: The file of the image stored in the system.
             SK: Súbor obrázka uloženého v systéme.
+        carousel (BooleanField):
+            EN: Indicates if the image should be displayed in the carousel.
+            SK: Označuje, či by sa mal obrázok zobraziť v karuseli.
     """
 
     title = models.CharField(
@@ -28,6 +31,9 @@ class Image(SEOModel, TimeStampedModel, TaggableManager):
     )
     image_file = models.ImageField(
         upload_to="images/", verbose_name="Súbor obrázka", help_text="Súbor obrázka"
+    )
+    carousel = models.BooleanField(
+        default=False, verbose_name="Karusel", help_text="Zobraziť v karuseli"
     )
 
 
