@@ -65,7 +65,16 @@ input[type="search"]:focus {
     color: #000000;
     font-size:2.5rem;
 }
+
+.bi-youtube:hover {
+    color: #FF0000;
+}
+
 .bi-facebook {
     color: #000000;
     font-size:2.5rem;
+}
+
+.bi-facebook:hover {
+    color: #1877F2;
 }
