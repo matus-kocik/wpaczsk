@@ -24,6 +24,8 @@
         SK: Zabezpečuje, aby bola webová stránka responzívna a správne sa prispôsobovala na všetkých zariadeniach.
     -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
+
     <!--
         EN: Link to Bootstrap CSS for styling.
         SK: Odkaz na Bootstrap CSS pre štýlovanie.
@@ -41,114 +43,136 @@
 </head>
 
 <body>
-    <header class="bg-light p-3 container">
-        <!--
-            EN: Header section containing the logo and site title.
-            SK: Sekcia hlavičky obsahujúca logo a názov stránky.
-        -->
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <img src="{% static 'images/logo.png' %}" alt="WPA CZ-SK Logo" class="img-fluid">
-                <!--
-                        EN: Site logo image.
-                        SK: Obrázok loga stránky.
-                    -->
-            </div>
-            <div class="col-md-6 text-md-end text-center">
-                <h1>WPA CZ-SK</h1>
-                <!--
-                        EN: Site title.
-                        SK: Názov stránky.
-                    -->
-                <p>World Pheasant Association Czech Republic and Slovakia</p>
-                <!--
-                        EN: Site subtitle or description.
-                        SK: Podnázov alebo popis stránky.
-                    -->
-            </div>
-        </div>
-    </header>
-    <div class="container">
-        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="container-content">
+        <header class="container">
             <!--
-                EN: Bootstrap carousel for rotating images.
-                SK: Bootstrap karusel pre rotovanie obrázkov.
+                EN: Header section containing the logo and site title.
+                SK: Sekcia hlavičky obsahujúca logo a názov stránky.
             -->
-            <div class="carousel-inner">
-                {% for image in carousel_images %}
-                <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                    <img src="{{ image.image_file.url }}" class="d-block w-100" alt="{{ image.title }}">
+            <div class="row align-items-center text-center">
+                <div class="col-md-2">
+                    <img src="{% static 'images/wpa-logo.gif' %}" alt="WPA CZ-SK Logo" class="img-fluid logo-img">
                     <!--
-                        EN: Carousel image element.
-                        SK: Obrázkový prvok karuselu.
-                    -->
+                            EN: Site logo image.
+                            SK: Obrázok loga stránky.
+                        -->
                 </div>
-                {% endfor %}
+                <div class="col-md-7 text-md-start text-center">
+                    <div class="container-fluid">
+                        <h1>WPA CZ-SK</h1>
+                        <!--
+                                EN: Site title.
+                                SK: Názov stránky.
+                            -->
+                    </div>
+                    <div class="container-fluid">
+                        <p>World Pheasant Association Czech Republic and Slovakia</p>
+                        <!--
+                                EN: Site subtitle or description.
+                                SK: Podnázov alebo popis stránky.
+                            -->
+                    </div>
+                </div>
+                <div class="col-md-3 text-md-end text-center">
+                    <div class="container-fluid">
+                        <a href="https://www.facebook.com/wpacz" target="_blank" class="me-2"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.youtube.com/@wpacz-sk7012" target="_blank" class="me-2"><i class="bi bi-youtube"></i></a>
+                        <!--
+                                EN: Site title.
+                                SK: Názov stránky.
+                            -->
+                    </div>
+                    <div class="container-fluid search-container">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Hľadať" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Hľadať</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+        </header>
+        <div class="container">
+            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <!--
+                    EN: Bootstrap carousel for rotating images.
+                    SK: Bootstrap karusel pre rotovanie obrázkov.
+                -->
+                <div class="carousel-inner">
+                    {% for image in carousel_images %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <img src="{{ image.image_file.url }}" class="d-block w-100" alt="{{ image.title }}">
+                        <!--
+                            EN: Carousel image element.
+                            SK: Obrázkový prvok karuselu.
+                        -->
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </div>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary container">
+            <!--
+                    EN: Navigation bar with links to different pages.
+                    SK: Navigačný panel s odkazmi na rôzne stránky.
+                -->
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Domov</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Dropdown link
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <main class="container">
+            {% block content %}{% endblock %}
+            <!--
+                    EN: Main content block for child templates.
+                    SK: Hlavný obsahový blok pre podriadené šablóny.
+                -->
+        </main>
+        <footer class="container text-center">
+            <div>&copy; WPA CZ-SK <span id="currentYear"></span></div>
+            <!--
+                EN: Footer section with copyright information.
+                SK: Sekcia päty s informáciami o autorských právach.
+            -->
+        </footer>
     </div>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary container">
-        <!--
-                EN: Navigation bar with links to different pages.
-                SK: Navigačný panel s odkazmi na rôzne stránky.
-            -->
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Domov</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Dropdown link
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <main class="container">
-        {% block content %}{% endblock %}
-        <!--
-                EN: Main content block for child templates.
-                SK: Hlavný obsahový blok pre podriadené šablóny.
-            -->
-    </main>
-    <footer class="container text-center">
-        <div>&copy; WPA CZ-SK <span id="currentYear"></span></div>
-        <!--
-            EN: Footer section with copyright information.
-            SK: Sekcia päty s informáciami o autorských právach.
-        -->
-    </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!--
         EN: Link to Bootstrap JavaScript bundle.
