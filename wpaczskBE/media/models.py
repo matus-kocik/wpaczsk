@@ -30,7 +30,7 @@ class Image(SEOModel, TimeStampedModel, TaggableManager):
         blank=True, null=True, verbose_name="Popis obrázka", help_text="Popis obrázka"
     )
     image_file = models.ImageField(
-        upload_to="images/", verbose_name="Súbor obrázka", help_text="Súbor obrázka"
+        upload_to="static/media/images/", verbose_name="Súbor obrázka", help_text="Súbor obrázka"
     )
     carousel = models.BooleanField(
         default=False, verbose_name="Karusel", help_text="Zobraziť v karuseli"
