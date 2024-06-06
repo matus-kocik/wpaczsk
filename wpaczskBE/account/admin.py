@@ -84,7 +84,7 @@ class BreederProfileAdmin(admin.ModelAdmin):
     """
 
     list_display = ("user", "registration_number", "status_type", "is_active")
-    list_filter = ("status_type")
+    list_filter = ("status_type", "is_active")
     search_fields = ("user__email", "registration_number")
     fieldsets = (
         (
