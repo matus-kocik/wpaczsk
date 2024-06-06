@@ -108,8 +108,6 @@ class Profile(AbstractBaseUser, PermissionsMixin, SEOModel, TimeStampedModel):
         help_text="Pohlavie užívateľa.",
     )
 
-    is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(
         default=timezone.now,
         verbose_name="Dátum vytvorenia účtu",
@@ -252,17 +250,7 @@ class BreederProfile(SEOModel, TimeStampedModel):
         verbose_name="Registračné číslo",
         help_text="Unikátne registračné číslo chovateľa.",
     )
-    USER_TYPE_CHOICES = [
-        ("member", "Člen"),
-        ("admin", "Administrátor"),
-    ]
-    user_type = models.CharField(
-        max_length=16,
-        choices=USER_TYPE_CHOICES,
-        default="regular",
-        verbose_name="Typ užívateľa",
-        help_text="Definuje typ užívateľa pre prístupové práva a funkcie.",
-    )
+
     ROLE_TYPE_CHOICES = [
         ("president", "Predseda"),
         ("vice_president", "Miestopredseda"),
@@ -288,6 +276,8 @@ class BreederProfile(SEOModel, TimeStampedModel):
         verbose_name="Status",
         help_text="Definovaný status člena v organizácii.",
     )
+
+    is_active = models.BooleanField(default=True)
 
     class Meta:
         verbose_name = "Chovateľ"
@@ -315,7 +305,7 @@ class BreederProfile(SEOModel, TimeStampedModel):
         with transaction.atomic():
             if self._state.adding and not self.registration_number:
                 super().save(*args, **kwargs)
-                self.registration_number = str(self.id).zfill(3)  # Add zeros
+                self.registration_number = str(self.id).zfill(3)
                 super().save(update_fields=["registration_number"])
             else:
                 super().save(*args, **kwargs)

@@ -23,9 +23,9 @@ class ProfileAdmin(admin.ModelAdmin):
             SK: Skupiny polí používané na usporiadanie polí v rozhraní admina.
     """
 
-    list_display = ("first_name", "last_name", "email", "is_staff", "email_verified")
+    list_display = ("first_name", "last_name", "email", "email_verified")
     search_fields = ("email", "first_name", "last_name")
-    list_filter = ("is_staff", "is_superuser", "is_active", "groups")
+    list_filter = ("is_superuser", "groups")
     fieldsets = (
         (None, {"fields": ("email", "password")}),
         (
@@ -53,8 +53,6 @@ class ProfileAdmin(admin.ModelAdmin):
             "Permissions",
             {
                 "fields": (
-                    "is_active",
-                    "is_staff",
                     "is_superuser",
                     "groups",
                     "user_permissions",
@@ -85,8 +83,8 @@ class BreederProfileAdmin(admin.ModelAdmin):
             SK: Skupiny polí používané na usporiadanie polí v rozhraní admina.
     """
 
-    list_display = ("user", "registration_number", "status_type")
-    list_filter = ("status_type", "user__is_staff")
+    list_display = ("user", "registration_number", "status_type", "is_active")
+    list_filter = ("status_type")
     search_fields = ("user__email", "registration_number")
     fieldsets = (
         (
@@ -98,6 +96,7 @@ class BreederProfileAdmin(admin.ModelAdmin):
                     "user_type",
                     "role_type",
                     "status_type",
+                    "is_active",
                 )
             },
         ),
