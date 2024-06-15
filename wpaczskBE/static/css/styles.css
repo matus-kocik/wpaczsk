@@ -29,6 +29,7 @@ body {
 
 .container-content-body {
     background-color: #ffffff;
+    border-radius: 10px;
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
