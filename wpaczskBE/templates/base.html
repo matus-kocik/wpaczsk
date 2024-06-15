@@ -95,14 +95,18 @@
             </div>
         </header>
         <div class="container">
-            <div id="carouselExampleAutoplaying" class="carousel slide container" data-bs-ride="carousel" data-bs-interval="7000">
+            <div id="carouselExampleAutoplaying" class="carousel slide container" data-bs-ride="carousel"
+                data-bs-interval="7000">
                 <!--
                     EN: Bootstrap carousel for rotating images.
                     SK: Bootstrap karusel pre rotovanie obrázkov.
                 -->
                 <div class="carousel-indicators">
                     {% for image in carousel_images %}
-                    <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}" aria-current="{% if forloop.first %}true{% endif %}" aria-label="Slide {{ forloop.counter }}"></button>
+                    <button type="button" data-bs-target="#carouselExampleAutoplaying"
+                        data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}"
+                        aria-current="{% if forloop.first %}true{% endif %}"
+                        aria-label="Slide {{ forloop.counter }}"></button>
                     {% endfor %}
                 </div>
                 <div class="carousel-inner">
@@ -113,7 +117,7 @@
                             EN: Carousel image element.
                             SK: Obrázkový prvok karuselu.
                         -->
-<!--                         <div class="carousel-caption d-none d-md-block">
+                        <!--                         <div class="carousel-caption d-none d-md-block">
                             <h5>{{ image.title }}</h5>
                         </div> -->
                     </div>
@@ -133,7 +137,7 @@
         </div>
         <div class="container mt-3">
             <div class="container">
-                <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+                <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark" style="border-radius: 10px;">
                     <!--
                             EN: Navigation bar with links to different pages.
                             SK: Navigačný panel s odkazmi na rôzne stránky.
