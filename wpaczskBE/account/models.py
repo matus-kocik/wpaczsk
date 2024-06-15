@@ -107,7 +107,9 @@ class Profile(AbstractBaseUser, PermissionsMixin, SEOModel, TimeStampedModel):
         verbose_name="Pohlavie",
         help_text="Pohlavie užívateľa.",
     )
-
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
     date_joined = models.DateTimeField(
         default=timezone.now,
         verbose_name="Dátum vytvorenia účtu",

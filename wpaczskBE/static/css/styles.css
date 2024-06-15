@@ -3,6 +3,11 @@ body {
     padding: 10px;
 }
 
+.carousel-inner,
+.navbar {
+    border-radius: 10px;
+}
+
 .navbar-nav {
     display: flex;
     justify-content: space-between;
@@ -78,4 +83,8 @@ input[type="search"]:focus {
 
 .bi-facebook:hover {
     color: #1877F2;
+}
+
+.card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }

@@ -23,9 +23,9 @@ class ProfileAdmin(admin.ModelAdmin):
             SK: Skupiny polí používané na usporiadanie polí v rozhraní admina.
     """
 
-    list_display = ("first_name", "last_name", "email", "email_verified")
+    list_display = ("first_name", "last_name", "email", "email_verified", "is_staff", "is_superuser")
     search_fields = ("email", "first_name", "last_name")
-    list_filter = ("is_superuser", "groups")
+    list_filter = ("is_superuser", "is_staff", "groups")
     fieldsets = (
         (None, {"fields": ("email", "password")}),
         (
@@ -54,6 +54,7 @@ class ProfileAdmin(admin.ModelAdmin):
             {
                 "fields": (
                     "is_superuser",
+                    "is_staff",
                     "groups",
                     "user_permissions",
                 )
