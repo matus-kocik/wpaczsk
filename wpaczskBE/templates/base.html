@@ -112,7 +112,7 @@
                 <div class="carousel-inner">
                     {% for image in carousel_images %}
                     <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                        <img src="{{ image.image_file }}" class="d-block w-100" alt="{{ image.title }}" height="300px">
+                        <img src="{{ image.image_file.url }}" class="d-block w-100" alt="{{ image.title }}" height="300px">
                         <!--
                             EN: Carousel image element.
                             SK: Obrázkový prvok karuselu.
@@ -151,7 +151,7 @@
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="#">Domov</a>
+                                    <a class="nav-link" aria-current="page" href="{% url 'home' %}">Domov</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -159,7 +159,7 @@
                                         O WPA
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">WPA</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'wpa' %}">WPA</a></li>
                                         <li><a class="dropdown-item" href="#">WPA CZ-SK</a></li>
                                         <li><a class="dropdown-item" href="#">WPA vo svete</a></li>
                                     </ul>
