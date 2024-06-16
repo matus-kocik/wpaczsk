@@ -19,11 +19,11 @@ class ImageAdmin(admin.ModelAdmin):
             SK: Skupiny polí zobrazené v detailnom prehľade.
     """
 
-    list_display = ("title", "description", "carousel", "card_item", "gallery_item", "created_at")
+    list_display = ("title", "description", "carousel", "card_item", "gallery_item", "template_name", "created_at")
     list_filter = ("carousel", "card_item", "gallery_item")
     search_fields = ("title", "description")
     fieldsets = (
-        (None, {"fields": ("title", "carousel", "card_item", "gallery_item", "species", "subspecies")}),
+        (None, {"fields": ("title", "carousel", "card_item", "gallery_item", "template_name", "species", "subspecies")}),
         ("Description", {"fields": ("description",)}),
         ("Image File", {"fields": ("image_file",)}),
     )
