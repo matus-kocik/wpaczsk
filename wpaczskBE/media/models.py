@@ -50,6 +50,16 @@ class Image(SEOModel, TimeStampedModel, TaggableManager):
         verbose_name="Názov šablóny",
         help_text="Názov šablóny",
     )
+    card_title = models.CharField(
+        max_length=128,
+        blank=True,
+        null=True,
+        verbose_name="Názov karty",
+        help_text="Názov pre kartu",
+    )
+    card_link = models.URLField(
+        blank=True, null=True, verbose_name="Odkaz karty", help_text="Odkaz pre kartu"
+    )
     subspecies = models.ForeignKey(
         "taxonomy.TaxonomySubspecies",
         on_delete=models.CASCADE,
