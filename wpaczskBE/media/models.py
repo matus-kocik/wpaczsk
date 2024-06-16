@@ -30,7 +30,9 @@ class Image(SEOModel, TimeStampedModel, TaggableManager):
         blank=True, null=True, verbose_name="Popis obrázka", help_text="Popis obrázka"
     )
     image_file = models.ImageField(
-        upload_to="static/media/images/", verbose_name="Súbor obrázka", help_text="Súbor obrázka"
+        upload_to="static/media/images/",
+        verbose_name="Súbor obrázka",
+        help_text="Súbor obrázka",
     )
     carousel = models.BooleanField(
         default=False, verbose_name="Karusel", help_text="Zobraziť v karuseli"
@@ -39,7 +41,32 @@ class Image(SEOModel, TimeStampedModel, TaggableManager):
         default=False, verbose_name="Orázok karty", help_text="Obrázky pre karty"
     )
     gallery_item = models.BooleanField(
-        default=False, verbose_name="Obrázok galérie", help_text="Obrázky do galérie"
+        default=False, verbose_name="Obrázok galérie", help_text="Obrázok do galérie"
+    )
+    template_name = models.CharField(
+        max_length=64,
+        blank=True,
+        null=True,
+        verbose_name="Názov šablóny",
+        help_text="Názov šablóny",
+    )
+    subspecies = models.ForeignKey(
+        "taxonomy.TaxonomySubspecies",
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        related_name="images_subspecies",
+        verbose_name="Poddruh",
+        help_text="Poddruh pre tento obrázok",
+    )
+    species = models.ForeignKey(
+        "taxonomy.TaxonomySpecies",
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        related_name="images_species",
+        verbose_name="Druh",
+        help_text="Druh pre tento obrázok",
     )
 
 
@@ -68,4 +95,25 @@ class Movie(SEOModel, TimeStampedModel, TaggableManager):
     )
     movie_file = models.FileField(
         upload_to="videos/", verbose_name="Súbor videa", help_text="Súbor videa"
+    )
+    gallery_item = models.BooleanField(
+        default=False, verbose_name="Video galérie", help_text="Video do galérie"
+    )
+    subspecies = models.ForeignKey(
+        "taxonomy.TaxonomySubspecies",
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        related_name="movies_subspecies",
+        verbose_name="Poddruh",
+        help_text="Poddruh pre tento obrázok",
+    )
+    species = models.ForeignKey(
+        "taxonomy.TaxonomySpecies",
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        related_name="movies_species",
+        verbose_name="Druh",
+        help_text="Druh pre tento obrázok",
     )

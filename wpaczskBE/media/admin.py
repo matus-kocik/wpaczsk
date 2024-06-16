@@ -23,7 +23,7 @@ class ImageAdmin(admin.ModelAdmin):
     list_filter = ("carousel", "card_item", "gallery_item")
     search_fields = ("title", "description")
     fieldsets = (
-        (None, {"fields": ("title", "carousel","card_item", "gallery_item")}),
+        (None, {"fields": ("title", "carousel", "card_item", "gallery_item", "species", "subspecies")}),
         ("Description", {"fields": ("description",)}),
         ("Image File", {"fields": ("image_file",)}),
     )
@@ -49,7 +49,7 @@ class MovieAdmin(admin.ModelAdmin):
     list_display = ("title", "created_at")
     search_fields = ("title",)
     fieldsets = (
-        (None, {"fields": ("title",)}),
+        (None, {"fields": ("title", "species", "subspecies")}),
         ("Description", {"fields": ("description",)}),
         ("Movie File", {"fields": ("movie_file",)}),
     )

@@ -2,7 +2,6 @@ from django.db import models
 
 from common_models.models import SEOModel, TaggableManager, TimeStampedModel
 from geography.models import Country
-from media.models import Image, Movie
 
 
 class TaxonomyBase(SEOModel, TimeStampedModel, TaggableManager):
@@ -360,14 +359,14 @@ class TaxonomySubspecies(TaxonomyBase):
         help_text="Náročnosť chovu",
     )
     images = models.ManyToManyField(
-        Image,
+        'media.Image',
         blank=True,
         related_name="subspecies_image",
         verbose_name="Obrázky",
         help_text="Obrázky súvisiace s poddruhom",
     )
     movies = models.ManyToManyField(
-        Movie,
+        'media.Movie',
         blank=True,
         related_name="subspecies_movie",
         verbose_name="Videá",
@@ -376,6 +375,6 @@ class TaxonomySubspecies(TaxonomyBase):
     movies_url = models.URLField(
         blank=True,
         null=True,
-        verbose_name="Okaz na videá",
+        verbose_name="Odkaz na videá",
         help_text="Odkaz na videá súvisiace s poddruhom",
     )
