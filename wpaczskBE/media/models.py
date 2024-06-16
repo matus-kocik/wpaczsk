@@ -38,7 +38,7 @@ class Image(SEOModel, TimeStampedModel, TaggableManager):
         default=False, verbose_name="Karusel", help_text="Zobraziť v karuseli"
     )
     card_item = models.BooleanField(
-        default=False, verbose_name="Orázok karty", help_text="Obrázky pre karty"
+        default=False, verbose_name="Obrázok karty", help_text="Obrázky pre karty"
     )
     gallery_item = models.BooleanField(
         default=False, verbose_name="Obrázok galérie", help_text="Obrázok do galérie"
