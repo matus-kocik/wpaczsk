@@ -25,30 +25,18 @@
     </div>
     <div class="container mb-2">
         <div class="row">
+            {% for image in card_images %}
             <div class="col-md-4">
-                <div class="card">
-                    <img src="{% static 'main/images/projekty.jpg' %}" class="card-img-top" alt="Projekty">
-                    <div class="card-body">
-                        <h4 class="card-title">Projekty</h4>
+                <a href="{{ image.card_link }}" class="card-link">
+                    <div class="card">
+                        <img src="{{ image.image_file }}" class="card-img-top" alt="{{ image.title }}">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ image.card_title }}</h4>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="{% static 'main/images/clanky.jpg' %}" class="card-img-top" alt="Články">
-                    <div class="card-body">
-                        <h4 class="card-title">Články</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="{% static 'main/images/inzercia.jpg' %}" class="card-img-top" alt="Inzercia">
-                    <div class="card-body">
-                        <h4 class="card-title">Inzercia</h4>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 <div class="container mb-2">

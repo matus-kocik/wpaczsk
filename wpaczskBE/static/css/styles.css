@@ -92,3 +92,18 @@ input[type="search"]:focus {
 .card {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-link:hover,
+.card-link:focus {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-body {
+    text-align: center;
+}
