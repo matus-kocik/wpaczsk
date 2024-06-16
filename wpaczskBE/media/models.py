@@ -35,6 +35,12 @@ class Image(SEOModel, TimeStampedModel, TaggableManager):
     carousel = models.BooleanField(
         default=False, verbose_name="Karusel", help_text="Zobraziť v karuseli"
     )
+    card_item = models.BooleanField(
+        default=False, verbose_name="Orázok karty", help_text="Obrázky pre karty"
+    )
+    gallery_item = models.BooleanField(
+        default=False, verbose_name="Obrázok galérie", help_text="Obrázky do galérie"
+    )
 
 
 class Movie(SEOModel, TimeStampedModel, TaggableManager):
