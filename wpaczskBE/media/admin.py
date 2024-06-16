@@ -19,8 +19,9 @@ class ImageAdmin(admin.ModelAdmin):
             SK: Skupiny polí zobrazené v detailnom prehľade.
     """
 
-    list_display = ("title", "carousel", "card_item", "gallery_item", "created_at")
-    search_fields = ("title",)
+    list_display = ("title", "description", "carousel", "card_item", "gallery_item", "created_at")
+    list_filter = ("carousel", "card_item", "gallery_item")
+    search_fields = ("title", "description")
     fieldsets = (
         (None, {"fields": ("title", "carousel","card_item", "gallery_item")}),
         ("Description", {"fields": ("description",)}),
