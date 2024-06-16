@@ -54,7 +54,7 @@ class Article(SEOModel, TimeStampedModel, TaggableManager):
         help_text="Nahrajte PDF súbor článku.",
     )
     main_image = models.ImageField(
-        upload_to="article_image/",
+        upload_to="static/content/images/",
         blank=True,
         null=True,
         verbose_name="Titulný obrázok",
