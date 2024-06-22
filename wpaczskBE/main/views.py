@@ -21,3 +21,6 @@ class ContactsView(TemplateView):
 
 class LinksView(TemplateView):
     template_name = "main/links.html"
+    
+class DonationView(TemplateView):
+    template_name = "main/donation.html"
