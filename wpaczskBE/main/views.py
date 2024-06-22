@@ -18,3 +18,6 @@ class WPACZSKView(TemplateView):
 
 class ContactsView(TemplateView):
     template_name = "main/contacts.html"
+
+class LinksView(TemplateView):
+    template_name = "main/links.html"
