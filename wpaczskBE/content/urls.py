@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import ArticleView
+from .views import ArticlesView
 
 urlpatterns = [
-    path('article/', ArticleView.as_view(), name='article'),
+    path('articles/', ArticlesView.as_view(), name='articles'),
 ]
