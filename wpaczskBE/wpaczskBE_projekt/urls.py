@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('', include('taxonomy.urls')),
+    path('', include('content.urls')),
 ]
 
 if settings.DEBUG:
