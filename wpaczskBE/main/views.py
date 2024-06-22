@@ -15,3 +15,6 @@ class WPAView(TemplateView):
     
 class WPACZSKView(TemplateView):
     template_name = "main/wpa_czsk.html"
+
+class ContactsView(TemplateView):
+    template_name = "main/contacts.html"
