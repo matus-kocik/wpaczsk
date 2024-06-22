@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include('main.urls')),
     path('', include('taxonomy.urls')),
     path('', include('content.urls')),
+    path('', include('breeding.urls')),
 ]
 
 if settings.DEBUG:
