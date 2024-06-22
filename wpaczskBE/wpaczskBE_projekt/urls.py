@@ -27,6 +27,7 @@ urlpatterns = [
     path('', include('content.urls')),
     path('', include('breeding.urls')),
     path('', include('media.urls')),
+    path('', include('account.urls')),
 ]
 
 if settings.DEBUG:
