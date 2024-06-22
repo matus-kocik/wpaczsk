@@ -1,3 +1,4 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
-# Create your views here.
+class ListOfSpeciesView (TemplateView):
+    template_name = "taxonomy/list_of_species.html"
