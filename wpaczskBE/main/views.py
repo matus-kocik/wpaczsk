@@ -12,3 +12,6 @@ class HomeView(TemplateView):
     
 class WPAView(TemplateView):
     template_name = "main/wpa.html"
+    
+class WPACZSKView (TemplateView):
+    template_name = "main/wpa_czsk.html"
