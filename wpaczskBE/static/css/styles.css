@@ -107,3 +107,7 @@ input[type="search"]:focus {
 .card-img-top {
     border-radius: 5px;
 }
+
+.custom-height {
+    height: 60px;
+}

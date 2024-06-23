@@ -19,7 +19,7 @@
 </div>
 <div class="container mb-3">
     <div class="col text-center">
-        <h5>Přehled chovů WPA CZ-SK za deset let existence</h5>
+        <h2>Přehled chovů WPA CZ-SK za deset let existence</h2>
         TU PRIBUDNE TABULKA
     </div>
 </div>
@@ -41,21 +41,21 @@
 </div>
 <div class="container mb-3">
     <div class="d-grid gap-2">
-        <button class="btn btn-danger" type="button">Prihláška</button>
+        <button class="btn btn-danger custom-height" type="button"><h3>Přihláška pro nové členy World Pheasant Association</h3></button>
     </div>
 </div>
 <div class="container mb-3">
-    <div class="container mb-2">
+    <div class="container mb-3">
         <div class="col text-center">
-            <h5>Aktuality</h5>
+            <h2>Aktuality</h2>
         </div>
     </div>
     {% for article in home_page_card_articles %}
-        <p>Publikované: {{ article.publication_date }}</p>
-        <div class="card mb-2">
-            <img src="{% static 'content/' %}{{ article.main_image }}" class="card-img-top" alt="{{ article.title }}">
-        </div>
-        <p>Autor: {{ article.author }}</p>
+    <p>Publikované: {{ article.publication_date }}</p>
+    <div class="card mb-3">
+        <img src="{% static 'content/' %}{{ article.main_image }}" class="card-img-top" alt="{{ article.title }}">
+    </div>
+    <p>Autor: {{ article.author }}</p>
     {% endfor %}
 </div>
 </div>
