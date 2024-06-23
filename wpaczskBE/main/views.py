@@ -1,26 +1,33 @@
 from django.views.generic import TemplateView
 from media.models import Image
+from content.models import Article
+
 
 class HomeView(TemplateView):
     template_name = "main/home.html"
+    extra_context = {
+        "home_page_card_images": Image.objects.filter(
+            card_item=True, template_name="home"
+        ),
+        "home_page_card_articles": Article.objects.all().order_by("-publication_date")[:3],
+    }
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        images= list(Image.objects.filter(card_item = True, template_name = "home"))
-        context["card_images"] = images
-        return context
-    
+
 class WPAView(TemplateView):
     template_name = "main/wpa.html"
-    
+
+
 class WPACZSKView(TemplateView):
     template_name = "main/wpa_czsk.html"
+
 
 class ContactsView(TemplateView):
     template_name = "main/contacts.html"
 
+
 class LinksView(TemplateView):
     template_name = "main/links.html"
-    
+
+
 class DonationView(TemplateView):
     template_name = "main/donation.html"
