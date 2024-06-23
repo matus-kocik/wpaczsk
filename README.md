@@ -1,7 +1,7 @@
 # WPA CZ-SK
 ### World Pheasant Association Czech Republic and Slovakia
 
-[WPA CZ-SK](http://wpacz-sk.com/)
+Old: [WPA CZ-SK](http://wpacz-sk.com/)
 
 Vitajte v repozitári projektu WPA CZ-SK! Tento projekt sa zameriava na vylepšenie webovej stránky World Pheasant Association Czech Republic and Slovakia, s cieľom poskytnúť lepší užívateľský zážitok s novými funkciami a vylepšeným dizajnom.
 
