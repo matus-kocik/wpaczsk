@@ -36,9 +36,11 @@ MANIFEST
 # Images, Movies, pdf...
 /images/*
 *.jpg
+*.jpeg
 *.png
 *.gif
 *.pdf
+images/*
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
