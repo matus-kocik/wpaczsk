@@ -104,6 +104,6 @@ input[type="search"]:focus {
     color: inherit;
 }
 
-.card-body {
-    text-align: center;
+.card-img-top {
+    border-radius: 5px;
 }
