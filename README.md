@@ -1,23 +1,23 @@
 # WPA CZ-SK
 ### World Pheasant Association Czech Republic and Slovakia
 
-Aktuálna webová stránka: [WPA CZ-SK](http://wpacz-sk.com/)
+Current Website: [WPA CZ-SK](http://wpacz-sk.com/)
 
-Vitajte v repozitári projektu WPA CZ-SK! Tento projekt sa zameriava na vylepšenie webovej stránky World Pheasant Association Czech Republic and Slovakia, s cieľom poskytnúť lepší užívateľský zážitok s novými funkciami a vylepšeným dizajnom.
+Welcome to the WPA CZ-SK project repository! This project focuses on enhancing the website of the World Pheasant Association Czech Republic and Slovakia to provide a better user experience with new features and an improved design.
 
-## O WPA CZ-SK
-World Pheasant Association (WPA) je organizácia venovaná ochrane vtákov z radu hrabavcov (Galliformes) a ich biotopov po celom svete. 
-WPA CZ-SK sa zameriava na ochranné aktivity a vzdelávacie činnosti na zvýšenie povedomia o dôležitosti ochrany týchto druhov a ich prostredia.
+## About WPA CZ-SK
+The World Pheasant Association (WPA) is an organization dedicated to the conservation of Galliformes (game birds) and their habitats worldwide. 
+WPA CZ-SK focuses on conservation activities and educational efforts to raise awareness about the importance of protecting these species and their environments.
 
-## Vzdelávanie a zlepšovanie zručností
-Tento projekt je mojím osobným hobby, na ktorom pracujem vo voľnom čase. Zameriavam sa na neustále vzdelávanie a zlepšovanie svojich programátorských zručností.
+## Education and Skill Improvement
+This project is my personal hobby, which I work on in my spare time. I am committed to continuous learning and enhancing my programming skills.
 
-## Funkcie
-- **Redizajn:** Moderný a responzívny dizajn.
-- **Nové funkcie:** Vylepšené galérie, lepšia navigácia a ďalšie.
-- **Správa obsahu:** Jednoduché aktualizovanie článkov a udalostí.
+## Features and more:
+- **Redesign:** Modern and responsive design.
+- **New Features:** Enhanced galleries, improved navigation, and more.
+- **Content Management:** Simple updates to articles and events.
 
 
-Prvotná verzia:
+## Initial Version:
 
 ![Prvotná verzia:](https://github.com/matus-kocik/wpaczsk/blob/templates/web_wpa_1.JPG)
