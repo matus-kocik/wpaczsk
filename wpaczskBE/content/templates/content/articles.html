@@ -6,6 +6,19 @@
 
 {% block content %}
 
-Articles
+<div class="container mb-3">
+    <div class="container mb-2">
+        <div class="col text-center">
+            <h1>Články</h1>
+        </div>
+    </div>
+    {% for article in home_page_card_articles %}
+        <p>Publikované: {{ article.publication_date }}</p>
+        <div class="card mb-2">
+            <img src="{% static 'content/' %}{{ article.main_image }}" class="card-img-top" alt="{{ article.title }}">
+        </div>
+        <p>Autor: {{ article.author }}</p>
+    {% endfor %}
+</div>
 
 {% endblock %}
