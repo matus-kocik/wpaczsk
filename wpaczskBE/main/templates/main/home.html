@@ -53,7 +53,7 @@
     {% for article in home_page_card_articles %}
     <p>Publikované: {{ article.publication_date }}</p>
     <div class="card mb-3">
-        <img src="{% static 'content/' %}{{ article.main_image }}" class="card-img-top" alt="{{ article.title }}">
+        <img src="{% static 'content/' %}{{ article.main_image }}" class="card-img-both" alt="{{ article.title }}">
     </div>
     <p>Autor: {{ article.author }}</p>
     {% endfor %}
