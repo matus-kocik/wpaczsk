@@ -6,6 +6,7 @@ from common_models.models import SEOModel, TaggableManager, TimeStampedModel
 #from account.models import Profile
 from geography.models import Location
 from media.models import Image
+from .storage import ContentArticleImageStorage, ContentArticlePDFStorage, ContentEventPDFStorage, ContentEventImageStorage
 
 
 class Article(SEOModel, TimeStampedModel, TaggableManager):
@@ -49,12 +50,14 @@ class Article(SEOModel, TimeStampedModel, TaggableManager):
         help_text="Zadajte titulok článku.",
     )
     pdf_file = models.FileField(
-        upload_to="articles/",
+        upload_to="article_pdf",
+        storage=ContentArticlePDFStorage(),
         verbose_name="PDF súbor článku",
         help_text="Nahrajte PDF súbor článku.",
     )
     main_image = models.ImageField(
-        upload_to="static/content/images/",
+        upload_to="article_images",
+        storage=ContentArticleImageStorage(),
         blank=True,
         null=True,
         verbose_name="Titulný obrázok",
@@ -138,14 +141,16 @@ class Event(SEOModel, TimeStampedModel, TaggableManager):
         help_text="Zadajte titulok udalosti.",
     )
     pdf_file = models.FileField(
-        upload_to="events/",
+        upload_to="event_pdf",
+        storage=ContentEventPDFStorage(),
         blank=True,
         null=True,
         verbose_name="PDF súbor udalosti",
         help_text="Nahrajte PDF súbor udalosti, ak je k dispozícii.",
     )
     main_image = models.ImageField(
-        upload_to="event_image/",
+        upload_to="event_images",
+        storage=ContentEventImageStorage(),
         blank=True,
         null=True,
         verbose_name="Titulný obrázok",
