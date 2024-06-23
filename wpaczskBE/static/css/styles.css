@@ -5,7 +5,7 @@ body {
 
 .carousel-inner,
 .navbar {
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .navbar-nav {
@@ -33,12 +33,12 @@ body {
 .dropdown-menu .dropdown-item:active {
     background-color: gray !important;
     color: #ffffff !important;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .container-content-body {
     background-color: #ffffff;
-    border-radius: 10px;
+    border-radius: 20px;
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
@@ -73,7 +73,7 @@ input[type="search"]:focus {
 
 .bi-youtube {
     color: #000000;
-    font-size:2.5rem;
+    font-size: 2.5rem;
 }
 
 .bi-youtube:hover {
@@ -82,7 +82,7 @@ input[type="search"]:focus {
 
 .bi-facebook {
     color: #000000;
-    font-size:2.5rem;
+    font-size: 2.5rem;
 }
 
 .bi-facebook:hover {
@@ -91,6 +91,7 @@ input[type="search"]:focus {
 
 .card {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
 }
 
 .card-link {
@@ -105,9 +106,12 @@ input[type="search"]:focus {
 }
 
 .card-img-top {
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
-.custom-height {
+.btn-danger {
+    color: #000000;
+    background-color: #FF0000;
     height: 60px;
+    border-radius: 20px;
 }
