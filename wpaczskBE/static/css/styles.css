@@ -89,6 +89,15 @@ input[type="search"]:focus {
     color: #1877F2;
 }
 
+.bi-door-open-fill {
+    color: #000000;
+    font-size: 2.5rem;
+}
+
+.bi-door-open-fill:hover {
+    color: #00ca22;
+}
+
 .card {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     border-radius: 20px;
@@ -119,4 +128,27 @@ input[type="search"]:focus {
     background-color: #FF0000;
     height: 60px;
     border-radius: 20px;
+}
+
+.form-control:focus {
+    border-color: #000000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.btn-primary {
+    background-color: #000000;
+    border-color: #000000;
+}
+
+.btn-primary:hover {
+    background-color: gray;
+    border-color: gray;
+}
+
+.offcanvas-body {
+    text-align: center;
+}
+
+#offcanvasExample {
+    width: 350px;
 }
