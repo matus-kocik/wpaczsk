@@ -79,6 +79,12 @@ class Image(SEOModel, TimeStampedModel, TaggableManager):
         help_text="Druh pre tento obrázok",
     )
 
+    class Meta:
+        verbose_name = "Obrázok"
+        verbose_name_plural = "Obrázky"
+        
+    def __str__(self):
+        return self.title
 
 class Movie(SEOModel, TimeStampedModel, TaggableManager):
     """
@@ -127,3 +133,9 @@ class Movie(SEOModel, TimeStampedModel, TaggableManager):
         verbose_name="Druh",
         help_text="Druh pre tento obrázok",
     )
+    class Meta:
+        verbose_name = "Video"
+        verbose_name_plural = "Videá"
+        
+    def __str__(self):
+        return self.title

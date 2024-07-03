@@ -61,6 +61,9 @@ class TaxonomyBase(SEOModel, TimeStampedModel, TaggableManager):
 
     class Meta:
         abstract = True
+        
+    def __str__(self):
+        return self.latin_name
 
 
 class TaxonomyKingdom(TaxonomyBase):
