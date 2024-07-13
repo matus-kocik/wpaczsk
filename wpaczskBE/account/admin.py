@@ -94,7 +94,6 @@ class BreederProfileAdmin(admin.ModelAdmin):
                 "fields": (
                     "user",
                     "registration_number",
-                    "user_type",
                     "role_type",
                     "status_type",
                     "is_active",
