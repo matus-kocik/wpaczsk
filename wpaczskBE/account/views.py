@@ -2,6 +2,7 @@ from django.views.generic import TemplateView
 from django.contrib.auth import login
 from .forms import CustomUserCreationForm, CustomAuthenticationForm
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.views import View
 from media.models import Image
 from content.models import Article
@@ -33,6 +34,7 @@ class LoginView(View):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
+            messages.success(request, f'Úspešne si sa prihlásil, {user.first_name}!')
             return redirect('home')
         return render(request, 'main/home.html', {
             'login_form': form,
