@@ -5,7 +5,7 @@ body {
 
 .carousel-inner,
 .navbar {
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .navbar-nav {
@@ -33,7 +33,7 @@ body {
 .dropdown-menu .dropdown-item:active {
     background-color: gray !important;
     color: #ffffff !important;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .container-content-body {
@@ -127,7 +127,7 @@ input[type="search"]:focus {
     color: #000000;
     background-color: #FF0000;
     height: 60px;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .form-control:focus {
@@ -151,4 +151,33 @@ input[type="search"]:focus {
 
 #offcanvasExample {
     width: 350px;
+}
+
+#offcanvasExample .nav-link.btn-primary {
+    color: white;
+    background-color: #000000;
+    border-radius: 10px;
+}
+
+#offcanvasExample .nav-link.btn-primary:hover {
+    background-color: gray;
+    border-color: gray;
+}
+
+#offcanvasExample .nav-link.active {
+    background-color: #000000 !important;
+    color: white !important;
+    border-color: #000000 !important;
+}
+
+#offcanvasExample .nav-link {
+    color: white !important;
+    background-color: #000000 !important;
+    border-color: #000000 !important;
+}
+
+#offcanvasExample .nav-link:hover,
+#offcanvasExample .nav-link:focus {
+    background-color: gray !important;
+    border-color: gray !important;
 }
