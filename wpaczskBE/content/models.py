@@ -10,40 +10,6 @@ from .storage import ContentArticleImageStorage, ContentArticlePDFStorage, Conte
 
 
 class Article(SEOModel, TimeStampedModel, TaggableManager):
-    """
-    EN: Represents an article with metadata for publication. Articles can contain text, images, and PDFs relevant to the content.
-    SK: Reprezentuje článok s metadátami na publikovanie. Články môžu obsahovať text, obrázky a PDF súbory relevantné pre obsah.
-
-    Attributes:
-        title (CharField):
-            EN: The title of the article.
-            SK: Titulok článku.
-        pdf_file (FileField):
-            EN: PDF file of the article.
-            SK: PDF súbor článku.
-        main_image (ImageField):
-            EN: Main image of the article if available.
-            SK: Hlavný obrázok článku, ak je k dispozícii.
-        publication_date (DateField):
-            EN: Publication date of the article.
-            SK: Dátum publikácie článku.
-        info (CharField):
-            EN: Short info or description of the article.
-            SK: Krátke info alebo popis článku.
-        author (CharField):
-            EN: The author of the article.
-            SK: Autor článku.
-        info (CharField):
-            EN: Short info or description of the article.
-            SK: Krátke info alebo popis článku.
-        description (TextField):
-            EN: Detailed information about the article.
-            SK: Podrobné informácie o článku.
-        gallery (ManyToManyField):
-            EN: A dynamic gallery of images associated with the article.
-            SK: Dynamická galéria obrázkov asociovaných s článkom.
-    """
-
     title = models.CharField(
         max_length=128,
         verbose_name="Titulok článku",
@@ -98,43 +64,6 @@ class Article(SEOModel, TimeStampedModel, TaggableManager):
 
 
 class Event(SEOModel, TimeStampedModel, TaggableManager):
-    """
-    EN: Represents an event with details including dates and related media. Events can be linked to specific locations and have associated images or PDFs.
-    SK: Reprezentuje udalosť s detailami vrátane dátumov a súvisiacich médií. Udalosti môžu byť prepojené s konkrétnymi miestami a môžu mať priradené obrázky alebo PDF súbory.
-
-    Attributes:
-        title (CharField):
-            EN: The title of the event.
-            SK: Titulok udalosti.
-        pdf_file (FileField):
-            EN: Optional PDF file for the event.
-            SK: Voliteľný PDF súbor pre udalosť.
-        main_image (ImageField):
-            EN: Main image of the event if available.
-            SK: Hlavný obrázok udalosti, ak je k dispozícii.
-        date_from (DateField):
-            EN: Start date of the event.
-            SK: Dátum začiatku udalosti.
-        date_to (DateField):
-            EN: End date of the event.
-            SK: Dátum konca udalosti.
-        url (URLField):
-            EN: Web link with more information about the event.
-            SK: Webový odkaz s viac informáciami o udalosti.
-        info (CharField):
-            EN: Short info or description of the event.
-            SK: Krátke info alebo popis udalosti.
-        location (ForeignKey):
-            EN: Location where the event is held.
-            SK: Miesto konania udalosti.
-        description (TextField):
-            EN: Detailed information about the event.
-            SK: Podrobné informácie o udalosti.
-        gallery (ManyToManyField):
-            EN: A dynamic gallery of images associated with the event.
-            SK: Dynamická galéria obrázkov asociovaných s udalosťou.
-    """
-
     title = models.CharField(
         max_length=128,
         verbose_name="Titulok udalosti",

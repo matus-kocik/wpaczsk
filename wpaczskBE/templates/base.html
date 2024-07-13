@@ -2,76 +2,39 @@
 
 <!DOCTYPE html>
 <html lang="sk">
-<!--
-    EN: Root element of the HTML document, specifying the language as Slovak.
-    SK: Koreňový element HTML dokumentu, ktorý špecifikuje jazyk ako slovenčinu.
--->
+
 
 <head>
     <meta charset="UTF-8">
-    <!--
-        EN: Character encoding set to UTF-8.
-        SK: Nastavenie kódovania znakov na UTF-8.
-    -->
+
     <title>{% block title %}WPA CZ-SK{% endblock %}</title>
-    <!--
-        EN: Page title, which can be dynamically overridden in child templates.
-        SK: Názov stránky, ktorý môže byť dynamicky prepísaný v podriadených šablónach.
-    -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--
-        EN: Ensures the webpage is responsive and scales properly on all devices.
-        SK: Zabezpečuje, aby bola webová stránka responzívna a správne sa prispôsobovala na všetkých zariadeniach.
-    -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
 
-    <!--
-        EN: Link to Bootstrap CSS for styling.
-        SK: Odkaz na Bootstrap CSS pre štýlovanie.
-    -->
+
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <!--
-        EN: Link to custom CSS file for additional styling.
-        SK: Odkaz na vlastný CSS súbor pre ďalšie štýlovanie.
-    -->
+
     {% block extra_head %}{% endblock %}
-    <!--
-        EN: Block for additional head content in child templates.
-        SK: Blok pre ďalší obsah hlavičky v podriadených šablónach.
-    -->
+
 </head>
 
 <body>
     <div class="container-content-body">
         <header class="container">
-            <!--
-                EN: Header section containing the logo and site title.
-                SK: Sekcia hlavičky obsahujúca logo a názov stránky.
-            -->
             <div class="row align-items-center text-center">
                 <div class="col-md-2">
                     <img src="{% static 'images/wpa-logo.gif' %}" alt="WPA CZ-SK Logo" class="img-fluid logo-img">
-                    <!--
-                            EN: Site logo image.
-                            SK: Obrázok loga stránky.
-                        -->
                 </div>
                 <div class="col-md-7 text-md-start text-center">
                     <div class="container-fluid">
                         <h1>WPA CZ-SK</h1>
-                        <!--
-                                EN: Site title.
-                                SK: Názov stránky.
-                            -->
                     </div>
                     <div class="container-fluid">
                         <p>World Pheasant Association Czech Republic and Slovakia</p>
-                        <!--
-                                EN: Site subtitle or description.
-                                SK: Podnázov alebo popis stránky.
-                            -->
                     </div>
                 </div>
                 <div class="col-md-3 text-md-end text-center">
@@ -142,10 +105,6 @@
         <div class="container mb-3">
             <div id="carouselExampleAutoplaying" class="carousel slide container" data-bs-ride="carousel"
                 data-bs-interval="5000">
-                <!--
-                    EN: Bootstrap carousel for rotating images.
-                    SK: Bootstrap karusel pre rotovanie obrázkov.
-                -->
                 <div class="carousel-indicators">
                     {% for image in carousel_images %}
                     <button type="button" data-bs-target="#carouselExampleAutoplaying"
@@ -159,13 +118,6 @@
                     <div class="carousel-item {% if forloop.first %}active{% endif %}">
                         <img src="{{ image.image_file.url }}" class="d-block w-100" alt="{{ image.title }}"
                             height="300px">
-                        <!--
-                            EN: Carousel image element.
-                            SK: Obrázkový prvok karuselu.
-                        -->
-                        <!--                         <div class="carousel-caption d-none d-md-block">
-                            <h5>{{ image.title }}</h5>
-                        </div> -->
                     </div>
                     {% endfor %}
                 </div>
@@ -184,10 +136,6 @@
         <div class="container mb-3">
             <div class="container">
                 <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-                    <!--
-                            EN: Navigation bar with links to different pages.
-                            SK: Navigačný panel s odkazmi na rôzne stránky.
-                        -->
                     <div class="container">
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
@@ -251,31 +199,15 @@
         </div>
         <main class="container">
             {% block content %}{% endblock %}
-            <!--
-                    EN: Main content block for child templates.
-                    SK: Hlavný obsahový blok pre podriadené šablóny.
-                -->
         </main>
         <footer class="container text-center">
             <div>&copy; WPA CZ-SK <span id="currentYear"></span></div>
-            <!--
-                EN: Footer section with copyright information.
-                SK: Sekcia päty s informáciami o autorských právach.
-            -->
         </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!--
-        EN: Link to Bootstrap JavaScript bundle.
-        SK: Odkaz na Bootstrap JavaScript balík.
-    -->
 
     <script src="{% static 'js/scripts.js' %}"></script>
-    <!--
-        EN: Link to custom JavaScript file.
-        SK: Odkaz na vlastný JavaScript súbor.
-    -->
 
 </body>
 

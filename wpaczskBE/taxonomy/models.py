@@ -5,28 +5,6 @@ from geography.models import Country
 
 
 class TaxonomyBase(SEOModel, TimeStampedModel, TaggableManager):
-    """
-    EN: Abstract base class for taxonomy entities, providing common fields for naming in multiple languages and tracking the creation and modification times.
-    SK: Abstraktná základná trieda pre taxonomické entity, poskytujúca spoločné polia pre pomenovanie v niekoľkých jazykoch a sledovanie času vytvorenia a úprav.
-
-    Attributes:
-        latin_name (CharField):
-            EN: The original Latin name of the species.
-            SK: Originálne latinské pomenovanie druhu.
-        czech_name (CharField):
-            EN: The original Czech name of the species.
-            SK: Originálne české pomenovanie druhu.
-        slovak_name (CharField):
-            EN: The original Slovak name of the species, optional.
-            SK: Originálne slovenské pomenovanie druhu, voliteľné.
-        english_name (CharField):
-            EN: The original English name of the species, optional.
-            SK: Originálne anglické pomenovanie druhu, voliteľné.
-        german_name (CharField):
-            EN: The original German name of the species, optional.
-            SK: Originálne nemecké pomenovanie druhu, voliteľné.
-    """
-
     latin_name = models.CharField(
         max_length=64,
         verbose_name="Latinský názov",
@@ -67,22 +45,12 @@ class TaxonomyBase(SEOModel, TimeStampedModel, TaggableManager):
 
 
 class TaxonomyKingdom(TaxonomyBase):
-    """
-    EN: Represents a biological kingdom, one of the highest classification ranks in the biological taxonomy.
-    SK: Reprezentuje biologickú ríšu, jeden z najvyšších klasifikačných stupňov v biologickej taxonómii.
-    """
-
     class Meta:
         verbose_name = "Kingdom - Ríša"
         verbose_name_plural = "Kingdoms - Ríše"
 
 
 class TaxonomyPhylum(TaxonomyBase):
-    """
-    EN: Represents a phylum in biological taxonomy, a rank below kingdom and above class.
-    SK: Reprezentuje kmeň v biologickej taxonómii, stupeň nižšie ako ríša a vyššie ako trieda.
-    """
-
     taxonomy_kingdom = models.ForeignKey(TaxonomyKingdom, on_delete=models.DO_NOTHING)
 
     class Meta:
@@ -91,11 +59,6 @@ class TaxonomyPhylum(TaxonomyBase):
 
 
 class TaxonomyClass(TaxonomyBase):
-    """
-    EN: Represents a class in biological taxonomy, a rank below phylum and above order.
-    SK: Reprezentuje triedu v biologickej taxonómii, stupeň nižšie ako kmeň a vyššie ako rad.
-    """
-
     taxonomy_phylum = models.ForeignKey(TaxonomyPhylum, on_delete=models.CASCADE)
 
     class Meta:
@@ -104,11 +67,6 @@ class TaxonomyClass(TaxonomyBase):
 
 
 class TaxonomySubclass(TaxonomyBase):
-    """
-    EN: Represents a subclass in biological taxonomy, a rank below class and above order.
-    SK: Reprezentuje podtriedu v biologickej taxonómii, stupeň nižšie ako trieda a vyššie ako rad.
-    """
-
     taxonomy_class = models.ForeignKey(TaxonomyClass, on_delete=models.CASCADE)
 
     class Meta:
@@ -117,11 +75,6 @@ class TaxonomySubclass(TaxonomyBase):
 
 
 class TaxonomyOrder(TaxonomyBase):
-    """
-    EN: Represents an order in biological taxonomy, a rank below subclass and above family.
-    SK: Reprezentuje rad v biologickej taxonómii, stupeň nižšie ako podtrieda a vyššie ako čeľaď.
-    """
-
     subclass = models.ForeignKey(TaxonomySubclass, on_delete=models.CASCADE)
 
     class Meta:
@@ -130,11 +83,6 @@ class TaxonomyOrder(TaxonomyBase):
 
 
 class TaxonomyFamily(TaxonomyBase):
-    """
-    EN: Represents a family in biological taxonomy, a rank below order and above genus.
-    SK: Reprezentuje čeľaď v biologickej taxonómii, stupeň nižšie ako rad a vyššie ako rod.
-    """
-
     taxonomy_order = models.ForeignKey(TaxonomyOrder, on_delete=models.CASCADE)
 
     class Meta:
@@ -143,11 +91,6 @@ class TaxonomyFamily(TaxonomyBase):
 
 
 class TaxonomySubfamily(TaxonomyBase):
-    """
-    EN: Represents a subfamily in biological taxonomy, a rank below family and above genus.
-    SK: Reprezentuje podčeľaď v biologickej taxonómii, stupeň nižšie ako čeľaď a vyššie ako rod.
-    """
-
     taxonomy_family = models.ForeignKey(TaxonomyFamily, on_delete=models.CASCADE)
 
     class Meta:
@@ -156,11 +99,6 @@ class TaxonomySubfamily(TaxonomyBase):
 
 
 class TaxonomyGenus(TaxonomyBase):
-    """
-    EN: Represents a genus in biological taxonomy, a rank below subfamily and above species.
-    SK: Reprezentuje rod v biologickej taxonómii, stupeň nižšie ako podčeľaď a vyššie ako druh.
-    """
-
     taxonomy_subfamily = models.ForeignKey(TaxonomySubfamily, on_delete=models.CASCADE)
 
     class Meta:
@@ -169,11 +107,6 @@ class TaxonomyGenus(TaxonomyBase):
 
 
 class TaxonomySpecies(TaxonomyBase):
-    """
-    EN: Represents a species in biological taxonomy, a rank below genus.
-    SK: Reprezentuje druh v biologickej taxonómii, stupeň nižšie ako rod.
-    """
-
     taxonomy_genus = models.ForeignKey(TaxonomyGenus, on_delete=models.CASCADE)
 
     class Meta:
@@ -182,79 +115,6 @@ class TaxonomySpecies(TaxonomyBase):
 
 
 class TaxonomySubspecies(TaxonomyBase):
-    """
-    EN: Represents a subspecies in biological taxonomy, a rank below species.
-    SK: Reprezentuje poddruh v biologickej taxonómii, stupeň nižšie ako druh.
-
-    Attributes:
-        latin_name (CharField):
-            EN: The original Latin name of the subspecies.
-            SK: Originálne latinské pomenovanie poddruhu.
-        czech_name (CharField):
-            EN: The original Czech name of the subspecies.
-            SK: Originálne české pomenovanie poddruhu.
-        slovak_name (CharField):
-            EN: The original Slovak name of the subspecies, optional.
-            SK: Originálne slovenské pomenovanie poddruhu, voliteľné.
-        english_name (CharField):
-            EN: The original English name of the subspecies, optional.
-            SK: Originálne anglické pomenovanie poddruhu, voliteľné.
-        german_name (CharField):
-            EN: The original German name of the subspecies, optional.
-            SK: Originálne nemecké pomenovanie poddruhu, voliteľné.
-        average_lifespan (IntegerField):
-            EN: The average lifespan of the subspecies.
-            SK: Priemerná dĺžka života poddruhu.
-        biotop (TextField):
-            EN: The biotope predominantly inhabited by the subspecies.
-            SK: Biotop, ktorý prevažne obýva poddruh.
-        description (TextField):
-            EN: A detailed description of the subspecies.
-            SK: Podrobý popis poddruhu.
-        habitat_countries (ManyToManyField):
-            EN: Countries where the subspecies is found.
-            SK: Krajiny, kde sa poddruh vyskytuje.
-        status_in_nature (CharField):
-            EN: The conservation status of the subspecies in nature.
-            SK: Stav ohrozenia poddruhu v prírode.
-        status_in_captivity (TextField):
-            EN: The status of captive individuals of the subspecies.
-            SK: Stav chovaných jedincov poddruhu v zajatí.
-        maturity (CharField):
-            EN: The maturity age of the subspecies.
-            SK: Vek dospelosti poddruhu.
-        length (CharField):
-            EN: The length of the subspecies.
-            SK: Dĺžka poddruhu.
-        weight (CharField):
-            EN: The weight of the subspecies.
-            SK: Hmotnosť poddruhu.
-        clutch (CharField):
-            EN: The clutch size of the subspecies.
-            SK: Veľkosť znášky poddruhu.
-        incubation (CharField):
-            EN: The incubation period of the subspecies.
-            SK: Doba inkubácie poddruhu.
-        ring_size (FloatField):
-            EN: The ring size of the subspecies.
-            SK: Veľkosť krúžku poddruhu.
-        population_in_czech_republic (TextField):
-            EN: Population information in the Czech Republic and Slovakia.
-            SK: Informácie o populácii v Českej republike a na Slovensku.
-        breeding_difficulty (TextField):
-            EN: Difficulty level of breeding the subspecies.
-            SK: Úroveň náročnosti chovu poddruhu.
-        images (ManyToManyField):
-            EN: Images related to the subspecies.
-            SK: Obrázky súvisiace s poddruhom.
-        movies (ManyToManyField):
-            EN: Videos related to the subspecies.
-            SK: Videá súvisiace s poddruhom.
-        movies_url (URLField):
-            EN: URL link to videos related to the subspecies.
-            SK: Odkaz na videá súvisiace s poddruhom.
-    """
-
     taxonomy_species = models.ForeignKey(TaxonomySpecies, on_delete=models.CASCADE)
 
     class Meta:

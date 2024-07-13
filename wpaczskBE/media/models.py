@@ -4,25 +4,6 @@ from common_models.models import SEOModel, TaggableManager, TimeStampedModel
 
 
 class Image(SEOModel, TimeStampedModel, TaggableManager):
-    """
-    EN: Represents an image with a title, description, and file location. This model is used to manage images stored in the system.
-    SK: Reprezentuje obrázok s názvom, popisom a umiestnením súboru. Tento model sa používa na správu obrázkov uložených v systéme.
-
-    Attributes:
-        title (CharField):
-            EN: The title of the image.
-            SK: Názov obrázka.
-        description (TextField):
-            EN: A brief description of the image.
-            SK: Stručný popis obrázka.
-        image_file (ImageField):
-            EN: The file of the image stored in the system.
-            SK: Súbor obrázka uloženého v systéme.
-        carousel (BooleanField):
-            EN: Indicates if the image should be displayed in the carousel.
-            SK: Označuje, či by sa mal obrázok zobraziť v karuseli.
-    """
-
     title = models.CharField(
         max_length=64, verbose_name="Názov obrázka", help_text="Názov obrázka"
     )
@@ -87,22 +68,6 @@ class Image(SEOModel, TimeStampedModel, TaggableManager):
         return self.title
 
 class Movie(SEOModel, TimeStampedModel, TaggableManager):
-    """
-    EN: Represents a movie with a title, description, and file location. This model is used to manage videos stored in the system.
-    SK: Reprezentuje film s názvom, popisom a umiestnením súboru. Tento model sa používa na správu videí uložených v systéme.
-
-    Attributes:
-        title (CharField):
-            EN: The title of the movie.
-            SK: Názov filmu.
-        description (TextField):
-            EN: A brief description of the movie.
-            SK: Stručný popis filmu.
-        movie_file (FileField):
-            EN: The file of the movie stored in the system.
-            SK: Súbor filmu uloženého v systéme.
-    """
-
     title = models.CharField(
         max_length=64, verbose_name="Názov filmu", help_text="Názov filmu"
     )
