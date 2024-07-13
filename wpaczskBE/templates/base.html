@@ -76,43 +76,75 @@
                 </div>
                 <div class="col-md-3 text-md-end text-center">
                     <div class="container-fluid">
-                        <a href="https://www.facebook.com/wpacz" target="_blank" class="me-2"><i
-                                class="bi bi-facebook"></i></a>
-                        <a href="https://www.youtube.com/@wpacz-sk7012" target="_blank" class="me-2"><i
-                                class="bi bi-youtube"></i></a>
-                        <a href="#offcanvasExample" target="_blank" class="me-2" data-bs-toggle="offcanvas"
-                            aria-controls="offcanvasExample"><i class="bi bi-door-open-fill"></i></a>
-                        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
-                            aria-labelledby="offcanvasExampleLabel">
-                            <div class="offcanvas-header">
-                                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Moja zóna</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="offcanvas-body">
-                                <div>
-                                    <form>
-                                        <div class="mb-3">
-                                            <label for="exampleInputEmail1" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                                aria-describedby="emailHelp">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="exampleInputPassword1" class="form-label">Heslo</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary btn-register">Registrovať</button>
-                                        <button type="submit" class="btn btn-primary btn-login">Prihlásiť</button>
-                                    </form>
-                                </div>
-                            </div>
+                        <a href="https://www.facebook.com/wpacz" target="_blank" class="me-2"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.youtube.com/@wpacz-sk7012" target="_blank" class="me-2"><i class="bi bi-youtube"></i></a>
+                    <a href="#offcanvasExample" target="_blank" class="me-2" data-bs-toggle="offcanvas" aria-controls="offcanvasExample"><i class="bi bi-door-open-fill"></i></a>
+                    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Moja zóna</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
-                    </div>
-                    <div class="container-fluid search-container">
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Hľadať" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Hľadať</button>
-                        </form>
+                        <div class="offcanvas-body">
+                            {% if user.is_authenticated %}
+                                <form method="post" action="{% url 'logout' %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-primary">Odhlásiť</button>
+                                </form>
+                            {% else %}
+                                <div>
+                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link btn-primary active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true">Prihlásenie</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link btn-primary" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab" aria-controls="register" aria-selected="false">Registrácia</button>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                                            <form method="post" action="{% url 'login' %}">
+                                                {% csrf_token %}
+                                                <div class="mb-3">
+                                                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                                                    <input type="email" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleInputPassword1" class="form-label">Heslo</label>
+                                                    <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Prihlásiť</button>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                                            <form method="post" action="{% url 'register' %}">
+                                                {% csrf_token %}
+                                                <div class="mb-3">
+                                                    <label for="email" class="form-label">Email</label>
+                                                    <input type="email" class="form-control" name="email" id="email">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="first_name" class="form-label">Krstné meno</label>
+                                                    <input type="text" class="form-control" name="first_name" id="first_name">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="last_name" class="form-label">Priezvisko</label>
+                                                    <input type="text" class="form-control" name="last_name" id="last_name">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="password1" class="form-label">Heslo</label>
+                                                    <input type="password" class="form-control" name="password1" id="password1">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="password2" class="form-label">Potvrdiť heslo</label>
+                                                    <input type="password" class="form-control" name="password2" id="password2">
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Registrovať</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 from django.views.generic import TemplateView
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from media.models import Image
 from content.models import Article
 
@@ -10,6 +11,8 @@ class HomeView(TemplateView):
             card_item=True, template_name="home"
         ),
         "home_page_card_articles": Article.objects.all().order_by("-publication_date")[:3],
+        "register_form": UserCreationForm(),
+        "login_form": AuthenticationForm(),
     }
 
 
