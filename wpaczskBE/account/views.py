@@ -1,5 +1,5 @@
 from django.views.generic import TemplateView
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from .forms import CustomUserCreationForm, CustomAuthenticationForm
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -34,7 +34,7 @@ class LoginView(View):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            messages.success(request, f'Úspešne si sa prihlásil, {user.first_name}!')
+            messages.success(request, f'Úspešne si sa prihlásil. Ahoj {user.first_name}!')
             return redirect('home')
         return render(request, 'main/home.html', {
             'login_form': form,
@@ -44,3 +44,8 @@ class LoginView(View):
         })
 
 
+class CustomLogoutView(View):
+    def post(self, request):
+        logout(request)
+        messages.success(request, 'Úspešne si sa odhlásil.')
+        return redirect('home')
