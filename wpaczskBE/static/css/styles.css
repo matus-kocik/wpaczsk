@@ -101,6 +101,9 @@ input[type="search"]:focus {
 .card {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .card-link {
@@ -117,10 +120,25 @@ input[type="search"]:focus {
 .card-img-top {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    height: 200px; 
+    object-fit: cover; 
 }
 
 .card-img-both {
     border-radius: 20px;
+}
+
+.equal-height .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.equal-height .card-title {
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
 }
 
 .btn-danger {

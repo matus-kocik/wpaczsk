@@ -3,11 +3,11 @@ from .models import Image, Movie
 
 
 class ImageAdmin(admin.ModelAdmin):
-    list_display = ("title", "description", "carousel", "card_item", "gallery_item", "created_at")
+    list_display = ("title", "description", "carousel", "card_item", "template_name", "gallery_item", "created_at")
     list_filter = ("carousel", "card_item", "gallery_item")
     search_fields = ("title", "description")
     fieldsets = (
-        (None, {"fields": ("title", "carousel", "card_item", "gallery_item", "species", "subspecies", "card_title", "card_link")}),
+        (None, {"fields": ("title", "carousel", "card_item", "template_name", "gallery_item", "species", "subspecies", "card_title", "card_link")}),
         ("Description", {"fields": ("description",)}),
         ("Image File", {"fields": ("image_file",)}),
     )
